@@ -13,7 +13,7 @@ type Props<T> = {
 	note?: string;
 };
 
-export default function ObjectSelect<T>({
+export default function Select<T>({
 	label,
 	options,
 	onSelectOption,

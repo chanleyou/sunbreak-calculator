@@ -150,45 +150,33 @@ export const Skills = {
 	},
 	Stormsoul: {
 		name: "Stormsoul",
-		ranks: [1.05, 1.1, 1.15, 1.15, 1.15],
+		ranks: [
+			{ boost: 0, multiplier: 1.05 },
+			{ boost: 0, multiplier: 1.1 },
+			{ boost: 0, multiplier: 1.15 },
+			{ boost: 1, multiplier: 1.15 },
+			{ boost: 2, multiplier: 1.15 },
+		],
 	},
 	Artillery: {
 		name: "Artillery",
 		ranks: [1.1, 1.2, 1.3],
 	},
+	Focus: {
+		name: "Focus",
+		ranks: [1.05, 1.1, 1.15],
+	},
+	MastersTouch: {
+		name: "Master's Touch",
+		ranks: [0.2, 0.4, 0.8],
+	},
+	PowerProlonger: {
+		name: "Power Prolonger",
+		ranks: [1, 2, 3],
+	},
 } as const;
 
-export const InitialSkills: { [K in SkillKey]: number } = {
-	AttackBoost: 0,
-	ElementalAttack: 0,
-	CriticalEye: 0,
-	WeaknessExploit: 0,
-	CriticalBoost: 0,
-	CriticalElement: 0,
-	CriticalDraw: 0,
-	Bludgeoner: 0,
-	MaximumMight: 0,
-	LatentPower: 0,
-	Agitator: 0,
-	OffensiveGuard: 0,
-	NormalRapidUp: 0,
-	PierceUp: 0,
-	SpreadUp: 0,
-	RapidFireUp: 0,
-	PeakPerformance: 0,
-	Counterstrike: 0,
-	Heroics: 0,
-	MindsEye: 0,
-	Dragonheart: 0,
-	Resuscitate: 0,
-	Resentment: 0,
-	PunishingDraw: 0,
-	RapidMorph: 0,
-	TeostraBlessing: 0,
-	DaoraBlessing: 0,
-	Stormsoul: 0,
-	Artillery: 0,
-};
+export type SkillMap = Partial<{ [key in SkillKey]: number }>;
 
 export const Demondrug = {
 	Demondrug: 5,

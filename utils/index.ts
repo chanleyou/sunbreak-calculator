@@ -14,7 +14,7 @@ export function JSONclone<T>(obj: T): T {
 	return JSON.parse(JSON.stringify(obj));
 }
 
-export const roundToDigits = (n: number, digits = 2) => {
+export const roundToDigits = (n: number, digits = 1) => {
 	return Math.round(n * 10 ** digits) / 10 ** digits;
 };
 

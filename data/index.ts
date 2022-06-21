@@ -2,18 +2,18 @@ export { Helms, Chests, Arms, Waists, Legs } from "./armor";
 export type { Armor } from "./armor";
 export { Decorations } from "./decorations";
 export type { Decoration } from "./decorations";
-export { Skills, InitialSkills } from "./skills";
-export type { Skill, SkillKey, SkillSlot } from "./skills";
+export { Skills } from "./skills";
+export type { Skill, SkillKey, SkillSlot, SkillMap } from "./skills";
 export { RampageSkills } from "./rampage";
-export type { RampageSkill, RampageSkillKey, RampageSkillSlot } from "./rampage";
+export type { RampageSkill, RampageSkillKey } from "./rampage";
 export {
 	Weapons,
 	WeaponTypes,
 	Sharpnesses,
 	SharpnessRawMultipliers,
-	SharpnessElementalMultipliers,
+	SharpnessEleMultipliers,
 } from "./weapons";
-export type { WeaponType, Weapon, Sharpness } from "./weapons";
+export type { ElementType, StatusType, WeaponType, Weapon, Sharpness } from "./weapons";
 export {
 	GreatSwordAttacks,
 	SwitchAxeAttacks,

@@ -6,7 +6,7 @@
 
 @layer base {
 	html {
-		@apply bg-neutral-300 text-neutral-900 min-h-screen p-2;
+		@apply bg-gradient-to-r from-neutral-400 via-neutral-300 to-neutral-400 text-neutral-900 min-h-screen;
 	}
 
 	h1 {
@@ -29,15 +29,21 @@
 		@apply text-sm font-bold;
 	}
 
-	button {
-		@apply py-2 px-4 bg-zinc-700 text-white font-bold rounded-lg text-sm disabled:bg-gray-300;
+	button,
+	button[type="button"] {
+		@apply px-4 py-2 text-white font-bold rounded-lg bg-neutral-600 text-sm 
+		disabled:bg-gray-300 bg-gray-500 hover:bg-gray-400 active:bg-gray-300;
+	}
+
+	div.text-element {
+		@apply text-xs p-1 border border-slate-300 rounded focus:ring-indigo-500 focus:border-indigo-500 w-full;
 	}
 
 	textarea,
 	div.number-input,
 	input[type="number"],
 	select {
-		@apply text-sm
+		@apply text-xs
 		p-1 
 		border border-slate-300 rounded 
 		focus:ring-indigo-500 focus:border-indigo-500 
@@ -64,5 +70,9 @@
 	th,
 	td {
 		@apply p-1;
+	}
+
+	a {
+		@apply p-2 hover:bg-neutral-100 active:font-bold;
 	}
 }

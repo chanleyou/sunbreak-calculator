@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 type Props = {
 	value?: string | number;
@@ -7,8 +7,8 @@ type Props = {
 	small?: boolean;
 };
 
-export default function TextDisplay({ label, value, note, small }: Props) {
-	let className = "py-1 mb-2";
+const TextDisplay = memo(({ label, value, note, small }: Props) => {
+	let className = "py-1 mb-1";
 	if (small) className += " flex items-baseline gap-2";
 
 	return (
@@ -18,4 +18,6 @@ export default function TextDisplay({ label, value, note, small }: Props) {
 			{note && <label className="note">{note}</label>}
 		</div>
 	);
-}
+});
+
+export default TextDisplay;
