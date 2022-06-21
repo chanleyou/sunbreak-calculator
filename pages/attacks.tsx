@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useMemo } from "react";
-import { AttackRow, Box, NumberInput, TextDisplay } from "../components";
+import { AttackRow, Box, NumberInput, ComboBox, ValueBox } from "../components";
 import {
 	GreatSwordAttacks,
 	GunlanceAttacks,
@@ -28,8 +28,6 @@ const Attacks: NextPage<Props> = ({ model }) => {
 		return GreatSwordAttacks;
 	}, [model]);
 
-	if (!model) return <div />;
-
 	return (
 		<>
 			<div className="flex flex-col gap-2">
@@ -53,20 +51,8 @@ const Attacks: NextPage<Props> = ({ model }) => {
 						/>
 					</div>
 				</Box>
-				<Box head="Values">
-					<div className="grid grid-cols-3 gap-2">
-						<TextDisplay label="Raw" value={model.effectiveRaw()} />
-						<TextDisplay
-							label="Element"
-							value={
-								model.weapon.element?.type
-									? `${model.weapon.element.type} ${model.effectiveEle()}`
-									: 0
-							}
-						/>
-						<TextDisplay label="Affinity (%)" value={model.effectiveAffinity()} />
-					</div>
-				</Box>
+				<ValueBox model={model} />
+				<ComboBox model={model} />
 			</div>
 			<Box stretch head="Attacks">
 				<table className="table-auto w-full text-left text-xs">
@@ -84,7 +70,15 @@ const Attacks: NextPage<Props> = ({ model }) => {
 					</thead>
 					<tbody className="text-xs text-gray-600 divide-y divide-gray-200">
 						{attacks.map((a) => (
-							<AttackRow key={a.name} attack={a} model={model} />
+							<AttackRow
+								onClick={() => {
+									model.combo.push(a);
+									forceUpdate();
+								}}
+								key={a.name}
+								attack={a}
+								model={model}
+							/>
 						))}
 					</tbody>
 				</table>

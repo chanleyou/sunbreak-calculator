@@ -20,7 +20,7 @@ const ModelImport: NextPage<Props> = ({ setModel }) => {
 		} finally {
 			router.push("/");
 		}
-	}, [json]);
+	}, [router, setModel, json]);
 
 	return <></>;
 };

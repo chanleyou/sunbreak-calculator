@@ -1,20 +1,23 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const Header = () => {
+	const router = useRouter();
+
+	const className = "text-black";
+
 	return (
-		<div className="w-full bg-white py-1 text-neutral-600 drop-shadow flex items-center justify-center">
-			<div className="gap-2 flex cursor-pointer select-none">
-				<Link href="/">
-					<a>Builder</a>
-				</Link>
-				<Link href="/attacks" className="p-2 hover:bg-neutral-500">
-					<a>Attacks</a>
-				</Link>
-				<Link href="/export" className="p-2 pr-4 hover:bg-neutral-500">
-					<a>Export</a>
-				</Link>
-			</div>
+		<div className="sticky top-0 w-full bg-white text-neutral-500 drop-shadow flex items-center justify-center gap-2">
+			<Link href="/">
+				<a className={router.pathname === "/" ? className : ""}>Builder</a>
+			</Link>
+			<Link href="/attacks">
+				<a className={router.pathname === "/attacks" ? className : ""}>Attacks</a>
+			</Link>
+			<Link href="/export">
+				<a className={router.pathname === "/export" ? className : ""}>Export</a>
+			</Link>
 		</div>
 	);
 };

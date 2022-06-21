@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
 import { Model } from "../model";
@@ -12,22 +12,7 @@ type Props = {
 	setWeapon: (w: Weapon) => void;
 };
 
-const WeaponPickerModal = memo(({ show, setShow, setModel, weapon, setWeapon }: Props) => {
-	const [importText, setImportText] = useState("");
-	const [error, setError] = useState("");
-
-	const tryImport = () => {
-		if (!importText) return;
-		setError("");
-		try {
-			const parsed: Model = JSON.parse(importText);
-			setModel(Model.from(parsed));
-			setShow(false);
-		} catch (e) {
-			setError((e as Error).toString());
-		}
-	};
-
+const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 	const [weaponType, setWeaponType] = useState<WeaponType | undefined>(
 		weapon?.type || "Switch Axe",
 	);
@@ -43,20 +28,7 @@ const WeaponPickerModal = memo(({ show, setShow, setModel, weapon, setWeapon }: 
 	);
 
 	return (
-		<Modal show={show} setShow={setShow} head="Import from JSON">
-			<textarea
-				className="bg-gray-100 my-2"
-				value={importText}
-				onChange={(e) => setImportText(e.target.value)}
-				rows={3}
-			/>
-			<div>
-				<button onClick={tryImport} disabled={importText === ""} type="button">
-					Import
-				</button>
-				{error && <p className="text-red-600 italic text-xs">{error}</p>}
-			</div>
-			<h2>Select Weapon</h2>
+		<Modal show={show} setShow={setShow} head="Select Weapon">
 			<Select
 				label="Type"
 				options={[...WeaponTypes]}
@@ -122,6 +94,6 @@ const WeaponPickerModal = memo(({ show, setShow, setModel, weapon, setWeapon }: 
 			</div>
 		</Modal>
 	);
-});
+};
 
 export default WeaponPickerModal;

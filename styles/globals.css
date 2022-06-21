@@ -73,6 +73,6 @@
 	}
 
 	a {
-		@apply p-2 hover:bg-neutral-100 active:font-bold;
+		@apply p-3 text-sm hover:bg-neutral-100 active:bg-neutral-200 select-none;
 	}
 }

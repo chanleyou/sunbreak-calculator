@@ -45,6 +45,7 @@ interface ModelAttributes {
 	hitzone?: number;
 	hitzoneEle?: number;
 	disabledSkills?: SkillKey[];
+	combo?: Attack[];
 }
 
 export function calculateUI(base: number, multipliers = 1, bonuses = 0): number {
@@ -93,7 +94,11 @@ export class Model implements ModelAttributes {
 	hitzone = 100;
 	hitzoneEle = 30;
 
+	// Skills
 	disabledSkills: SkillKey[] = [];
+
+	// Combos
+	combo: Attack[] = [];
 
 	constructor({
 		_weapon,
@@ -123,6 +128,8 @@ export class Model implements ModelAttributes {
 		rousingRoar,
 		hitzone = 100,
 		hitzoneEle = 30,
+		disabledSkills = [],
+		combo = [],
 	}: ModelAttributes) {
 		this._weapon = _weapon;
 		this._weapon = _weapon;
@@ -152,6 +159,8 @@ export class Model implements ModelAttributes {
 		this.rousingRoar = rousingRoar;
 		this.hitzone = hitzone;
 		this.hitzoneEle = hitzoneEle;
+		this.disabledSkills = disabledSkills;
+		this.combo = combo;
 	}
 
 	static new(weapon: Weapon) {
@@ -403,7 +412,7 @@ export class Model implements ModelAttributes {
 		return lowest(sum(...affinity), 100);
 	}
 
-	calculateRawHit(attack: Attack): number {
+	rawHit(attack: Attack): number {
 		const { mv, hz, ignoreHz, morph, sword, silkbind } = attack;
 
 		const activeSkills = this.activeSkills();
@@ -427,7 +436,7 @@ export class Model implements ModelAttributes {
 		return this.effectiveRaw() * multiply(...rawMultipliers);
 	}
 
-	calculateEleHit(attack: Attack): number {
+	eleHit(attack: Attack): number {
 		const { sword, element } = attack;
 
 		const dragonPhial = this.effectiveDragonPhial();
@@ -452,8 +461,8 @@ export class Model implements ModelAttributes {
 		return base * multiply(...multipliers);
 	}
 
-	calculateRawCrit(attack: Attack): number {
-		const base = this.calculateRawHit(attack);
+	rawCrit(attack: Attack): number {
+		const base = this.rawHit(attack);
 
 		const activeSkills = this.activeSkills();
 
@@ -466,18 +475,14 @@ export class Model implements ModelAttributes {
 		return base * critMultiplier;
 	}
 
-	calculateEleCrit(attack: Attack): number {
-		const base = this.calculateEleHit(attack);
+	eleCrit(attack: Attack): number {
+		const base = this.eleHit(attack);
 
 		const activeSkills = this.activeSkills();
 
 		if (!activeSkills.CriticalElement || this.effectiveAffinity() < 0) return base;
 
 		return base * Skills.CriticalElement.ranks[activeSkills.CriticalElement - 1];
-	}
-
-	hasDullingStrike() {
-		return this.rampageSkills.includes("DullingStrike");
 	}
 
 	private _baseHitChance(): number {
@@ -509,13 +514,31 @@ export class Model implements ModelAttributes {
 		return this._baseCritChance() * 0.25;
 	}
 
-	dullingStrikeHitChance(): number {
+	dullHitChance(): number {
 		if (!this.rampageSkills.includes("DullingStrike")) return 0;
 		return this._baseHitChance() * 0.1;
 	}
 
-	dullingStrikeCritChance(): number {
+	dullCritChance(): number {
 		if (!this.rampageSkills.includes("DullingStrike")) return 0;
 		return this._baseCritChance() * 0.1;
 	}
+
+	hit = (a: Attack) => Math.round(this.rawHit(a)) + Math.round(this.eleHit(a));
+	crit = (a: Attack) => Math.round(this.rawCrit(a)) + Math.round(this.rawHit(a));
+
+	dullHit = (a: Attack) => Math.round(this.rawHit(a) * 1.2) + Math.round(this.eleHit(a));
+	dullCrit = (a: Attack) => Math.round(this.rawCrit(a) * 1.2) + Math.round(this.eleHit(a));
+
+	brutalStrike = (a: Attack) => Math.round(this.rawHit(a) * 1.5) + Math.round(this.eleHit(a));
+
+	average = (a: Attack) => {
+		return sum(
+			(this.hit(a) * this.hitChance()) / 100,
+			(this.crit(a) * this.critChance()) / 100,
+			(this.dullHit(a) * this.dullHitChance()) / 100,
+			(this.dullCrit(a) * this.dullCritChance()) / 100,
+			(this.brutalStrike(a) * this.brutalStrikeChance()) / 100,
+		);
+	};
 }

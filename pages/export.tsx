@@ -12,7 +12,7 @@ const Export: NextPage<Props> = ({ model }) => {
 
 	return (
 		<Box head="Export">
-			<textarea className="my-1" disabled value={link} rows={5} />
+			<textarea className="my-1" disabled value={link} rows={10} />
 			<button type="button" onClick={() => navigator.clipboard.writeText(link)}>
 				Copy Link
 			</button>

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Model } from "../model";
 
 export const useForceUpdate = () => {
-	const [, setV] = useState({});
-	return () => setV({});
+	const [v, setV] = useState(true);
+	return () => setV(!v);
 };
 
 export const useModel = () => {
