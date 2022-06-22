@@ -75,7 +75,7 @@ export const ComboBox = ({ model, setModel }: Props) => {
 					step={0.01}
 				/>
 				<NumberInput
-					label="Affinity"
+					label="Affinity (%)"
 					value={model.miscAffinity}
 					onChangeValue={(v) => setModel(Model.from({ ...model, miscAffinity: v }))}
 				/>

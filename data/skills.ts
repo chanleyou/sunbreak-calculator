@@ -226,6 +226,42 @@ export const Skills = {
 		name: "Partbreaker",
 		ranks: [1, 2, 3],
 	},
+	EvadeExtender: {
+		name: "Evade Extender",
+		ranks: [1, 2, 3],
+	},
+	SpeedSharpening: {
+		name: "Speed Sharpening",
+		ranks: [1, 2, 3],
+	},
+	LoadShells: {
+		name: "Load Shells",
+		ranks: [1, 2],
+	},
+	Guard: {
+		name: "Guard",
+		ranks: [1, 2, 3, 4, 5],
+	},
+	GuardUp: {
+		name: "Guard Up",
+		ranks: [1, 2, 3],
+	},
+	DefenseBoost: {
+		name: "Defense Boost",
+		ranks: [1, 2, 3, 4, 5],
+	},
+	Earplugs: {
+		name: "Earplugs",
+		ranks: [1, 2, 3, 4, 5],
+	},
+	RazorSharp: {
+		name: "Razor Sharp",
+		ranks: [1, 2, 3],
+	},
+	Windproof: {
+		name: "Windproof",
+		ranks: [1, 2, 3],
+	},
 } as const;
 
 export type SkillMap = Partial<{ [key in SkillKey]: number }>;

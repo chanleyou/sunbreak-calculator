@@ -268,7 +268,7 @@ export class Model implements ModelAttributes {
 			...this.armsDecos,
 			...this.legsDecos,
 			...this.charmDecos,
-		].reduce<SkillSlot[]>((acc, s) => (s ? [...acc, ...s.skills] : acc), []);
+		].reduce<SkillSlot[]>((acc, s) => (s ? [...acc, s.skill] : acc), []);
 
 		const charmSkills = [this.charmSlotOne, this.charmSlotTwo].filter<SkillSlot>(
 			(n): n is SkillSlot => n != undefined,

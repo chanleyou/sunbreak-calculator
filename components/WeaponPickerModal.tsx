@@ -41,13 +41,13 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 					<thead>
 						<tr className="border-b border-gray-200">
 							<th>Name</th>
-							<th>Raw</th>
-							<th>Affinity</th>
-							<th>Sharpness</th>
-							<th>Element</th>
-							<th>Status</th>
-							<th>Decos</th>
-							{otherHead && <th>{otherHead}</th>}
+							<th className="hidden md:block">Raw</th>
+							<th className="hidden md:block">Affinity</th>
+							<th className="hidden md:block">Sharpness</th>
+							<th className="hidden md:block">Element</th>
+							<th className="hidden md:block">Status</th>
+							<th className="hidden md:block">Decos</th>
+							{otherHead && <th className="hidden md:block">{otherHead}</th>}
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600 divide-y divide-gray-200">
@@ -70,12 +70,12 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 									}}
 								>
 									<td>{name}</td>
-									<td>{raw}</td>
-									<td>{affinity}</td>
-									<td>{sharpness}</td>
-									<td>{element && formatter.formatElement(element)}</td>
-									<td>{status && formatter.formatElement(status)}</td>
-									<td>
+									<td className="hidden md:block">{raw}</td>
+									<td className="hidden md:block">{affinity}</td>
+									<td className="hidden md:block">{sharpness}</td>
+									<td className="hidden md:block">{element && formatter.formatElement(element)}</td>
+									<td className="hidden md:block">{status && formatter.formatElement(status)}</td>
+									<td className="hidden md:block">
 										{decos.join(", ")}
 										{/* {decos.map((v, i) => {
 											const key = `${name}-deco-${i}`;
@@ -85,7 +85,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 											return v;
 										})} */}
 									</td>
-									{other && <td>{other.value}</td>}
+									{other && <td className="hidden md:block">{other.value}</td>}
 								</tr>
 							);
 						})}
