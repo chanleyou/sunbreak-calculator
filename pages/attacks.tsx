@@ -56,7 +56,7 @@ const Attacks: NextPage<Props> = ({ model, setModel }) => {
 						/>
 					</div>
 				</Box>
-				<Box stretch head="Attacks">
+				<Box head="Attacks">
 					<table className="table-auto w-full text-left text-xs">
 						<thead>
 							<tr className="border-b border-gray-200">
