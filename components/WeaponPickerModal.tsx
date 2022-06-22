@@ -1,13 +1,11 @@
 import React, { useMemo, useState } from "react";
-import { Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
+import { Model, Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
-import { Model } from "../model";
 import { Modal, Select } from "./ui";
 
 type Props = {
 	show: boolean;
 	setShow: (s: boolean) => void;
-	setModel: (m: Model) => void;
 	weapon?: Weapon;
 	setWeapon: (w: Weapon) => void;
 };

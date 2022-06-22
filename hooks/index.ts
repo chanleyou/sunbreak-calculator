@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Model } from "../model";
+import { Model } from "../data";
 
 export const useForceUpdate = () => {
 	const [, setV] = useState({});
@@ -11,3 +11,5 @@ export const useModel = () => {
 
 	return [model, setModel] as const;
 };
+
+export { default as useModelContext } from "./useModelContext";

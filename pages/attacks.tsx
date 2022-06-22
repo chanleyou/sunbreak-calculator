@@ -7,9 +7,9 @@ import {
 	HeavyBowgunAttacks,
 	LightBowgunAttacks,
 	SwitchAxeAttacks,
+	Model,
 } from "../data";
 import { useForceUpdate } from "../hooks";
-import { Model } from "../model";
 
 type Props = {
 	model: Model;

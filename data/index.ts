@@ -1,3 +1,5 @@
+import Model from "./model";
+
 export { Helms, Chests, Arms, Waists, Legs } from "./armor";
 export type { Armor } from "./armor";
 export { Decorations } from "./decorations";
@@ -12,6 +14,7 @@ export {
 	Sharpnesses,
 	SharpnessRawMultipliers,
 	SharpnessEleMultipliers,
+	LongSwordSpiritGauge,
 } from "./weapons";
 export type { ElementType, StatusType, WeaponType, Weapon, Sharpness } from "./weapons";
 export {
@@ -23,3 +26,4 @@ export {
 } from "./attacks";
 export type { Attack } from "./attacks";
 export { Demondrug } from "./items";
+export { Model, type ModelAttributes } from "./model";

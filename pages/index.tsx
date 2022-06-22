@@ -23,9 +23,9 @@ import {
 	SkillKey,
 	Skills,
 	Waists,
+	Model,
 } from "../data";
 import formatter from "../formatter";
-import { Model } from "../model";
 import { useForceUpdate } from "../hooks";
 
 type Props = {
@@ -59,71 +59,69 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 						<WeaponPickerModal
 							weapon={model.weapon}
 							setWeapon={(w) => {
-								if (model) model.weapon = w;
-								else setModel(Model.new(w));
+								if (w === model._weapon) return;
+								model.weapon = w;
+								forceUpdate();
 							}}
 							show={showWeaponPicker}
 							setShow={setShowWeaponPicker}
-							setModel={setModel}
 						/>
 					</div>
-					<>
-						<div className="grid grid-cols-3 gap-2">
-							<TextDisplay label="Raw" value={model.weapon.raw} />
-							<TextDisplay
-								label="Element"
-								value={model.weapon.element ? formatter.formatElement(model.weapon.element) : "0"}
-							/>
-							<TextDisplay
-								label="Affinity (%)"
-								value={model.weapon.affinity ? model.weapon.affinity : "0"}
-							/>
-						</div>
-						{property && <TextDisplay label={property.key} value={property.value} />}
-						{!isRanged && (
+					<div className="grid grid-cols-3 gap-2">
+						<TextDisplay label="Raw" value={model.weapon.raw} />
+						<TextDisplay
+							label="Element"
+							value={model.weapon.element ? formatter.formatElement(model.weapon.element) : "0"}
+						/>
+						<TextDisplay
+							label="Affinity (%)"
+							value={model.weapon.affinity ? model.weapon.affinity : "0"}
+						/>
+					</div>
+					{property && <TextDisplay label={property.key} value={property.value} />}
+					{!isRanged && (
+						<Select
+							label="Sharpness"
+							options={[...Sharpnesses]}
+							value={model.sharpness}
+							onSelectOption={(s) => {
+								model.sharpness = s;
+								forceUpdate();
+							}}
+							formatter={(o) => o}
+							disabled={isRanged}
+						/>
+					)}
+					{model.weapon.rampageSkills.map((opts, i) => {
+						return (
 							<Select
-								label="Sharpness"
-								options={[...Sharpnesses]}
-								value={model.sharpness}
-								onSelectOption={(s) => {
-									model.sharpness = s;
+								key={`${model.weapon.name}-rs-${i}`}
+								options={opts}
+								onSelectOption={(v) => {
+									model.rampageSkills[i] = v;
 									forceUpdate();
 								}}
-								formatter={(o) => o}
-								disabled={isRanged}
+								formatter={(v) => RampageSkills[v].name}
+								value={model.rampageSkills[i]}
+								label="Rampage Skill"
 							/>
-						)}
-						{model.weapon.rampageSkills.map((opts, i) => {
-							return (
-								<Select
-									key={`${model.weapon.name}-rs-${i}`}
-									options={opts}
-									onSelectOption={(v) => {
-										model.rampageSkills[i] = v;
-										forceUpdate();
-									}}
-									formatter={(v) => RampageSkills[v].name}
-									value={model.rampageSkills[i]}
-									label="Rampage Skill"
-								/>
-							);
-						})}
-						<div className="grid grid-cols-3 gap-2">
-							{model.weapon.decos.map((s, i) => (
-								<Select
-									key={`weapon-${model.weapon.name}-${i}`}
-									label={`Decoration [${s}]`}
-									options={Decorations.filter((d) => d.rank <= s)}
-									value={model.weaponDecos[i]}
-									formatter={(o) => o.name}
-									onSelectOption={(o) => {
-										model.weaponDecos[i] = o;
-										forceUpdate();
-									}}
-								/>
-							))}
-						</div>
-					</>
+						);
+					})}
+					<div className="grid grid-cols-3 gap-2">
+						{model.weapon.decos.map((s, i) => (
+							<Select
+								key={`weapon-${model.weapon.name}-${i}`}
+								label={`Decoration [${s}]`}
+								options={Decorations.filter((d) => d.rank <= s)}
+								value={model.weaponDecos[i]}
+								formatter={(o) => o.name}
+								onSelectOption={(o) => {
+									model.weaponDecos[i] = o;
+									forceUpdate();
+								}}
+							/>
+						))}
+					</div>
 				</Box>
 				<Box head="Armor">
 					<ArmorSlot

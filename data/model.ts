@@ -13,10 +13,11 @@ import {
 	SharpnessRawMultipliers,
 	Attack,
 	SharpnessEleMultipliers,
-} from "../data";
+	LongSwordSpiritGauge,
+} from ".";
 import { JSONclone, lowest, multiply, sum } from "../utils";
 
-interface ModelAttributes {
+export interface ModelAttributes {
 	_weapon: Weapon;
 	rampageSkills?: (RampageSkillKey | undefined)[];
 	sharpness?: Sharpness;
@@ -42,6 +43,8 @@ interface ModelAttributes {
 	demonPowder?: boolean;
 	powerDrum?: boolean;
 	rousingRoar?: boolean;
+	spiritGauge?: keyof typeof LongSwordSpiritGauge;
+	powerSheathe?: boolean;
 	miscRaw?: number;
 	miscMultiplier?: number;
 	miscAffinity?: number;
@@ -89,6 +92,10 @@ export class Model implements ModelAttributes {
 	mightSeed: boolean;
 	demonPowder: boolean;
 
+	// Weapon Buffs
+	spiritGauge?;
+	powerSheathe = false;
+
 	// Misc. Buffs
 	miscRaw = 0;
 	miscMultiplier = 1;
@@ -132,6 +139,8 @@ export class Model implements ModelAttributes {
 		dangoBooster = false,
 		mightSeed = false,
 		demonPowder = false,
+		spiritGauge: longSwordSpiritGauge,
+		powerSheathe = false,
 		miscRaw = 0,
 		miscMultiplier = 1,
 		miscAffinity = 0,
@@ -166,6 +175,8 @@ export class Model implements ModelAttributes {
 		this.dangoBooster = dangoBooster;
 		this.mightSeed = mightSeed;
 		this.demonPowder = demonPowder;
+		this.spiritGauge = longSwordSpiritGauge;
+		this.powerSheathe = powerSheathe;
 		this.miscRaw = miscRaw;
 		this.miscMultiplier = miscMultiplier;
 		this.miscAffinity = miscAffinity;
@@ -209,6 +220,8 @@ export class Model implements ModelAttributes {
 		this.sharpness = w.sharpness;
 		this.rampageSkills = [];
 		this.weaponDecos = [];
+		this.spiritGauge = undefined;
+		this.powerSheathe = false;
 	}
 
 	get helm(): Armor | undefined {
@@ -303,10 +316,17 @@ export class Model implements ModelAttributes {
 	effectiveRaw(): number {
 		const base = this.weapon.raw;
 
-		const multipliers = [this.powerDrum ? 1.05 : 1, this.miscMultiplier];
+		const multipliers = [
+			this.miscMultiplier,
+			this.powerDrum ? 1.05 : 1,
+			this.weapon.type === "Long Sword" && this.spiritGauge
+				? LongSwordSpiritGauge[this.spiritGauge]
+				: 1,
+			this.weapon.type === "Great Sword" && this.powerSheathe ? 1.1 : 1,
+		];
 
 		const bonuses = [
-			this.demondrug == "Demondrug" ? 5 : this.demondrug == "Mega Demondrug" ? 7 : 0,
+			this.demondrug ? Demondrug[this.demondrug] : 0,
 			this.powercharm ? 6 : 0,
 			this.powertalon ? 9 : 0,
 			this.dangoBooster ? 9 : 0,
@@ -585,3 +605,5 @@ export class Model implements ModelAttributes {
 		);
 	};
 }
+
+export default Model;

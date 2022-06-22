@@ -79,6 +79,12 @@ export type DualBlades = IMeleeWeapon & { type: "Dual Blades" };
 
 export type LongSword = IMeleeWeapon & { type: "Long Sword" };
 
+export const LongSwordSpiritGauge = {
+	White: 1.05,
+	Yellow: 1.1,
+	Red: 1.2,
+};
+
 export type Hammer = IMeleeWeapon & { type: "Hammer" };
 
 export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; properties: string[] };
@@ -130,6 +136,24 @@ export type Weapon =
 	| HeavyBowgun;
 
 export const Weapons: Weapon[] = [
+	{
+		name: "Nargacuga LS",
+		type: "Long Sword",
+		raw: 280,
+		affinity: 40,
+		sharpness: "Purple",
+		decos: [2],
+		rampageSkills: [[]],
+	},
+	{
+		name: "Nargacuga GS",
+		type: "Great Sword",
+		raw: 290,
+		affinity: 35,
+		sharpness: "Purple",
+		decos: [2],
+		rampageSkills: [[]],
+	},
 	{
 		name: "Kamura Switch Axe",
 		type: "Switch Axe",

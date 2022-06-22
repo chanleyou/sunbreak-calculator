@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useCallback, useMemo, useState } from "react";
 import CryptoJS from "crypto-js";
 import { Box, Column } from "../components";
-import { Model } from "../model";
+import { Model } from "../data";
 
 type Props = {
 	model: Model;

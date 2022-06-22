@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, AttackRow } from ".";
 import { useForceUpdate } from "../hooks";
-import { Model } from "../model";
+import { Model } from "../data";
 import { roundToDigits } from "../utils";
 
 type Props = {
