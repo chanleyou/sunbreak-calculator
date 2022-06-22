@@ -81,7 +81,7 @@ export type LongSword = IMeleeWeapon & { type: "Long Sword" };
 
 export type Hammer = IMeleeWeapon & { type: "Hammer" };
 
-export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; songs: any[] };
+export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; properties: string[] };
 
 export type Lance = IMeleeWeapon & { type: "Lance" };
 

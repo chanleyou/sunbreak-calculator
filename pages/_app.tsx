@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Header />
-			<main className="p-2 gap-2 md:flex justify-center place-items-start">
+			<main className="p-2 gap-2 flex flex-col md:flex-row md:justify-center">
 				<Component {...pageProps} model={model} setModel={setModel} />
 			</main>
 		</>

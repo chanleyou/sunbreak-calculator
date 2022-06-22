@@ -27,8 +27,10 @@ const formatWeaponProperties = (w: Weapon): { key: string; value: string } | und
 	}
 };
 
-export default {
+const formatter = {
 	formatElement,
 	formatWeaponPropertyKey,
 	formatWeaponProperties,
 };
+
+export default formatter;

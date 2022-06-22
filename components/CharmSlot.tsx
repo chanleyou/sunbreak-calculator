@@ -7,7 +7,7 @@ type Props = {
 	onSetValue: (ss?: SkillSlot) => void;
 };
 
-const CharmSlot = memo(({ value, onSetValue }: Props) => {
+const CharmSlot = ({ value, onSetValue }: Props) => {
 	return (
 		<div className="grid grid-cols-5 gap-2">
 			<div className="col-span-4">
@@ -38,6 +38,6 @@ const CharmSlot = memo(({ value, onSetValue }: Props) => {
 			/>
 		</div>
 	);
-});
+};
 
-export default CharmSlot;
+export default memo(CharmSlot);

@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import React, { useMemo, useState } from "react";
 import {
 	ArmorSlot,
+	Column,
 	Box,
 	CharmSlot,
 	Select,
@@ -45,7 +46,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 
 	return (
 		<>
-			<div className="flex flex-col gap-2">
+			<Column>
 				<Box head="Weapon">
 					<div className="my-1">
 						<label>Weapon</label>
@@ -55,6 +56,16 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 						>
 							{model.weapon.name}
 						</div>
+						<WeaponPickerModal
+							weapon={model.weapon}
+							setWeapon={(w) => {
+								if (model) model.weapon = w;
+								else setModel(Model.new(w));
+							}}
+							show={showWeaponPicker}
+							setShow={setShowWeaponPicker}
+							setModel={setModel}
+						/>
 					</div>
 					<>
 						<div className="grid grid-cols-3 gap-2">
@@ -217,8 +228,8 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 						))}
 					</div>
 				</Box>
-			</div>
-			<div className="flex flex-col gap-2">
+			</Column>
+			<Column>
 				<ValueBox model={model} />
 				<BuffBox model={model} setModel={setModel} />
 				<Box head="Skills">
@@ -247,17 +258,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 							);
 						})}
 				</Box>
-			</div>
-			<WeaponPickerModal
-				weapon={model.weapon}
-				setWeapon={(w) => {
-					if (model) model.weapon = w;
-					else setModel(Model.new(w));
-				}}
-				show={showWeaponPicker}
-				setShow={setShowWeaponPicker}
-				setModel={setModel}
-			/>
+			</Column>
 		</>
 	);
 };

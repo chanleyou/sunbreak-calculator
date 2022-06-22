@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useCallback, useMemo, useState } from "react";
 import CryptoJS from "crypto-js";
-import { Box } from "../components";
+import { Box, Column } from "../components";
 import { Model } from "../model";
 
 type Props = {
@@ -36,7 +36,7 @@ const Export: NextPage<Props> = ({ model, setModel }) => {
 	);
 
 	return (
-		<div className="flex flex-col gap-2">
+		<Column>
 			<Box head="Import">
 				<textarea
 					className="my-1"
@@ -55,7 +55,7 @@ const Export: NextPage<Props> = ({ model, setModel }) => {
 					Copy
 				</button>
 			</Box>
-		</div>
+		</Column>
 	);
 };
 

@@ -13,25 +13,39 @@ export const ComboBox = ({ model }: Props) => {
 
 	return (
 		<Box head="Combo">
-			<table className="table-auto w-full text-left text-xs">
-				<thead>
-					<tr className="border-b border-gray-200">
-						<th>Attack</th>
-						<th>Avg</th>
-					</tr>
-				</thead>
-				<tbody className="text-xs text-gray-600 divide-y divide-gray-200">
-					{model.combo.map((a, i) => (
-						<AttackRow short key={a.name + `-${i}`} attack={a} model={model} />
-					))}
-					{model.combo.length > 0 && (
+			{model.combo.length > 0 && (
+				<table className="table-auto w-full text-left text-xs">
+					<thead>
+						<tr className="border-b border-gray-200">
+							<th className="w-full">Attack</th>
+							<th>Avg</th>
+						</tr>
+					</thead>
+					<tbody className="text-xs text-gray-600">
+						{model.combo.map((a, i) => {
+							const average = roundToDigits(model.average(a));
+							return (
+								<tr
+									onClick={() => {
+										model.combo.splice(i, 1);
+										forceUpdate();
+									}}
+									key={`${a.name}-${i}`}
+								>
+									<td>{a.name}</td>
+									<td>{average}</td>
+								</tr>
+							);
+						})}
+					</tbody>
+					<tfoot>
 						<tr className="font-bold">
-							<td></td>
+							<td>Total:</td>
 							<td>{roundToDigits(model.combo.reduce((acc, a) => acc + model.average(a), 0))}</td>
 						</tr>
-					)}
-				</tbody>
-			</table>
+					</tfoot>
+				</table>
+			)}
 			<button
 				onClick={() => {
 					model.combo = [];

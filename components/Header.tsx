@@ -8,7 +8,7 @@ export const Header = () => {
 	const className = "text-black";
 
 	return (
-		<div className="sticky top-0 w-full bg-white text-slate-400 drop-shadow flex items-center justify-center gap-2">
+		<div className="sticky top-0 w-full bg-white text-slate-400 drop-shadow flex items-center z-50 justify-center gap-2">
 			<Link href="/">
 				<a className={router.pathname === "/" ? className : ""}>Builder</a>
 			</Link>
