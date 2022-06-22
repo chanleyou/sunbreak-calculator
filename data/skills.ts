@@ -17,8 +17,48 @@ export const Skills = {
 			{ flat: 10, multiplier: 1.1 },
 		],
 	},
-	ElementalAttack: {
-		name: "Elemental Attack",
+	IceAttack: {
+		name: "Ice Attack",
+		ranks: [
+			{ flat: 2, multiplier: 1 },
+			{ flat: 3, multiplier: 1 },
+			{ flat: 4, multiplier: 1.05 },
+			{ flat: 4, multiplier: 1.1 },
+			{ flat: 4, multiplier: 1.2 },
+		],
+	},
+	ThunderAttack: {
+		name: "Thunder Attack",
+		ranks: [
+			{ flat: 2, multiplier: 1 },
+			{ flat: 3, multiplier: 1 },
+			{ flat: 4, multiplier: 1.05 },
+			{ flat: 4, multiplier: 1.1 },
+			{ flat: 4, multiplier: 1.2 },
+		],
+	},
+	FireAttack: {
+		name: "Fire Attack",
+		ranks: [
+			{ flat: 2, multiplier: 1 },
+			{ flat: 3, multiplier: 1 },
+			{ flat: 4, multiplier: 1.05 },
+			{ flat: 4, multiplier: 1.1 },
+			{ flat: 4, multiplier: 1.2 },
+		],
+	},
+	DragonAttack: {
+		name: "Dragon Attack",
+		ranks: [
+			{ flat: 2, multiplier: 1 },
+			{ flat: 3, multiplier: 1 },
+			{ flat: 4, multiplier: 1.05 },
+			{ flat: 4, multiplier: 1.1 },
+			{ flat: 4, multiplier: 1.2 },
+		],
+	},
+	WaterAttack: {
+		name: "Water Attack",
 		ranks: [
 			{ flat: 2, multiplier: 1 },
 			{ flat: 3, multiplier: 1 },
@@ -172,6 +212,18 @@ export const Skills = {
 	},
 	PowerProlonger: {
 		name: "Power Prolonger",
+		ranks: [1, 2, 3],
+	},
+	WirebugWhisperer: {
+		name: "Wirebug Whisperer",
+		ranks: [1, 2, 3],
+	},
+	Ballistics: {
+		name: "Ballistics",
+		ranks: [1, 2, 3],
+	},
+	Partbreaker: {
+		name: "Partbreaker",
 		ranks: [1, 2, 3],
 	},
 } as const;

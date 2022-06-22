@@ -359,20 +359,42 @@ export class Model implements ModelAttributes {
 			level = level - 1;
 
 			switch (skill) {
-				case "ElementalAttack":
+				case "FireAttack":
+					if (type !== "Fire") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "IceAttack":
+					if (type === "Ice") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "WaterAttack":
+					if (type !== "Water") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "ThunderAttack":
+					if (type !== "Thunder") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "DragonAttack":
+					if (type !== "Dragon") break;
 					bonuses.push(Skills[skill].ranks[level].flat);
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
 				case "TeostraBlessing":
-					if (type === "Fire") multipliers.push(Skills[skill].ranks[level]);
+					if (type !== "Fire") break;
+					multipliers.push(Skills[skill].ranks[level]);
 					break;
 				case "DaoraBlessing":
-					if (type === "Water" || type === "Ice") multipliers.push(Skills[skill].ranks[level]);
+					if (type !== "Water" && type !== "Ice") break;
+					multipliers.push(Skills[skill].ranks[level]);
 					break;
 				case "Stormsoul":
-					if (type === "Thunder" || type === "Dragon") {
-						multipliers.push(Skills[skill].ranks[level].multiplier);
-					}
+					if (type !== "Thunder" && type !== "Dragon") break;
+					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
 			}
 		});

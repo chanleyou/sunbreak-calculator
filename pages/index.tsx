@@ -202,7 +202,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 						}}
 					/>
 					<div className="grid grid-cols-3 gap-2">
-						{[3, 2, 1].map((s, i) => (
+						{[4, 2, 1].map((s, i) => (
 							<Select
 								key={`charm-deco-${i}`}
 								label={`Decoration [${s}]`}

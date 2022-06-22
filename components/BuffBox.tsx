@@ -59,6 +59,7 @@ export const ComboBox = ({ model, setModel }: Props) => {
 				/>
 			</div>
 			<h4 className="mt-3">Miscellaneous</h4>
+			<p className="text-xs text-slate-600 mb-2">Buffs from your Petalace, Hunting Horn, etc</p>
 			<div className="grid grid-cols-3 gap-2">
 				<NumberInput
 					label="Raw (Flat)"
@@ -79,7 +80,6 @@ export const ComboBox = ({ model, setModel }: Props) => {
 					onChangeValue={(v) => setModel(Model.from({ ...model, miscAffinity: v }))}
 				/>
 			</div>
-			<p className="text-xs text-slate-400">e.g. Petalace, Hunting Horn buffs, etc.</p>
 		</Box>
 	);
 };
