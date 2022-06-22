@@ -146,7 +146,7 @@ export const Weapons: Weapon[] = [
 		sharpness: "Purple",
 		properties: { type: "Dragon", value: 24 },
 		decos: [4],
-		rampageSkills: [[]],
+		rampageSkills: [["DullingStrike", "BrutalStrike", "ElementExploit"]],
 	},
 	{
 		name: "Mizutsune Switch Axe",
@@ -397,7 +397,7 @@ export const Weapons: Weapon[] = [
 		sharpness: "Blue",
 		properties: { type: "Paralysis", value: 18 },
 		decos: [],
-		rampageSkills: [[]],
+		rampageSkills: [["BrutalStrike"]],
 	},
 	{
 		name: "Baggi Switch Axe",

@@ -9,6 +9,7 @@ import {
 	TextDisplay,
 	WeaponPickerModal,
 	ValueBox,
+	BuffBox,
 } from "../components";
 import {
 	Arms,
@@ -16,6 +17,7 @@ import {
 	Decorations,
 	Helms,
 	Legs,
+	RampageSkills,
 	Sharpnesses,
 	SkillKey,
 	Skills,
@@ -77,6 +79,21 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 								disabled={isRanged}
 							/>
 						)}
+						{model.weapon.rampageSkills.map((opts, i) => {
+							return (
+								<Select
+									key={`${model.weapon.name}-rs-${i}`}
+									options={opts}
+									onSelectOption={(v) => {
+										model.rampageSkills[i] = v;
+										forceUpdate();
+									}}
+									formatter={(v) => RampageSkills[v].name}
+									value={model.rampageSkills[i]}
+									label="Rampage Skill"
+								/>
+							);
+						})}
 						<div className="grid grid-cols-3 gap-2">
 							{model.weapon.decos.map((s, i) => (
 								<Select
@@ -101,7 +118,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 						value={model.helm}
 						onSelectOption={(a) => {
 							model.helm = a;
-							forceUpdate();
+							setModel(model.refresh());
 						}}
 						decos={model.helmDecos}
 						onSelectDeco={(d, i) => {
@@ -200,6 +217,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 			</div>
 			<div className="flex flex-col gap-2">
 				<ValueBox model={model} />
+				<BuffBox model={model} setModel={setModel} />
 				<Box head="Skills">
 					{(Object.entries(model.skills()) as [SkillKey, number][])
 						.sort(([aS, aL], [bS, bL]) => {

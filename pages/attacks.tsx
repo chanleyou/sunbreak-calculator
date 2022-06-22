@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { useMemo } from "react";
-import { AttackRow, Box, NumberInput, ComboBox, ValueBox } from "../components";
+import { AttackRow, Box, NumberInput, ComboBox, ValueBox, BuffBox } from "../components";
 import {
 	GreatSwordAttacks,
 	GunlanceAttacks,
@@ -13,9 +13,10 @@ import { Model } from "../model";
 
 type Props = {
 	model: Model;
+	setModel: (m: Model) => void;
 };
 
-const Attacks: NextPage<Props> = ({ model }) => {
+const Attacks: NextPage<Props> = ({ model, setModel }) => {
 	const forceUpdate = useForceUpdate();
 
 	const attacks = useMemo(() => {
@@ -40,6 +41,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 								model.hitzone = v;
 								forceUpdate();
 							}}
+							min={0}
 						/>
 						<NumberInput
 							label="Elemental"
@@ -48,10 +50,12 @@ const Attacks: NextPage<Props> = ({ model }) => {
 								model.hitzoneEle = v;
 								forceUpdate();
 							}}
+							min={0}
 						/>
 					</div>
 				</Box>
 				<ValueBox model={model} />
+				<BuffBox model={model} setModel={setModel} />
 				<ComboBox model={model} />
 			</div>
 			<Box stretch head="Attacks">
@@ -63,7 +67,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 							<th>Hit</th>
 							{model?.rampageSkills.includes("DullingStrike") && <th>DS Hit</th>}
 							<th>Crit</th>
-							{model?.rampageSkills.includes("BrutalStrike") && <th>Brutal Hit</th>}
+							{model?.rampageSkills.includes("BrutalStrike") && <th>Brutal</th>}
 							{model?.rampageSkills.includes("DullingStrike") && <th>DS Crit</th>}
 							<th>Avg</th>
 						</tr>

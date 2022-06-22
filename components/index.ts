@@ -12,3 +12,4 @@ export { default as CharmSlot } from "./CharmSlot";
 export { default as Header } from "./Header";
 export { default as ValueBox } from "./ValueBox";
 export { default as ComboBox } from "./ComboBox";
+export { default as BuffBox } from "./BuffBox";

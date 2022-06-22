@@ -18,7 +18,7 @@ import { JSONclone, lowest, multiply, sum } from "../utils";
 
 interface ModelAttributes {
 	_weapon: Weapon;
-	rampageSkills?: RampageSkillKey[];
+	rampageSkills?: (RampageSkillKey | undefined)[];
 	sharpness?: Sharpness;
 	_helm?: Armor;
 	_chest?: Armor;
@@ -55,7 +55,7 @@ export function calculateUI(base: number, multipliers = 1, bonuses = 0): number 
 export class Model implements ModelAttributes {
 	// Weapon
 	_weapon: Weapon;
-	rampageSkills: RampageSkillKey[] = [];
+	rampageSkills: (RampageSkillKey | undefined)[] = [];
 	sharpness?: Sharpness;
 
 	// Armor
@@ -80,11 +80,11 @@ export class Model implements ModelAttributes {
 
 	// Buffs
 	demondrug?: keyof typeof Demondrug;
-	powercharm? = true;
-	powertalon? = true;
-	dangoBooster?: boolean;
-	mightSeed?: boolean;
-	demonPowder?: boolean;
+	powercharm = true;
+	powertalon = true;
+	dangoBooster: boolean;
+	mightSeed: boolean;
+	demonPowder: boolean;
 
 	// Palico
 	powerDrum?: boolean;
@@ -119,11 +119,11 @@ export class Model implements ModelAttributes {
 		charmSlotOne,
 		charmSlotTwo,
 		demondrug,
-		powercharm,
-		powertalon,
-		dangoBooster,
-		mightSeed,
-		demonPowder,
+		powercharm = true,
+		powertalon = true,
+		dangoBooster = false,
+		mightSeed = false,
+		demonPowder = false,
 		powerDrum,
 		rousingRoar,
 		hitzone = 100,
@@ -171,12 +171,15 @@ export class Model implements ModelAttributes {
 		return new Model(JSONclone(model));
 	}
 
+	refresh = () => Model.from(JSONclone(this));
+
 	get weapon(): Weapon {
 		const weapon = JSONclone(this._weapon);
 
 		for (const rs of this.rampageSkills) {
+			if (!rs) continue;
 			weapon.raw += RampageSkills[rs].raw ?? 0;
-			weapon.affinity = sum(weapon.affinity, RampageSkills[rs].raw);
+			weapon.affinity = sum(weapon.affinity, RampageSkills[rs].affinity);
 			if (weapon.element) weapon.element.value += RampageSkills[rs].element ?? 0;
 
 			if (weapon.type === "Switch Axe" && rs === "BoostEquippedCoating") {
@@ -286,21 +289,19 @@ export class Model implements ModelAttributes {
 	effectiveRaw(): number {
 		const base = this.weapon.raw;
 
-		const multipliers = [this.powerDrum ? 5 : 0];
+		const multipliers = [this.powerDrum ? 5 : 1];
 
 		const bonuses = [
 			this.demondrug == "Demondrug" ? 5 : this.demondrug == "Mega Demondrug" ? 7 : 0,
 			this.powercharm ? 6 : 0,
 			this.powertalon ? 9 : 0,
-			this.dangoBooster ? 9 : 10,
+			this.dangoBooster ? 9 : 0,
 			this.mightSeed ? 10 : 0,
 			this.demonPowder ? 10 : 0,
 		];
 
 		this.activeSkillsEntries().forEach(([skill, level]) => {
 			level = level - 1;
-
-			if (level < 1) return;
 
 			switch (skill) {
 				case "AttackBoost":
@@ -430,7 +431,7 @@ export class Model implements ModelAttributes {
 			sword && this.weapon.type === "Switch Axe" && this.weapon.properties.type === "Power"
 				? 1.15
 				: 1,
-			silkbind && this.rampageSkills.some((rs) => rs === "SilkbindBoost") ? 1.1 : 0,
+			silkbind && this.rampageSkills.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
 		];
 
 		return this.effectiveRaw() * multiply(...rawMultipliers);
@@ -525,10 +526,10 @@ export class Model implements ModelAttributes {
 	}
 
 	hit = (a: Attack) => Math.round(this.rawHit(a)) + Math.round(this.eleHit(a));
-	crit = (a: Attack) => Math.round(this.rawCrit(a)) + Math.round(this.rawHit(a));
+	crit = (a: Attack) => Math.round(this.rawCrit(a)) + Math.round(this.eleCrit(a));
 
 	dullHit = (a: Attack) => Math.round(this.rawHit(a) * 1.2) + Math.round(this.eleHit(a));
-	dullCrit = (a: Attack) => Math.round(this.rawCrit(a) * 1.2) + Math.round(this.eleHit(a));
+	dullCrit = (a: Attack) => Math.round(this.rawCrit(a) * 1.2) + Math.round(this.eleCrit(a));
 
 	brutalStrike = (a: Attack) => Math.round(this.rawHit(a) * 1.5) + Math.round(this.eleHit(a));
 

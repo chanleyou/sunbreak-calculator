@@ -3,7 +3,7 @@ export function sum(...args: (number | undefined)[]) {
 }
 
 export function multiply(...args: (number | undefined)[]) {
-	return args.reduce<number>((sum, a) => (a ? sum * a : sum), 1);
+	return args.reduce<number>((sum, a) => (a !== undefined ? sum * a : sum), 1);
 }
 
 export function lowest(...args: number[]) {
