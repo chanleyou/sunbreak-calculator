@@ -12,7 +12,7 @@ export const GunlanceAttacks: Attack[] = [
 	{ name: "Jumping Thrust", mv: 25 },
 	{ name: "Jumping Smash", mv: 44 },
 	{ name: "Hail Cutter (1st Hit)", mv: 30, silkbind: true },
-	{ name: "Hail Cutter (2nd Hit)", mv: 85, silkbind: true, element: 2 },
+	{ name: "Hail Cutter (2nd Hit)", mv: 85, silkbind: true, eleMod: 2 },
 	{ name: "Ground Splitter", mv: 68, silkbind: true },
 ];
 

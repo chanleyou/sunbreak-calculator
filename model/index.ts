@@ -42,6 +42,9 @@ interface ModelAttributes {
 	demonPowder?: boolean;
 	powerDrum?: boolean;
 	rousingRoar?: boolean;
+	miscRaw?: number;
+	miscMultiplier?: number;
+	miscAffinity?: number;
 	hitzone?: number;
 	hitzoneEle?: number;
 	disabledSkills?: SkillKey[];
@@ -86,6 +89,11 @@ export class Model implements ModelAttributes {
 	mightSeed: boolean;
 	demonPowder: boolean;
 
+	// Misc. Buffs
+	miscRaw = 0;
+	miscMultiplier = 1;
+	miscAffinity = 0;
+
 	// Palico
 	powerDrum?: boolean;
 	rousingRoar?: boolean;
@@ -124,6 +132,9 @@ export class Model implements ModelAttributes {
 		dangoBooster = false,
 		mightSeed = false,
 		demonPowder = false,
+		miscRaw = 0,
+		miscMultiplier = 1,
+		miscAffinity = 0,
 		powerDrum,
 		rousingRoar,
 		hitzone = 100,
@@ -155,6 +166,9 @@ export class Model implements ModelAttributes {
 		this.dangoBooster = dangoBooster;
 		this.mightSeed = mightSeed;
 		this.demonPowder = demonPowder;
+		this.miscRaw = miscRaw;
+		this.miscMultiplier = miscMultiplier;
+		this.miscAffinity = miscAffinity;
 		this.powerDrum = powerDrum;
 		this.rousingRoar = rousingRoar;
 		this.hitzone = hitzone;
@@ -289,7 +303,7 @@ export class Model implements ModelAttributes {
 	effectiveRaw(): number {
 		const base = this.weapon.raw;
 
-		const multipliers = [this.powerDrum ? 5 : 1];
+		const multipliers = [this.powerDrum ? 1.05 : 1, this.miscMultiplier];
 
 		const bonuses = [
 			this.demondrug == "Demondrug" ? 5 : this.demondrug == "Mega Demondrug" ? 7 : 0,
@@ -298,6 +312,7 @@ export class Model implements ModelAttributes {
 			this.dangoBooster ? 9 : 0,
 			this.mightSeed ? 10 : 0,
 			this.demonPowder ? 10 : 0,
+			this.miscRaw,
 		];
 
 		this.activeSkillsEntries().forEach(([skill, level]) => {
@@ -390,7 +405,7 @@ export class Model implements ModelAttributes {
 	}
 
 	effectiveAffinity(): number {
-		const affinity = [this.weapon.affinity ?? 0, this.rousingRoar ? 30 : 0];
+		const affinity = [this.weapon.affinity ?? 0, this.rousingRoar ? 30 : 0, this.miscAffinity];
 
 		this.activeSkillsEntries().forEach(([skill, level]) => {
 			level = level - 1;
@@ -414,12 +429,17 @@ export class Model implements ModelAttributes {
 	}
 
 	rawHit(attack: Attack): number {
-		const { mv, hz, ignoreHz, morph, sword, silkbind } = attack;
+		const { mv, hzMod, ignoreHz, morph, sword, silkbind } = attack;
 
 		const activeSkills = this.activeSkills();
 		const sharpnessRawMultiplier = this.sharpness ? SharpnessRawMultipliers[this.sharpness] : 1;
+
 		// color of hit
-		const computedHitzone = multiply(ignoreHz ? 1 : this.hitzone / 100, hz, sharpnessRawMultiplier);
+		const computedHitzone = multiply(
+			ignoreHz ? 1 : this.hitzone / 100,
+			hzMod,
+			sharpnessRawMultiplier,
+		);
 
 		const rawMultipliers = [
 			mv / 100,
@@ -438,7 +458,7 @@ export class Model implements ModelAttributes {
 	}
 
 	eleHit(attack: Attack): number {
-		const { sword, element } = attack;
+		const { sword, eleMod } = attack;
 
 		const dragonPhial = this.effectiveDragonPhial();
 
@@ -450,7 +470,7 @@ export class Model implements ModelAttributes {
 
 		// TODO: check if phial burst, ED pre-finishers count as sword attacks for phial
 		const multipliers = [
-			element,
+			eleMod,
 			sharpnessEleMultiplier,
 			this.hitzoneEle / 100,
 			this.rampageSkills.includes("ElementExploit") && this.hitzoneEle >= 25 ? 1.3 : 1,

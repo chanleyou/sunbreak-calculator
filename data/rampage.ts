@@ -45,7 +45,7 @@ export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	BoostEquippedCoating: { name: "Boost Equipped Coating" },
 	ElementalSurge: { name: "Elemental Surge", raw: -15, element: 10 },
 	KushalaDaoraSoul: { name: "Kushala Daora Soul" },
-	ElementExploit: { name: "ElementExploit" },
+	ElementExploit: { name: "Element Exploit" },
 	SilkbindBoost: { name: "Silkbind Boost" }, // x1.1 multi to silkbind attacks
 	BrutalStrike: { name: "Brutal Strike" }, // 15% chance for negative crit to instead deal 1.5x damage
 	DullingStrike: { name: "Dulling Strike" }, // 10% chance to deal +20% damage when sharpness <= green

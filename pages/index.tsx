@@ -41,6 +41,8 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === model?.weapon.type);
 	}, [model]);
 
+	const property = formatter.formatWeaponProperties(model.weapon);
+
 	return (
 		<>
 			<div className="flex flex-col gap-2">
@@ -66,6 +68,7 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 								value={model.weapon.affinity ? model.weapon.affinity : "0"}
 							/>
 						</div>
+						{property && <TextDisplay label={property.key} value={property.value} />}
 						{!isRanged && (
 							<Select
 								label="Sharpness"

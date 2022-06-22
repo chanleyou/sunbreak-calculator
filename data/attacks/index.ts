@@ -3,15 +3,16 @@ export type AmmoType = "Normal/Rapid" | "Pierce" | "Spread";
 export type Attack = {
 	name: string;
 	mv: number;
-	hz?: number;
-	element?: number;
-	status?: number;
+	hzMod?: number;
+	eleMod?: number;
+	statusMod?: number;
 	ignoreHz?: boolean;
 	morph?: boolean;
 	noCrit?: boolean;
 	ammoType?: AmmoType;
 	sword?: boolean;
 	silkbind?: boolean;
+	artillery?: boolean;
 };
 
 export { default as SwitchAxeAttacks } from "./switchAxe";

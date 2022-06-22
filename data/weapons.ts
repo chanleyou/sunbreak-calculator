@@ -137,7 +137,7 @@ export const Weapons: Weapon[] = [
 		sharpness: "White",
 		properties: { type: "Power", value: 0 },
 		decos: [2, 4],
-		rampageSkills: [["AttackBoost1", "AffinityBoost4", "BoostEquippedCoating"]],
+		rampageSkills: [["AttackBoost1", "AffinityBoost4"]],
 	},
 	{
 		name: "Kamura -> Dragon(?) Switch Axe",
@@ -146,7 +146,7 @@ export const Weapons: Weapon[] = [
 		sharpness: "Purple",
 		properties: { type: "Dragon", value: 24 },
 		decos: [4],
-		rampageSkills: [["DullingStrike", "BrutalStrike", "ElementExploit"]],
+		rampageSkills: [["DullingStrike", "BrutalStrike", "ElementExploit", "BoostEquippedCoating"]],
 	},
 	{
 		name: "Mizutsune Switch Axe",
@@ -801,6 +801,15 @@ export const Weapons: Weapon[] = [
 		decos: [],
 		sharpness: "Purple",
 		properties: { type: "Poison", value: 11 },
+		rampageSkills: [[]],
+	},
+	{
+		name: "Kamura Gunlance",
+		type: "Gunlance",
+		raw: 330,
+		decos: [2, 4],
+		sharpness: "White",
+		properties: { type: "Normal", value: 7 },
 		rampageSkills: [[]],
 	},
 ];

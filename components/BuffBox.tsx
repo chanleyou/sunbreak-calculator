@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Checkbox, Select } from ".";
+import { Box, Checkbox, Select, NumberInput } from ".";
 import { Demondrug } from "../data";
+import { useForceUpdate } from "../hooks";
 import { Model } from "../model";
 
 type Props = {
@@ -9,6 +10,8 @@ type Props = {
 };
 
 export const ComboBox = ({ model, setModel }: Props) => {
+	const forceUpdate = useForceUpdate();
+
 	return (
 		<Box head="Buffs">
 			<Select
@@ -55,6 +58,28 @@ export const ComboBox = ({ model, setModel }: Props) => {
 					onChangeValue={(v) => setModel(Model.from({ ...model, dangoBooster: v }))}
 				/>
 			</div>
+			<h4 className="mt-3">Miscellaneous</h4>
+			<div className="grid grid-cols-3 gap-2">
+				<NumberInput
+					label="Raw (Flat)"
+					value={model.miscRaw}
+					onChangeValue={(v) => setModel(Model.from({ ...model, miscRaw: v }))}
+					min={0}
+				/>
+				<NumberInput
+					label="Raw (Multiplier)"
+					value={model.miscMultiplier}
+					onChangeValue={(v) => setModel(Model.from({ ...model, miscMultiplier: v }))}
+					min={0}
+					step={0.01}
+				/>
+				<NumberInput
+					label="Affinity"
+					value={model.miscAffinity}
+					onChangeValue={(v) => setModel(Model.from({ ...model, miscAffinity: v }))}
+				/>
+			</div>
+			<p className="text-xs text-slate-400">e.g. Petalace, Hunting Horn buffs, etc.</p>
 		</Box>
 	);
 };
