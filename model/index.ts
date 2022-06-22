@@ -413,7 +413,7 @@ export class Model implements ModelAttributes {
 			level = level - 1;
 
 			switch (skill) {
-				case "ElementalAttack":
+				case "DragonAttack":
 					bonuses.push(Skills[skill].ranks[level].flat);
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
