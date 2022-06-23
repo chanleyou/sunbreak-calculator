@@ -29,7 +29,6 @@ const CharmSlot = ({ value, onSetValue }: Props) => {
 			</div>
 			<Select
 				value={value ? value[1] : undefined}
-				label="Level"
 				options={[1, 2, 3]}
 				disabled={!value}
 				formatter={(n) => n.toString()}

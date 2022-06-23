@@ -76,10 +76,6 @@ const Main: NextPage<Props> = ({ model }) => {
 
 	const [showWeaponPicker, setShowWeaponPicker] = useState(false);
 
-	const isRanged = useMemo(() => {
-		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === weapon.type);
-	}, [weapon]);
-
 	const property = formatter.formatWeaponProperties(weapon);
 
 	return (
@@ -247,7 +243,7 @@ const Main: NextPage<Props> = ({ model }) => {
 									canDisable={!("conditional" in Skills[skill])}
 									label={Skills[skill].name}
 									onChangeValue={(v) => {
-										if (!v) disabledSkills.push(skill);
+										if (!v) setDisabledSkills([...disabledSkills, skill]);
 										else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
 									}}
 								/>

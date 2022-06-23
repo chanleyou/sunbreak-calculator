@@ -39,12 +39,28 @@ export const ComboBox = ({ model }: Props) => {
 				/>
 			</div>
 			<h4 className="mt-3">Weapon</h4>
-			{model.weapon.type === "Great Sword" && (
-				<Checkbox
-					label="Power Sheathe"
-					value={model.powerSheathe}
-					onChangeValue={model.setPowerSheathe}
-				/>
+			<div className="grid grid-cols-2">
+				{model.weapon.type === "Great Sword" && (
+					<Checkbox
+						label="Power Sheathe"
+						value={model.powerSheathe}
+						onChangeValue={model.setPowerSheathe}
+					/>
+				)}
+			</div>
+			{model.isRanged && (
+				<>
+					<Checkbox
+						label="Dango Marksman"
+						value={model.dangoMarksman}
+						onChangeValue={model.setDangoMarksman}
+					/>
+					<Checkbox
+						label="Dango Temper"
+						value={model.dangoTemper}
+						onChangeValue={model.setDangoTemper}
+					/>
+				</>
 			)}
 			{model.weapon.type === "Long Sword" && (
 				<Select

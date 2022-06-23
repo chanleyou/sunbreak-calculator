@@ -14,7 +14,7 @@ const SharpnessBar = ({ sharpnessArray }: Props) => {
 				{sharpnessArray.map((v, i) => {
 					return (
 						<div
-							className={`border h-4 border-black ${
+							className={`border h-4 border-gray-300 ${
 								i == 0 ? "border-r-0" : i == sharpnessArray.length - 1 ? "border-l-0" : "border-x-0"
 							}`}
 							key={`${id}-${i}`}

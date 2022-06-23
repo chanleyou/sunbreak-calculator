@@ -1,13 +1,12 @@
 import React from "react";
 
 type Props<T> = {
-	label: string;
+	label?: string;
 	options: T[];
 	onSelectOption: (t: T | undefined) => void;
 	formatter: (t: T) => string;
 	renderer?: (t: T) => string;
 	value?: T;
-	placeholder?: string;
 	small?: boolean;
 	disabled?: boolean;
 	note?: string;
@@ -20,20 +19,22 @@ export default function Select<T>({
 	formatter = (t: T) => (t as unknown as string | number).toString(),
 	renderer = formatter,
 	value,
-	placeholder,
 	small,
 	disabled,
 	note,
 }: Props<T>) {
-	let className = "py-1 mb-2";
+	let className = "py-1 mb-2 relative";
 	if (small) className += " flex items-baseline gap-2";
 
 	return (
 		<div className={className}>
-			<label>{label}</label>
+			{label && !value && (
+				<p className="absolute border border-transparent top-2 left-2 text-xs text-gray-500 pointer-events-none">
+					{label}
+				</p>
+			)}
 			<select
 				value={value ? formatter(value) : undefined}
-				placeholder={placeholder}
 				onChange={(e) => {
 					const { value } = e.target;
 					const option = options.find((o) => formatter(o) === value);

@@ -154,7 +154,7 @@ export const Skills = {
 		conditional: true,
 	},
 	MindsEye: {
-		name: "Minds Eye",
+		name: "Mind's Eye",
 		ranks: [1.1, 1.15, 1.3],
 	},
 	Dragonheart: {

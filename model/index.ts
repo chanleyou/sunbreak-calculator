@@ -25,11 +25,17 @@ export const useModel = () => {
 	const [_weapon, setWeapon] = useState(Weapons[0]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
 
+	const isRanged = useMemo(() => {
+		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === _weapon.type);
+	}, [_weapon]);
+
 	useEffect(() => {
 		setRampageSkills([]);
 		setWeaponDecos([]);
 		setSpiritGauge(undefined);
 		setPowerSheathe(false);
+		setDangoMarksman(false);
+		setDangoTemper(false);
 	}, [_weapon]);
 
 	// Armor
@@ -81,6 +87,8 @@ export const useModel = () => {
 	// Weapon Buffs
 	const [spiritGauge, setSpiritGauge] = useState<keyof typeof LongSwordSpiritGauge>();
 	const [powerSheathe, setPowerSheathe] = useState(false);
+	const [dangoTemper, setDangoTemper] = useState(false);
+	const [dangoMarksman, setDangoMarksman] = useState(false);
 
 	// Misc. Buffs
 	const [miscRaw, setMiscRaw] = useState(0);
@@ -138,10 +146,12 @@ export const useModel = () => {
 	}, [helm, chest, arms, waist, legs, _decos, charmSkillOne, charmSkillTwo]);
 
 	const activeSkills = useMemo(() => {
-		return disabledSkills.reduce<SkillMap>((acc, ds) => {
-			acc[ds] = 0;
-			return acc;
-		}, skills);
+		return produce(skills, (draft) => {
+			return disabledSkills.reduce<SkillMap>((acc, ds) => {
+				acc[ds] = 0;
+				return acc;
+			}, draft);
+		});
 	}, [skills, disabledSkills]);
 
 	const activeSkillsEntries = useMemo(() => {
@@ -365,6 +375,8 @@ export const useModel = () => {
 				computedHitzone < 0.45 && activeSkills.MindsEye
 					? Skills.MindsEye.ranks[activeSkills.MindsEye - 1]
 					: 1,
+				isRanged && dangoMarksman ? 1.1 : 1,
+				isRanged && dangoTemper ? 1.05 : 1,
 				morph && activeSkills.RapidMorph ? Skills.RapidMorph.ranks[activeSkills.RapidMorph - 1] : 1,
 				sword && weapon.type === "Switch Axe" && weapon.properties.type === "Power" ? 1.15 : 1,
 				silkbind && rampageSkills.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
@@ -372,7 +384,17 @@ export const useModel = () => {
 
 			return effectiveRaw * multiply(...rawMultipliers);
 		},
-		[sharpness, hitzone, activeSkills, weapon, rampageSkills, effectiveRaw],
+		[
+			sharpness,
+			hitzone,
+			activeSkills,
+			weapon,
+			rampageSkills,
+			effectiveRaw,
+			isRanged,
+			dangoMarksman,
+			dangoTemper,
+		],
 	);
 
 	const eleHit = useCallback(
@@ -506,6 +528,7 @@ export const useModel = () => {
 
 	return {
 		weapon,
+		isRanged,
 		setWeapon,
 		sharpnessArray,
 		sharpness,
@@ -555,6 +578,10 @@ export const useModel = () => {
 		setSpiritGauge,
 		powerSheathe,
 		setPowerSheathe,
+		dangoMarksman,
+		setDangoMarksman,
+		dangoTemper,
+		setDangoTemper,
 		miscRaw,
 		setMiscRaw,
 		miscMultiplier,
