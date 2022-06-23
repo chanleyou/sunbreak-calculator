@@ -9,7 +9,7 @@ import {
 	LightBowgunAttacks,
 	SwitchAxeAttacks,
 } from "../data";
-import { Model } from "../hooks";
+import { Model } from "../model";
 
 type Props = {
 	model: Model;

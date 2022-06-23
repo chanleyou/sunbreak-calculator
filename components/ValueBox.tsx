@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, TextDisplay } from ".";
-import { Model } from "../hooks";
+import { Model } from "../model";
 
 type Props = {
 	model: Model;

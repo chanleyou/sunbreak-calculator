@@ -24,4 +24,3 @@ export {
 } from "./attacks";
 export type { Attack } from "./attacks";
 export { Demondrug } from "./items";
-export { Model, type ModelAttributes } from "./model";

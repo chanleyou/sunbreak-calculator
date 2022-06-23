@@ -1,6 +1,6 @@
 import React from "react";
 import { Attack } from "../data";
-import { Model } from "../hooks";
+import { Model } from "../model";
 import { roundToDigits } from "../utils";
 
 type Props = {

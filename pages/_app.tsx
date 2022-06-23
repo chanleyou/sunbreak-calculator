@@ -3,7 +3,7 @@ import Head from "next/head";
 import { createContext } from "react";
 import { Header } from "../components";
 import "../styles/globals.css";
-import { useModel } from "../hooks";
+import { useModel } from "../model";
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const model = useModel();

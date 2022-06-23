@@ -26,7 +26,7 @@ import {
 	Waists,
 } from "../data";
 import formatter from "../formatter";
-import { Model } from "../hooks";
+import { Model } from "../model";
 
 function prod<T>(setter: Dispatch<SetStateAction<T>>) {
 	return (fn: (t: T) => void) => setter((n) => produce(n, fn));
@@ -229,7 +229,11 @@ const Main: NextPage<Props> = ({ model }) => {
 								options={Decorations.filter((d) => d.rank <= s)}
 								value={charmDecos[i]}
 								formatter={(o) => o.name}
-								onSelectOption={(o) => prod(setCharmDecos)((ds) => (ds[i] = o))}
+								onSelectOption={(o) =>
+									prod(setCharmDecos)((ds) => {
+										ds[i] = o;
+									})
+								}
 							/>
 						))}
 					</div>

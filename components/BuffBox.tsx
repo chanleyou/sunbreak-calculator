@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Checkbox, Select, NumberInput } from ".";
 import { Demondrug, LongSwordSpiritGauge } from "../data";
-import { Model } from "../hooks";
+import { Model } from "../model";
 
 type Props = {
 	model: Model;

@@ -1,7 +1,7 @@
 import React from "react";
+import produce from "immer";
 import { Box } from ".";
-import { useForceUpdate } from "../hooks";
-import { Model } from "../hooks";
+import { Model } from "../model";
 import { roundToDigits } from "../utils";
 
 type Props = {
@@ -9,8 +9,6 @@ type Props = {
 };
 
 export const ComboBox = ({ model }: Props) => {
-	const forceUpdate = useForceUpdate();
-
 	return (
 		<Box head="Combo">
 			{model.combo.length > 0 && (
@@ -27,8 +25,11 @@ export const ComboBox = ({ model }: Props) => {
 							return (
 								<tr
 									onClick={() => {
-										model.combo.splice(i, 1);
-										forceUpdate();
+										model.setCombo((c) =>
+											produce(c, (d) => {
+												d.splice(i, 1);
+											}),
+										);
 									}}
 									key={`${a.name}-${i}`}
 								>
@@ -49,10 +50,7 @@ export const ComboBox = ({ model }: Props) => {
 				</table>
 			)}
 			<button
-				onClick={() => {
-					model.combo = [];
-					forceUpdate();
-				}}
+				onClick={() => model.setCombo([])}
 				disabled={model.combo.length === 0}
 				className="mt-2"
 			>
