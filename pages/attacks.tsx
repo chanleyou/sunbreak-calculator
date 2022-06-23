@@ -49,7 +49,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 					</div>
 				</Box>
 				<Box head="Attacks">
-					<table className="table-auto w-full text-left text-xs">
+					<table className="table-auto w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
 								<th className="w-full">Attack</th>
@@ -62,7 +62,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 								<th>Avg</th>
 							</tr>
 						</thead>
-						<tbody className="text-xs text-gray-600">
+						<tbody className="text-gray-600">
 							{attacks.map((a) => (
 								<AttackRow
 									onClick={() =>

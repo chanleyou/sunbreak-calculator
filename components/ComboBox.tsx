@@ -12,14 +12,14 @@ export const ComboBox = ({ model }: Props) => {
 	return (
 		<Box head="Combo">
 			{model.combo.length > 0 && (
-				<table className="table-auto w-full text-left text-xs">
+				<table className="table-auto w-full text-left">
 					<thead>
 						<tr className="border-b border-gray-200">
 							<th className="w-full">Attack</th>
 							<th>Avg</th>
 						</tr>
 					</thead>
-					<tbody className="text-xs text-gray-600">
+					<tbody className="text-gray-600">
 						{model.combo.map((a, i) => {
 							const average = roundToDigits(model.attackAverage(a));
 							return (

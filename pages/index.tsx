@@ -1,17 +1,18 @@
 import produce from "immer";
 import { NextPage } from "next";
-import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import {
 	ArmorSlot,
 	Column,
 	Box,
 	Select,
 	SkillToggle,
-	TextDisplay,
 	WeaponPickerModal,
 	ValueBox,
-	BuffBox,
 	CharmSlot,
+	DecoPicker,
+	BuffBox,
+	TextBox,
 } from "../components";
 import {
 	Arms,
@@ -24,7 +25,6 @@ import {
 	Skills,
 	Waists,
 } from "../data";
-import formatter from "../formatter";
 import { Model } from "../model";
 
 function prod<T>(setter: Dispatch<SetStateAction<T>>) {
@@ -79,65 +79,55 @@ const Main: NextPage<Props> = ({ model }) => {
 	return (
 		<>
 			<Column>
-				<Box head="Equipment">
-					<div className="py-1 mb-2">
+				<Box head="Gear">
+					<div className="py-1">
 						<label>Weapon</label>
-						<div
+						<TextBox
 							onClick={() => setShowWeaponPicker(true)}
-							className="text-element cursor-pointer text-xs"
+							className="text-element cursor-pointer"
 						>
 							{weapon.name}
-						</div>
+						</TextBox>
 						<WeaponPickerModal
 							weapon={weapon}
 							setWeapon={setWeapon}
 							show={showWeaponPicker}
 							setShow={setShowWeaponPicker}
 						/>
-					</div>
-					{/* <div className="grid grid-cols-3 gap-2">
-						<TextDisplay label="Raw" value={weapon.raw} />
-						<TextDisplay
-							label="Element"
-							value={weapon.element ? formatter.formatElement(weapon.element) : "0"}
-						/>
-						<TextDisplay label="Affinity (%)" value={weapon.affinity ? weapon.affinity : "0"} />
-					</div> */}
-					{weapon.decos.length > 0 && (
-						<div className="grid grid-cols-3 gap-2 -mt-3">
-							{weapon.decos.map((s, i) => (
-								<Select
-									key={`weapon-${weapon.name}-${i}`}
-									label={`Decoration [${s}]`}
-									options={Decorations.filter((d) => d.rank <= s)}
-									value={weaponDecos[i]}
-									formatter={(o) => o.name}
-									onSelectOption={(d) =>
-										prod(setWeaponDecos)((ds) => {
-											ds[i] = d;
-										})
-									}
-								/>
-							))}
+						<div className={weapon.rampageSkills.length > 1 ? "grid grid-cols-3 gap-2" : ""}>
+							{weapon.rampageSkills.map((opts, i) => {
+								return (
+									<Select
+										key={`${weapon.name}-rs-${i}`}
+										options={opts}
+										onSelectOption={(v) =>
+											prod(setRampageSkills)((rs) => {
+												rs[i] = v;
+											})
+										}
+										formatter={(v) => RampageSkills[v].name}
+										value={rampageSkills[i]}
+										label="Rampage Skill"
+									/>
+								);
+							})}
 						</div>
-					)}
-					<div className="grid grid-cols-3 gap-2 -mt-3">
-						{weapon.rampageSkills.map((opts, i) => {
-							return (
-								<Select
-									key={`${weapon.name}-rs-${i}`}
-									options={opts}
-									onSelectOption={(v) =>
-										prod(setRampageSkills)((rs) => {
-											rs[i] = v;
-										})
-									}
-									formatter={(v) => RampageSkills[v].name}
-									value={rampageSkills[i]}
-									label="Rampage Skill"
-								/>
-							);
-						})}
+						{weapon.decos.length > 0 && (
+							<div className="grid grid-cols-3 gap-2">
+								{weapon.decos.map((s, i) => (
+									<DecoPicker
+										key={`${weapon.name}-deco-${i}`}
+										value={weaponDecos[i]}
+										setValue={(d) =>
+											prod(setWeaponDecos)((ds) => {
+												ds[i] = d;
+											})
+										}
+										level={s}
+									/>
+								))}
+							</div>
+						)}
 					</div>
 					<ArmorSlot
 						label="Helm"
@@ -204,18 +194,16 @@ const Main: NextPage<Props> = ({ model }) => {
 					<CharmSlot value={charmSkillOne} onSetValue={setCharmSkillOne} />
 					<CharmSlot value={charmSkillTwo} onSetValue={setCharmSkillTwo} />
 					<div className="grid grid-cols-3 gap-2">
-						{[4, 2, 1].map((s, i) => (
-							<Select
-								key={`charm-deco-${i}`}
-								label={`Decoration [${s}]`}
-								options={Decorations.filter((d) => d.rank <= s)}
-								value={charmDecos[i]}
-								formatter={(o) => o.name}
-								onSelectOption={(o) =>
+						{[4, 2, 1].map((l, i) => (
+							<DecoPicker
+								key={`$charm-deco-${l}`}
+								value={charmDecos[l]}
+								setValue={(d) =>
 									prod(setCharmDecos)((ds) => {
-										ds[i] = o;
+										ds[l] = d;
 									})
 								}
+								level={l}
 							/>
 						))}
 					</div>
@@ -223,34 +211,32 @@ const Main: NextPage<Props> = ({ model }) => {
 			</Column>
 			<Column>
 				<ValueBox model={model} />
-				{/* <BuffBox model={model} /> */}
 				<Box head="Skills">
-					<div className="grid grid-cols-2 gap-x-2">
-						{(Object.entries(skills) as [SkillKey, number][])
-							.sort(([aS, aL], [bS, bL]) => {
-								if (aL < bL) return 1;
-								if (aL > bL) return -1;
-								return aS > bS ? 1 : -1;
-							})
-							.map(([skill, value]) => {
-								if (value === 0) return;
-								return (
-									<SkillToggle
-										key={skill}
-										value={value}
-										maxRank={Skills[skill].ranks.length}
-										active={!disabledSkills.includes(skill)}
-										canDisable={!("conditional" in Skills[skill])}
-										label={Skills[skill].name}
-										onChangeValue={(v) => {
-											if (!v) setDisabledSkills([...disabledSkills, skill]);
-											else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
-										}}
-									/>
-								);
-							})}
-					</div>
+					{(Object.entries(skills) as [SkillKey, number][])
+						.sort(([aS, aL], [bS, bL]) => {
+							if (aL < bL) return 1;
+							if (aL > bL) return -1;
+							return aS > bS ? 1 : -1;
+						})
+						.map(([skill, value]) => {
+							if (value === 0) return;
+							return (
+								<SkillToggle
+									key={skill}
+									value={value}
+									maxRank={Skills[skill].ranks.length}
+									active={!disabledSkills.includes(skill)}
+									canDisable={!("conditional" in Skills[skill])}
+									label={Skills[skill].name}
+									onChangeValue={(v) => {
+										if (!v) setDisabledSkills([...disabledSkills, skill]);
+										else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
+									}}
+								/>
+							);
+						})}
 				</Box>
+				<BuffBox model={model} />
 			</Column>
 		</>
 	);

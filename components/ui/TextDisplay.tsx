@@ -3,19 +3,13 @@ import React from "react";
 type Props = {
 	value?: string | number;
 	label?: string;
-	note?: string;
-	small?: boolean;
 };
 
-const TextDisplay = ({ label, value, note, small }: Props) => {
-	let className = "py-1 mb-1";
-	if (small) className += " flex items-baseline gap-2";
-
+const TextDisplay = ({ label, value }: Props) => {
 	return (
-		<div className={className}>
+		<div className="py-1 mb-1">
 			<label>{label}</label>
-			<div className="number-input">{value}</div>
-			{note && <label className="note">{note}</label>}
+			<div className="text-element bg-slate-50 border-slate-300">{value}</div>
 		</div>
 	);
 };

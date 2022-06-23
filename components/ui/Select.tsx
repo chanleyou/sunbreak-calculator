@@ -21,15 +21,14 @@ export default function Select<T>({
 	value,
 	small,
 	disabled,
-	note,
 }: Props<T>) {
-	let className = "py-1 mb-2 relative";
+	let className = "mb-1 relative";
 	if (small) className += " flex items-baseline gap-2";
 
 	return (
 		<div className={className}>
 			{label && !value && (
-				<p className="absolute border border-transparent top-2 left-2 text-xs text-gray-500 pointer-events-none">
+				<p className="absolute border border-transparent text-xs top-1 left-2 text-gray-500 pointer-events-none">
 					{label}
 				</p>
 			)}
@@ -54,7 +53,6 @@ export default function Select<T>({
 						);
 					})}
 			</select>
-			{note && <p className="text-xs italic">{note}</p>}
 		</div>
 	);
 }

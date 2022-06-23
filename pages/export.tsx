@@ -83,7 +83,7 @@ const Export: NextPage<Props> = ({ model }) => {
 				<button disabled={!input} type="button" onClick={tryImport}>
 					Import
 				</button>
-				{error && <p className="text-xs italic text-red-600">{error}</p>}
+				{error && <p className="italic text-red-600">{error}</p>}
 			</Box>
 			<Box head="Export">
 				<textarea className="my-1" disabled value={exportString} rows={10} />

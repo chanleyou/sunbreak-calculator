@@ -24,8 +24,8 @@ export default function skillToggle({
 		<div className="mt-1 mb-2">
 			<label>{label}</label>
 			<div>
-				<div className=" flex p-1 border-slate-300 border text-sm rounded text-gray-600 bg-gray-100 w-stretch">
-					<p className="flex-1 text-sm">
+				<div className="flex bg-slate-50 border-slate-300 text-element">
+					<p className="flex-1">
 						{value} / {maxRank}
 					</p>
 					{!canDisable && <Checkbox value={active} onChangeValue={onChangeValue} />}

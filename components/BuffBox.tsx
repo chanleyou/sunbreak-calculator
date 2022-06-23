@@ -17,9 +17,14 @@ export const ComboBox = ({ model }: Props) => {
 				onSelectOption={model.setDemondrug}
 				value={model.demondrug}
 			/>
-			<div className="grid grid-cols-2">
+			<div className="grid grid-cols-3">
 				<Checkbox label="Powercharm" value={model.powercharm} onChangeValue={model.setPowercharm} />
 				<Checkbox label="Powertalon" value={model.powertalon} onChangeValue={model.setPowertalon} />
+				<Checkbox
+					label="Dango Booster"
+					value={model.dangoBooster}
+					onChangeValue={model.setDangoBooster}
+				/>
 				<Checkbox label="Might Seed" value={model.mightSeed} onChangeValue={model.setMightSeed} />
 				<Checkbox
 					label="Demon Powder"
@@ -31,11 +36,6 @@ export const ComboBox = ({ model }: Props) => {
 					label="Rousing Roar"
 					value={model.rousingRoar}
 					onChangeValue={model.setRousingRoar}
-				/>
-				<Checkbox
-					label="Dango Booster"
-					value={model.dangoBooster}
-					onChangeValue={model.setDangoBooster}
 				/>
 			</div>
 			<h4 className="mt-3">Weapon</h4>

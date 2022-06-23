@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
+import { RampageSkills, Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
 import { getSharpnessFromArray } from "../utils";
 import { Modal, Select } from "./ui";
@@ -7,14 +7,12 @@ import { Modal, Select } from "./ui";
 type Props = {
 	show: boolean;
 	setShow: (s: boolean) => void;
-	weapon?: Weapon;
+	weapon: Weapon;
 	setWeapon: (w: Weapon) => void;
 };
 
 const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
-	const [weaponType, setWeaponType] = useState<WeaponType | undefined>(
-		weapon?.type || "Switch Axe",
-	);
+	const [weaponType, setWeaponType] = useState<WeaponType | undefined>(weapon.type);
 
 	const filteredWeapons = useMemo(
 		() => (weaponType ? Weapons.filter((w) => w.type === weaponType) : []),
@@ -51,6 +49,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 							<th className="hidden md:table-cell">Status</th>
 							<th className="hidden md:table-cell">Decos</th>
 							{otherHead && <th className="hidden md:table-cell">{otherHead}</th>}
+							<th className="hidden md:table-cell">Rampage</th>
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600">
@@ -61,7 +60,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 
 							const classNames = ["cursor-pointer"];
 
-							if (weapon?.name === w.name) classNames.push("font-bold", "bg-gray-200");
+							if (weapon.name === w.name) classNames.push("bg-gray-200");
 
 							return (
 								<tr
@@ -95,6 +94,11 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 										})} */}
 									</td>
 									{other && <td className="hidden md:table-cell">{other.value}</td>}
+									<td className="hidden md:table-cell">
+										{w.rampageSkills.flat().map((rs) => (
+											<p key={rs}>{RampageSkills[rs].name}</p>
+										))}
+									</td>
 								</tr>
 							);
 						})}

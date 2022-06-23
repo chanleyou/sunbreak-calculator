@@ -5,3 +5,4 @@ export { default as Select } from "./Select";
 export { default as Checkbox } from "./Checkbox";
 export { default as NumberInput } from "./NumberInput";
 export { default as TextDisplay } from "./TextDisplay";
+export { default as TextBox } from "./TextBox";
