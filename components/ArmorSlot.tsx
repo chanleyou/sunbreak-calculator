@@ -20,18 +20,20 @@ const ArmorSlot = ({ label, options, value, onSelectOption, decos, onSelectDeco 
 			onSelectOption={onSelectOption}
 			formatter={(o) => o.name}
 		/>
-		<div className="grid grid-cols-3 gap-2">
-			{value?.decorations.map((s, i) => (
-				<Select
-					key={label + i}
-					label={`Decoration [${s}]`}
-					options={Decorations.filter((d) => d.rank <= s)}
-					value={decos[i]}
-					formatter={(o) => o.name}
-					onSelectOption={(d) => onSelectDeco(d, i)}
-				/>
-			))}
-		</div>
+		{value && value.decorations.length > 0 && (
+			<div className="grid grid-cols-3 -mt-3 gap-2">
+				{value?.decorations.map((s, i) => (
+					<Select
+						key={label + i}
+						label={`Decoration [${s}]`}
+						options={Decorations.filter((d) => d.rank <= s)}
+						value={decos[i]}
+						formatter={(o) => o.name}
+						onSelectOption={(d) => onSelectDeco(d, i)}
+					/>
+				))}
+			</div>
+		)}
 	</>
 );
 

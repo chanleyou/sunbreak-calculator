@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, TextDisplay } from ".";
+import formatter from "../formatter";
 import { Model } from "../model";
 import SharpnessBar from "./SharpnessBar";
 
@@ -8,9 +9,11 @@ type Props = {
 };
 
 export const ValueBox = ({ model }: Props) => {
+	const property = formatter.formatWeaponProperties(model.weapon);
+
 	return (
 		<Box head="Values">
-			<div className="grid grid-cols-3 gap-2">
+			<div className="grid grid-cols-3 gap-x-2">
 				<TextDisplay label="Raw" value={model.effectiveRaw} />
 				<TextDisplay
 					label="Element"
@@ -19,6 +22,7 @@ export const ValueBox = ({ model }: Props) => {
 					}
 				/>
 				<TextDisplay label="Affinity (%)" value={model.effectiveAffinity} />
+				{property && <TextDisplay label={property.key} value={property.value} />}
 			</div>
 			{model.sharpnessArray && <SharpnessBar sharpnessArray={model.sharpnessArray} />}
 		</Box>

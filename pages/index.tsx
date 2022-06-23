@@ -76,13 +76,11 @@ const Main: NextPage<Props> = ({ model }) => {
 
 	const [showWeaponPicker, setShowWeaponPicker] = useState(false);
 
-	const property = formatter.formatWeaponProperties(weapon);
-
 	return (
 		<>
 			<Column>
-				<Box head="Weapon">
-					<div className="my-1">
+				<Box head="Equipment">
+					<div className="py-1 mb-2">
 						<label>Weapon</label>
 						<div
 							onClick={() => setShowWeaponPicker(true)}
@@ -97,49 +95,50 @@ const Main: NextPage<Props> = ({ model }) => {
 							setShow={setShowWeaponPicker}
 						/>
 					</div>
-					<div className="grid grid-cols-3 gap-2">
+					{/* <div className="grid grid-cols-3 gap-2">
 						<TextDisplay label="Raw" value={weapon.raw} />
 						<TextDisplay
 							label="Element"
 							value={weapon.element ? formatter.formatElement(weapon.element) : "0"}
 						/>
 						<TextDisplay label="Affinity (%)" value={weapon.affinity ? weapon.affinity : "0"} />
+					</div> */}
+					{weapon.decos.length > 0 && (
+						<div className="grid grid-cols-3 gap-2 -mt-3">
+							{weapon.decos.map((s, i) => (
+								<Select
+									key={`weapon-${weapon.name}-${i}`}
+									label={`Decoration [${s}]`}
+									options={Decorations.filter((d) => d.rank <= s)}
+									value={weaponDecos[i]}
+									formatter={(o) => o.name}
+									onSelectOption={(d) =>
+										prod(setWeaponDecos)((ds) => {
+											ds[i] = d;
+										})
+									}
+								/>
+							))}
+						</div>
+					)}
+					<div className="grid grid-cols-3 gap-2 -mt-3">
+						{weapon.rampageSkills.map((opts, i) => {
+							return (
+								<Select
+									key={`${weapon.name}-rs-${i}`}
+									options={opts}
+									onSelectOption={(v) =>
+										prod(setRampageSkills)((rs) => {
+											rs[i] = v;
+										})
+									}
+									formatter={(v) => RampageSkills[v].name}
+									value={rampageSkills[i]}
+									label="Rampage Skill"
+								/>
+							);
+						})}
 					</div>
-					{property && <TextDisplay label={property.key} value={property.value} />}
-					{weapon.rampageSkills.map((opts, i) => {
-						return (
-							<Select
-								key={`${weapon.name}-rs-${i}`}
-								options={opts}
-								onSelectOption={(v) =>
-									prod(setRampageSkills)((rs) => {
-										rs[i] = v;
-									})
-								}
-								formatter={(v) => RampageSkills[v].name}
-								value={rampageSkills[i]}
-								label="Rampage Skill"
-							/>
-						);
-					})}
-					<div className="grid grid-cols-3 gap-2">
-						{weapon.decos.map((s, i) => (
-							<Select
-								key={`weapon-${weapon.name}-${i}`}
-								label={`Decoration [${s}]`}
-								options={Decorations.filter((d) => d.rank <= s)}
-								value={weaponDecos[i]}
-								formatter={(o) => o.name}
-								onSelectOption={(d) =>
-									prod(setWeaponDecos)((ds) => {
-										ds[i] = d;
-									})
-								}
-							/>
-						))}
-					</div>
-				</Box>
-				<Box head="Armor">
 					<ArmorSlot
 						label="Helm"
 						options={[...Helms]}
@@ -224,31 +223,33 @@ const Main: NextPage<Props> = ({ model }) => {
 			</Column>
 			<Column>
 				<ValueBox model={model} />
-				<BuffBox model={model} />
+				{/* <BuffBox model={model} /> */}
 				<Box head="Skills">
-					{(Object.entries(skills) as [SkillKey, number][])
-						.sort(([aS, aL], [bS, bL]) => {
-							if (aL < bL) return 1;
-							if (aL > bL) return -1;
-							return aS > bS ? 1 : -1;
-						})
-						.map(([skill, value]) => {
-							if (value === 0) return;
-							return (
-								<SkillToggle
-									key={skill}
-									value={value}
-									maxRank={Skills[skill].ranks.length}
-									active={!disabledSkills.includes(skill)}
-									canDisable={!("conditional" in Skills[skill])}
-									label={Skills[skill].name}
-									onChangeValue={(v) => {
-										if (!v) setDisabledSkills([...disabledSkills, skill]);
-										else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
-									}}
-								/>
-							);
-						})}
+					<div className="grid grid-cols-2 gap-x-2">
+						{(Object.entries(skills) as [SkillKey, number][])
+							.sort(([aS, aL], [bS, bL]) => {
+								if (aL < bL) return 1;
+								if (aL > bL) return -1;
+								return aS > bS ? 1 : -1;
+							})
+							.map(([skill, value]) => {
+								if (value === 0) return;
+								return (
+									<SkillToggle
+										key={skill}
+										value={value}
+										maxRank={Skills[skill].ranks.length}
+										active={!disabledSkills.includes(skill)}
+										canDisable={!("conditional" in Skills[skill])}
+										label={Skills[skill].name}
+										onChangeValue={(v) => {
+											if (!v) setDisabledSkills([...disabledSkills, skill]);
+											else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
+										}}
+									/>
+								);
+							})}
+					</div>
 				</Box>
 			</Column>
 		</>
