@@ -20,7 +20,6 @@ import {
 	Helms,
 	Legs,
 	RampageSkills,
-	Sharpnesses,
 	SkillKey,
 	Skills,
 	Waists,
@@ -40,8 +39,6 @@ const Main: NextPage<Props> = ({ model }) => {
 	const {
 		weapon,
 		setWeapon,
-		sharpness,
-		setSharpness,
 		rampageSkills,
 		setRampageSkills,
 		helm,
@@ -113,16 +110,6 @@ const Main: NextPage<Props> = ({ model }) => {
 						<TextDisplay label="Affinity (%)" value={weapon.affinity ? weapon.affinity : "0"} />
 					</div>
 					{property && <TextDisplay label={property.key} value={property.value} />}
-					{!isRanged && (
-						<Select
-							label="Sharpness"
-							options={[...Sharpnesses]}
-							value={sharpness}
-							onSelectOption={setSharpness}
-							formatter={(o) => o}
-							disabled={isRanged}
-						/>
-					)}
 					{weapon.rampageSkills.map((opts, i) => {
 						return (
 							<Select

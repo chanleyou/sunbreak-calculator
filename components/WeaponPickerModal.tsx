@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
-import { Model, Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
+import { Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
+import { getSharpnessFromArray } from "../utils";
 import { Modal, Select } from "./ui";
 
 type Props = {
@@ -25,6 +26,10 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 		[weaponType],
 	);
 
+	const isRanged = useMemo(() => {
+		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === weaponType);
+	}, [weaponType]);
+
 	return (
 		<Modal show={show} setShow={setShow} head="Select Weapon">
 			<Select
@@ -41,7 +46,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 							<th>Name</th>
 							<th className="hidden md:table-cell">Raw</th>
 							<th className="hidden md:table-cell">Affinity</th>
-							<th className="hidden md:table-cell">Sharpness</th>
+							{!isRanged && <th className="hidden md:table-cell">Sharpness</th>}
 							<th className="hidden md:table-cell">Element</th>
 							<th className="hidden md:table-cell">Status</th>
 							<th className="hidden md:table-cell">Decos</th>
@@ -70,7 +75,9 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 									<td>{name}</td>
 									<td className="hidden md:table-cell">{raw}</td>
 									<td className="hidden md:table-cell">{affinity}</td>
-									<td className="hidden md:table-cell">{sharpness}</td>
+									{sharpness && (
+										<td className="hidden md:table-cell">{getSharpnessFromArray(sharpness)}</td>
+									)}
 									<td className="hidden md:table-cell">
 										{element && formatter.formatElement(element)}
 									</td>

@@ -22,16 +22,15 @@ const Export: NextPage<Props> = ({ model }) => {
 			const decrypted = CryptoJS.AES.decrypt(input, NOT_SO_SECRET_KEY).toString(CryptoJS.enc.Utf8);
 			const json: Model = JSON.parse(decrypted);
 
-			// remember order to avoid hooks unsetting values
+			// remember order
 			model.setWeapon(json.weapon);
+			model.setRampageSkills(json.rampageSkills);
+
 			model.setHelm(json.helm);
 			model.setChest(json.chest);
 			model.setArms(json.arms);
 			model.setWaist(json.waist);
 			model.setLegs(json.legs);
-
-			model.setSharpness(json.sharpness);
-			model.setRampageSkills(json.rampageSkills);
 
 			model.setWeaponDecos(json.weaponDecos);
 			model.setHelmDecos(json.helmDecos);

@@ -262,6 +262,10 @@ export const Skills = {
 		name: "Windproof",
 		ranks: [1, 2, 3],
 	},
+	Handicraft: {
+		name: "Handicraft",
+		ranks: [10, 20, 30, 40, 50],
+	},
 } as const;
 
 export type SkillMap = Partial<{ [key in SkillKey]: number }>;

@@ -1,3 +1,5 @@
+import { Sharpness, Sharpnesses, WeaponSharpness } from "../data";
+
 export function sum(...args: (number | undefined)[]) {
 	return args.reduce<number>((sum, a) => (a ? sum + a : sum), 0);
 }
@@ -27,3 +29,8 @@ export const roundToDigits = (n: number, digits = 1) => {
 export function calculateUI(base: number, multipliers = 1, bonuses = 0): number {
 	return Math.floor(base * multipliers + bonuses + 0.1);
 }
+
+export const getSharpnessFromArray = (w: WeaponSharpness) => {
+	const index = w.reduce<number>((acc, n, i) => (n > 0 ? i : acc), 0);
+	return Sharpnesses[index];
+};

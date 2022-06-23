@@ -5,10 +5,9 @@ type Props = {
 	onChangeValue: (v: boolean) => void;
 	label?: string;
 	disabled?: boolean;
-	note?: string;
 };
 
-export default function Checkbox({ value, onChangeValue, label, disabled, note }: Props) {
+export default function Checkbox({ value, onChangeValue, label, disabled }: Props) {
 	return (
 		<div>
 			<input
@@ -17,13 +16,14 @@ export default function Checkbox({ value, onChangeValue, label, disabled, note }
 				onChange={(e) => onChangeValue(e.target.checked)}
 				disabled={disabled}
 			/>
-			<label
-				className="ml-1 inline-block align-baseline mb-0"
-				onClick={() => onChangeValue(!value)}
-			>
-				{label}
-			</label>
-			{note && <label>({note})</label>}
+			{label && (
+				<label
+					className="ml-1 inline-block align-baseline mb-0"
+					onClick={() => onChangeValue(!value)}
+				>
+					{label}
+				</label>
+			)}
 		</div>
 	);
 }

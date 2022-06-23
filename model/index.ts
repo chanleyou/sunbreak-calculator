@@ -8,7 +8,6 @@ import {
 	LongSwordSpiritGauge,
 	RampageSkillKey,
 	RampageSkills,
-	Sharpness,
 	SharpnessEleMultipliers,
 	SharpnessRawMultipliers,
 	SkillKey,
@@ -17,18 +16,16 @@ import {
 	SkillSlot,
 	Weapons,
 } from "../data";
-import { calculateUI, lowest, multiply, sum } from "../utils";
+import { calculateUI, getSharpnessFromArray, lowest, multiply, sum } from "../utils";
 
 export type Model = ReturnType<typeof useModel>;
 
 export const useModel = () => {
 	// Weapon
 	const [_weapon, setWeapon] = useState(Weapons[0]);
-	const [sharpness, setSharpness] = useState<Sharpness>();
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
 
 	useEffect(() => {
-		setSharpness(_weapon.sharpness);
 		setRampageSkills([]);
 		setWeaponDecos([]);
 		setSpiritGauge(undefined);
@@ -150,6 +147,38 @@ export const useModel = () => {
 	const activeSkillsEntries = useMemo(() => {
 		return Object.entries(activeSkills) as [SkillKey, number][];
 	}, [activeSkills]);
+
+	const sharpnessArray = useMemo(() => {
+		if (!weapon.sharpness) return undefined;
+		if (!activeSkills.Handicraft) return weapon.sharpness;
+
+		return produce(weapon.sharpness, (draft) => {
+			let handicraftPoints = Skills.Handicraft.ranks[activeSkills.Handicraft! - 1];
+
+			let baseIndex = draft.reduce<number>((acc, n, i) => (n > 0 ? i : acc), 0);
+			let bonusIndex = 0;
+
+			while (handicraftPoints > 0) {
+				const limit = weapon.handicraft[bonusIndex];
+				if (limit === 0) break; // weapon sharpness doesn't increase further
+
+				const bonus = handicraftPoints > limit ? limit : handicraftPoints;
+
+				draft[baseIndex] += bonus;
+				handicraftPoints -= bonus;
+
+				if (bonus == limit) {
+					baseIndex += 1;
+					bonusIndex += 1;
+				}
+			}
+		});
+	}, [weapon, activeSkills]);
+
+	const sharpness = useMemo(() => {
+		if (!sharpnessArray) return undefined;
+		return getSharpnessFromArray(sharpnessArray);
+	}, [sharpnessArray]);
 
 	const effectiveRaw = useMemo(() => {
 		const base = weapon.raw;
@@ -478,8 +507,8 @@ export const useModel = () => {
 	return {
 		weapon,
 		setWeapon,
+		sharpnessArray,
 		sharpness,
-		setSharpness,
 		rampageSkills,
 		setRampageSkills,
 		helm,

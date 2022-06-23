@@ -14,7 +14,15 @@ export {
 	SharpnessEleMultipliers,
 	LongSwordSpiritGauge,
 } from "./weapons";
-export type { ElementType, StatusType, WeaponType, Weapon, Sharpness } from "./weapons";
+export type {
+	ElementType,
+	StatusType,
+	WeaponType,
+	Weapon,
+	Sharpness,
+	WeaponSharpness,
+	WeaponHandicraft,
+} from "./weapons";
 export {
 	GreatSwordAttacks,
 	SwitchAxeAttacks,

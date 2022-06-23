@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, TextDisplay } from ".";
 import { Model } from "../model";
+import SharpnessBar from "./SharpnessBar";
 
 type Props = {
 	model: Model;
@@ -19,6 +20,7 @@ export const ValueBox = ({ model }: Props) => {
 				/>
 				<TextDisplay label="Affinity (%)" value={model.effectiveAffinity} />
 			</div>
+			{model.sharpnessArray && <SharpnessBar sharpnessArray={model.sharpnessArray} />}
 		</Box>
 	);
 };

@@ -18,8 +18,11 @@ const CharmSlot = ({ value, onSetValue }: Props) => {
 					renderer={(t) => Skills[t as SkillKey].name}
 					formatter={(t) => t}
 					onSelectOption={(skill) => {
-						const newValue = skill ? ([skill, 1] as SkillSlot) : undefined;
-						value = newValue;
+						if (!skill) {
+							onSetValue(undefined);
+							return;
+						}
+						const newValue = [skill, 1] as SkillSlot;
 						onSetValue(newValue);
 					}}
 				/>
@@ -31,8 +34,8 @@ const CharmSlot = ({ value, onSetValue }: Props) => {
 				disabled={!value}
 				formatter={(n) => n.toString()}
 				onSelectOption={(level) => {
-					const newValue = value ? ([value[0], level] as SkillSlot) : undefined;
-					value = newValue;
+					if (!level) level = 1;
+					const newValue = [value![0], level] as SkillSlot;
 					onSetValue(newValue);
 				}}
 			/>

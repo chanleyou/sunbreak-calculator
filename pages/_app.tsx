@@ -1,6 +1,5 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { createContext } from "react";
 import { Header } from "../components";
 import "../styles/globals.css";
 import { useModel } from "../model";
