@@ -14,6 +14,7 @@ export const Decorations: Decoration[] = [
 	{ rank: 1, name: "Stream Jewel 1", skill: ["WaterAttack", 1] },
 	{ rank: 1, name: "Bolt Jewel 1", skill: ["ThunderAttack", 1] },
 	{ rank: 1, name: "Dragon Jewel 1", skill: ["DragonAttack", 1] },
+	{ rank: 2, name: "Critical Jewel 2", skill: ["CriticalBoost", 1] },
 	{ rank: 2, name: "Blaze Jewel 2", skill: ["FireAttack", 2] },
 	{ rank: 2, name: "Frost Jewel 2", skill: ["IceAttack", 2] },
 	{ rank: 2, name: "Stream Jewel 2", skill: ["WaterAttack", 2] },

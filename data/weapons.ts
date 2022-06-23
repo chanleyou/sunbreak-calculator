@@ -145,6 +145,31 @@ export type Weapon =
 	| HeavyBowgun;
 
 export const Weapons: Weapon[] = [
+	// {
+	// 	name: "Rampage Slicer S",
+	// 	type: "Switch Axe",
+	// 	raw: 210,
+	// 	sharpness: [50, 70, 30, 60, 40, 0, 0],
+	// 	handicraft: [30, 20, 0, 0],
+	// 	decos: [],
+	// 	rampageSkills: [[], ["NonelementalBoost"]],
+	// 	properties: {
+	// 		type: "Paralysis",
+	// 		value: 0,
+	// 	},
+	// },
+	{
+		name: "Amber Hoarfrost",
+		type: "Switch Axe",
+		raw: 190,
+		affinity: 30,
+		element: { type: "Ice", value: 29 },
+		sharpness: [50, 70, 80, 100, 50, 0, 0],
+		handicraft: [20, 30, 0, 0],
+		decos: [2],
+		rampageSkills: [["AttackBoost4", "AffinityBoost2", "IceblightExploit"]],
+		properties: { type: "Element", value: 0 },
+	},
 	{
 		name: "Nargacuga LS",
 		type: "Long Sword",

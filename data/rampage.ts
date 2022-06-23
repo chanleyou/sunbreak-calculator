@@ -26,7 +26,8 @@ export type RampageSkillKey =
 	| "ElementExploit"
 	| "SilkbindBoost"
 	| "BrutalStrike"
-	| "DullingStrike";
+	| "DullingStrike"
+	| "IceblightExploit";
 
 export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	AttackBoost1: { name: "Attack Boost 1", raw: 4 },
@@ -49,6 +50,7 @@ export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	SilkbindBoost: { name: "Silkbind Boost" }, // x1.1 multi to silkbind attacks
 	BrutalStrike: { name: "Brutal Strike" }, // 15% chance for negative crit to instead deal 1.5x damage
 	DullingStrike: { name: "Dulling Strike" }, // 10% chance to deal +20% damage when sharpness <= green
+	IceblightExploit: { name: "Iceblight Exploit" },
 };
 
 export type HasRampageSkill = Partial<{ [K in RampageSkillKey]: boolean }>;

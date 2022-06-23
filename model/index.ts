@@ -275,7 +275,7 @@ export const useModel = () => {
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
 				case "IceAttack":
-					if (type === "Ice") break;
+					if (type !== "Ice") break;
 					bonuses.push(Skills[skill].ranks[level].flat);
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
