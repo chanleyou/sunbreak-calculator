@@ -1,4 +1,8 @@
+import { GunlanceShellType } from "../weapons";
+
 export type AmmoType = "Normal/Rapid" | "Pierce" | "Spread";
+
+export type ShellingAttack = { raw: number; fire: number };
 
 export type Attack = {
 	name: string;
@@ -13,6 +17,7 @@ export type Attack = {
 	sword?: boolean;
 	silkbind?: boolean;
 	artillery?: boolean;
+	shelling?: { [K in GunlanceShellType]: ShellingAttack[] };
 };
 
 export { default as SwitchAxeAttacks } from "./switchAxe";

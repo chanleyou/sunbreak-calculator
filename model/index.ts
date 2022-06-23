@@ -16,7 +16,14 @@ import {
 	SkillSlot,
 	Weapons,
 } from "../data";
-import { calculateUI, getSharpnessFromArray, lowest, multiply, sum } from "../utils";
+import {
+	calculateUI,
+	lowest,
+	multiply,
+	sharpnessHandicraft,
+	getSharpnessFromArray,
+	sum,
+} from "../utils";
 
 export type Model = ReturnType<typeof useModel>;
 
@@ -161,28 +168,9 @@ export const useModel = () => {
 	const sharpnessArray = useMemo(() => {
 		if (!weapon.sharpness) return undefined;
 		if (!activeSkills.Handicraft) return weapon.sharpness;
+		const handicraftPoints = Skills.Handicraft.ranks[activeSkills.Handicraft! - 1];
 
-		return produce(weapon.sharpness, (draft) => {
-			let handicraftPoints = Skills.Handicraft.ranks[activeSkills.Handicraft! - 1];
-
-			let baseIndex = draft.reduce<number>((acc, n, i) => (n > 0 ? i : acc), 0);
-			let bonusIndex = 0;
-
-			while (handicraftPoints > 0) {
-				const limit = weapon.handicraft[bonusIndex];
-				if (limit === 0) break; // weapon sharpness doesn't increase further
-
-				const bonus = handicraftPoints > limit ? limit : handicraftPoints;
-
-				draft[baseIndex] += bonus;
-				handicraftPoints -= bonus;
-
-				if (bonus == limit) {
-					baseIndex += 1;
-					bonusIndex += 1;
-				}
-			}
-		});
+		return sharpnessHandicraft(weapon.sharpness, weapon.handicraft, handicraftPoints);
 	}, [weapon, activeSkills]);
 
 	const sharpness = useMemo(() => {
@@ -362,7 +350,15 @@ export const useModel = () => {
 
 	const rawHit = useCallback(
 		(attack: Attack): number => {
-			const { mv, hzMod, ignoreHz, morph, sword, silkbind } = attack;
+			const { mv, hzMod, ignoreHz, morph, sword, silkbind, shelling } = attack;
+
+			if (weapon.type === "Gunlance" && shelling) {
+				const artillery = activeSkills.Artillery
+					? Skills.Artillery.ranks[activeSkills.Artillery - 1]
+					: 1;
+
+				return shelling[weapon.properties.type][weapon.properties.value - 1].raw * artillery;
+			}
 
 			const sharpnessRawMultiplier = sharpness ? SharpnessRawMultipliers[sharpness] : 1;
 
@@ -399,7 +395,18 @@ export const useModel = () => {
 
 	const eleHit = useCallback(
 		(attack: Attack): number => {
-			const { sword, eleMod } = attack;
+			const { sword, eleMod, shelling } = attack;
+
+			if (weapon.type === "Gunlance" && shelling) {
+				const artillery = activeSkills.Artillery
+					? Skills.Artillery.ranks[activeSkills.Artillery - 1]
+					: 1;
+				return multiply(
+					shelling[weapon.properties.type][weapon.properties.value - 1].fire,
+					artillery,
+					hitzoneEle / 100,
+				);
+			}
 
 			const base = sword && dragonPhial > 0 ? dragonPhial : effectiveEle;
 
@@ -418,7 +425,7 @@ export const useModel = () => {
 
 			return base * multiply(...multipliers);
 		},
-		[effectiveEle, dragonPhial, hitzoneEle, rampageSkills, weapon, sharpness],
+		[effectiveEle, dragonPhial, hitzoneEle, rampageSkills, weapon, sharpness, activeSkills],
 	);
 
 	const rawCrit = useCallback(

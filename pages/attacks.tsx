@@ -21,7 +21,15 @@ const Attacks: NextPage<Props> = ({ model }) => {
 		if (!model) return GreatSwordAttacks;
 		if (model.weapon.type === "Switch Axe") return SwitchAxeAttacks;
 		if (model.weapon.type === "Great Sword") return GreatSwordAttacks;
-		if (model.weapon.type === "Gunlance") return GunlanceAttacks;
+		if (model.weapon.type === "Gunlance") {
+			const output = GunlanceAttacks;
+
+			if (model.weapon.properties.type != "Wide") {
+				return output.filter((a) => a.name !== "Strong Charged Shelling");
+			}
+
+			return output;
+		}
 		if (model.weapon.type === "Light Bowgun") return LightBowgunAttacks;
 		if (model.weapon.type === "Heavy Bowgun") return HeavyBowgunAttacks;
 		return GreatSwordAttacks;

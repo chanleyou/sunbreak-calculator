@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from "react";
+import { SharpnessBar } from ".";
 import { RampageSkills, Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
-import { getSharpnessFromArray } from "../utils";
+import { sharpnessHandicraft } from "../utils";
 import { Modal, Select } from "./ui";
 
 type Props = {
@@ -42,19 +43,19 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 					<thead>
 						<tr className="border-b border-gray-200">
 							<th>Name</th>
-							<th className="hidden md:table-cell">Raw</th>
-							<th className="hidden md:table-cell">Affinity</th>
-							{!isRanged && <th className="hidden md:table-cell">Sharpness</th>}
-							<th className="hidden md:table-cell">Element</th>
-							<th className="hidden md:table-cell">Status</th>
-							<th className="hidden md:table-cell">Decos</th>
-							{otherHead && <th className="hidden md:table-cell">{otherHead}</th>}
-							<th className="hidden md:table-cell">Rampage</th>
+							<th>Raw</th>
+							<th>Affinity</th>
+							{!isRanged && <th>Sharpness</th>}
+							<th>Element</th>
+							<th>Status</th>
+							<th>Decos</th>
+							{otherHead && <th>{otherHead}</th>}
+							<th>Rampage</th>
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600">
 						{filteredWeapons.map((w) => {
-							const { name, raw, element, status, affinity, sharpness, decos } = w;
+							const { name, raw, element, status, affinity, sharpness, handicraft, decos } = w;
 
 							const other = formatter.formatWeaponProperties(w);
 
@@ -72,18 +73,20 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 									}}
 								>
 									<td>{name}</td>
-									<td className="hidden md:table-cell">{raw}</td>
-									<td className="hidden md:table-cell">{affinity}</td>
+									<td>{raw}</td>
+									<td>{affinity}</td>
 									{sharpness && (
-										<td className="hidden md:table-cell">{getSharpnessFromArray(sharpness)}</td>
+										<td>
+											<SharpnessBar sharpnessArray={sharpness} small />
+											<SharpnessBar
+												sharpnessArray={sharpnessHandicraft(sharpness, handicraft, 50)}
+												small
+											/>
+										</td>
 									)}
-									<td className="hidden md:table-cell">
-										{element && formatter.formatElement(element)}
-									</td>
-									<td className="hidden md:table-cell">
-										{status && formatter.formatElement(status)}
-									</td>
-									<td className="hidden md:table-cell">
+									<td>{element && formatter.formatElement(element)}</td>
+									<td>{status && formatter.formatElement(status)}</td>
+									<td>
 										{decos.join(", ")}
 										{/* {decos.map((v, i) => {
 											const key = `${name}-deco-${i}`;
@@ -93,8 +96,8 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 											return v;
 										})} */}
 									</td>
-									{other && <td className="hidden md:table-cell">{other.value}</td>}
-									<td className="hidden md:table-cell">
+									{other && <td>{other.value}</td>}
+									<td>
 										{w.rampageSkills.flat().map((rs) => (
 											<p key={rs}>{RampageSkills[rs].name}</p>
 										))}

@@ -95,8 +95,10 @@ export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; properties: str
 
 export type Lance = IMeleeWeapon & { type: "Lance" };
 
+export type GunlanceShellType = "Normal" | "Wide" | "Long";
+
 export type GunlanceShelling = {
-	type: "Normal" | "Wide" | "Long";
+	type: GunlanceShellType;
 	value: number;
 };
 
@@ -145,19 +147,6 @@ export type Weapon =
 	| HeavyBowgun;
 
 export const Weapons: Weapon[] = [
-	// {
-	// 	name: "Rampage Slicer S",
-	// 	type: "Switch Axe",
-	// 	raw: 210,
-	// 	sharpness: [50, 70, 30, 60, 40, 0, 0],
-	// 	handicraft: [30, 20, 0, 0],
-	// 	decos: [],
-	// 	rampageSkills: [[], ["NonelementalBoost"]],
-	// 	properties: {
-	// 		type: "Paralysis",
-	// 		value: 0,
-	// 	},
-	// },
 	{
 		name: "Amber Hoarfrost",
 		type: "Switch Axe",
@@ -169,6 +158,32 @@ export const Weapons: Weapon[] = [
 		decos: [2],
 		rampageSkills: [["AttackBoost4", "AffinityBoost2", "IceblightExploit"]],
 		properties: { type: "Element", value: 0 },
+	},
+	{
+		name: "Some Gunlance",
+		type: "Gunlance",
+		raw: 0,
+		sharpness: [0, 0, 0, 0, 0, 0, 0],
+		handicraft: [0, 0, 0, 0],
+		decos: [],
+		rampageSkills: [],
+		properties: {
+			type: "Long",
+			value: 5,
+		},
+	},
+	{
+		name: "Rampage Slicer S",
+		type: "Switch Axe",
+		raw: 210,
+		sharpness: [50, 70, 30, 60, 40, 0, 0],
+		handicraft: [30, 20, 0, 0],
+		decos: [],
+		rampageSkills: [[], ["NonelementalBoost"]],
+		properties: {
+			type: "Paralysis",
+			value: 0,
+		},
 	},
 	{
 		name: "Nargacuga LS",
@@ -199,55 +214,50 @@ export const Weapons: Weapon[] = [
 		decos: [4, 2],
 		rampageSkills: [["AttackBoost1", "AffinityBoost4"]],
 	},
-	// {
-	// 	name: "Kamura -> Dragon(?) Switch Axe",
-	// 	type: "Switch Axe",
-	// 	raw: 330,
-	// 	sharpness: "Purple",
-	// 	properties: { type: "Dragon", value: 24 },
-	// 	decos: [4],
-	// 	rampageSkills: [["DullingStrike", "BrutalStrike", "ElementExploit", "BoostEquippedCoating"]],
-	// },
-	// {
-	// 	name: "Mizutsune Switch Axe",
-	// 	type: "Switch Axe",
-	// 	raw: 320,
-	// 	element: {
-	// 		value: 34,
-	// 		type: "Water",
-	// 	},
-	// 	affinity: 15,
-	// 	sharpness: "White",
-	// 	properties: { type: "Power", value: 0 },
-	// 	decos: [1],
-	// 	rampageSkills: [[]],
-	// },
-	// {
-	// 	name: "Rathalos Switch Axe",
-	// 	type: "Switch Axe",
-	// 	raw: 330,
-	// 	element: {
-	// 		value: 37,
-	// 		type: "Fire",
-	// 	},
-	// 	sharpness: "White",
-	// 	properties: { type: "Power", value: 0 },
-	// 	decos: [1],
-	// 	rampageSkills: [[]],
-	// },
-	// {
-	// 	name: "Blast Switch Axe",
-	// 	type: "Switch Axe",
-	// 	raw: 330,
-	// 	status: {
-	// 		value: 44,
-	// 		type: "Blast",
-	// 	},
-	// 	sharpness: "White",
-	// 	properties: { type: "Element", value: 0 },
-	// 	decos: [2],
-	// 	rampageSkills: [[]],
-	// },
+	{
+		name: "Kamura -> Dragon Phial SA",
+		type: "Switch Axe",
+		raw: 330,
+		sharpness: [180, 30, 30, 10, 30, 50, 20],
+		handicraft: [50, 0, 0, 0],
+		properties: { type: "Dragon", value: 24 },
+		decos: [4],
+		rampageSkills: [["DullingStrike", "BrutalStrike", "ElementExploit", "BoostEquippedCoating"]],
+	},
+	{
+		name: "Mizutsune SA",
+		type: "Switch Axe",
+		raw: 320,
+		element: { value: 34, type: "Water" },
+		affinity: 15,
+		sharpness: [80, 80, 50, 60, 60, 20, 0],
+		handicraft: [20, 30, 0, 0],
+		properties: { type: "Power", value: 0 },
+		decos: [1],
+		rampageSkills: [[]],
+	},
+	{
+		name: "Rathalos SA",
+		type: "Switch Axe",
+		raw: 330,
+		element: { value: 37, type: "Fire" },
+		sharpness: [100, 100, 30, 50, 40, 30, 0],
+		handicraft: [20, 30, 0, 0],
+		properties: { type: "Power", value: 0 },
+		decos: [1],
+		rampageSkills: [[]],
+	},
+	{
+		name: "Blast SA",
+		type: "Switch Axe",
+		raw: 330,
+		status: { value: 44, type: "Blast" },
+		sharpness: [160, 50, 30, 20, 40, 50, 0],
+		handicraft: [50, 0, 0, 0],
+		properties: { type: "Element", value: 0 },
+		decos: [2],
+		rampageSkills: [[]],
+	},
 	// {
 	// 	name: "Delex Switch Axe",
 	// 	type: "Switch Axe",

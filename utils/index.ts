@@ -1,4 +1,5 @@
-import { Sharpness, Sharpnesses, WeaponSharpness } from "../data";
+import produce from "immer";
+import { Sharpness, Sharpnesses, WeaponHandicraft, WeaponSharpness } from "../data";
 
 export function sum(...args: (number | undefined)[]) {
 	return args.reduce<number>((sum, a) => (a ? sum + a : sum), 0);
@@ -33,4 +34,30 @@ export function calculateUI(base: number, multipliers = 1, bonuses = 0): number 
 export const getSharpnessFromArray = (w: WeaponSharpness) => {
 	const index = w.reduce<number>((acc, n, i) => (n > 0 ? i : acc), 0);
 	return Sharpnesses[index];
+};
+
+export const sharpnessHandicraft = (
+	ws: WeaponSharpness,
+	wh: WeaponHandicraft,
+	handicraftPoints: number,
+) => {
+	return produce(ws, (draft) => {
+		let baseIndex = draft.reduce<number>((acc, n, i) => (n > 0 ? i : acc), 0);
+		let bonusIndex = 0;
+
+		while (handicraftPoints > 0) {
+			const limit = wh[bonusIndex];
+			if (limit === 0) break; // weapon sharpness doesn't increase further
+
+			const bonus = handicraftPoints > limit ? limit : handicraftPoints;
+
+			draft[baseIndex] += bonus;
+			handicraftPoints -= bonus;
+
+			if (bonus == limit) {
+				baseIndex += 1;
+				bonusIndex += 1;
+			}
+		}
+	});
 };
