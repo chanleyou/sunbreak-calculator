@@ -1,3 +1,4 @@
+import produce from "immer";
 import { NextPage } from "next";
 import { useMemo } from "react";
 import { AttackRow, Box, NumberInput, ComboBox, ValueBox, BuffBox, Column } from "../components";
@@ -7,18 +8,15 @@ import {
 	HeavyBowgunAttacks,
 	LightBowgunAttacks,
 	SwitchAxeAttacks,
-	Model,
 } from "../data";
-import { useForceUpdate } from "../hooks";
+import { Model } from "../hooks";
 
 type Props = {
 	model: Model;
 	setModel: (m: Model) => void;
 };
 
-const Attacks: NextPage<Props> = ({ model, setModel }) => {
-	const forceUpdate = useForceUpdate();
-
+const Attacks: NextPage<Props> = ({ model }) => {
 	const attacks = useMemo(() => {
 		if (!model) return GreatSwordAttacks;
 		if (model.weapon.type === "Switch Axe") return SwitchAxeAttacks;
@@ -39,19 +37,13 @@ const Attacks: NextPage<Props> = ({ model, setModel }) => {
 						<NumberInput
 							label="Raw"
 							value={model.hitzone}
-							onChangeValue={(v) => {
-								model.hitzone = v;
-								forceUpdate();
-							}}
+							onChangeValue={(v) => model.setHitzone(v)}
 							min={0}
 						/>
 						<NumberInput
 							label="Elemental"
 							value={model.hitzoneEle}
-							onChangeValue={(v) => {
-								model.hitzoneEle = v;
-								forceUpdate();
-							}}
+							onChangeValue={(v) => model.setHitzoneEle(v)}
 							min={0}
 						/>
 					</div>
@@ -63,20 +55,23 @@ const Attacks: NextPage<Props> = ({ model, setModel }) => {
 								<th className="w-full">Attack</th>
 								<th>MV</th>
 								<th>Hit</th>
-								{model?.rampageSkills.includes("DullingStrike") && <th>DS Hit</th>}
+								{model.hasDullingStrike && <th>DS Hit</th>}
 								<th>Crit</th>
-								{model?.rampageSkills.includes("BrutalStrike") && <th>Brutal</th>}
-								{model?.rampageSkills.includes("DullingStrike") && <th>DS Crit</th>}
+								{model.hasBrutalStrike && <th>Brutal</th>}
+								{model.hasDullingStrike && <th>DS Crit</th>}
 								<th>Avg</th>
 							</tr>
 						</thead>
 						<tbody className="text-xs text-gray-600">
 							{attacks.map((a) => (
 								<AttackRow
-									onClick={() => {
-										model.combo.push(a);
-										forceUpdate();
-									}}
+									onClick={() =>
+										model.setCombo((combo) =>
+											produce(combo, (draft) => {
+												draft.push(a);
+											}),
+										)
+									}
 									key={a.name}
 									attack={a}
 									model={model}

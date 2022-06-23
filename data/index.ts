@@ -1,5 +1,3 @@
-import Model from "./model";
-
 export { Helms, Chests, Arms, Waists, Legs } from "./armor";
 export type { Armor } from "./armor";
 export { Decorations } from "./decorations";

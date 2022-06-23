@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, AttackRow } from ".";
+import { Box } from ".";
 import { useForceUpdate } from "../hooks";
-import { Model } from "../data";
+import { Model } from "../hooks";
 import { roundToDigits } from "../utils";
 
 type Props = {
@@ -23,7 +23,7 @@ export const ComboBox = ({ model }: Props) => {
 					</thead>
 					<tbody className="text-xs text-gray-600">
 						{model.combo.map((a, i) => {
-							const average = roundToDigits(model.average(a));
+							const average = roundToDigits(model.attackAverage(a));
 							return (
 								<tr
 									onClick={() => {
@@ -41,7 +41,9 @@ export const ComboBox = ({ model }: Props) => {
 					<tfoot>
 						<tr className="font-bold">
 							<td>Total:</td>
-							<td>{roundToDigits(model.combo.reduce((acc, a) => acc + model.average(a), 0))}</td>
+							<td>
+								{roundToDigits(model.combo.reduce((acc, a) => acc + model.attackAverage(a), 0))}
+							</td>
 						</tr>
 					</tfoot>
 				</table>

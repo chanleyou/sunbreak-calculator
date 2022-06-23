@@ -1,57 +1,41 @@
 import React from "react";
 import { Box, Checkbox, Select, NumberInput } from ".";
-import { Model, Demondrug, LongSwordSpiritGauge } from "../data";
+import { Demondrug, LongSwordSpiritGauge } from "../data";
+import { Model } from "../hooks";
 
 type Props = {
 	model: Model;
-	setModel: (m: Model) => void;
 };
 
-export const ComboBox = ({ model, setModel }: Props) => {
+export const ComboBox = ({ model }: Props) => {
 	return (
 		<Box head="Buffs">
 			<Select
 				label="Demondrug"
 				formatter={(v) => v}
 				options={Object.keys(Demondrug) as (keyof typeof Demondrug)[]}
-				onSelectOption={(v) => setModel(Model.from({ ...model, demondrug: v }))}
+				onSelectOption={model.setDemondrug}
 				value={model.demondrug}
 			/>
 			<div className="grid grid-cols-2">
-				<Checkbox
-					label="Powercharm"
-					value={model.powercharm}
-					onChangeValue={(v) => setModel(Model.from({ ...model, powercharm: v }))}
-				/>
-				<Checkbox
-					label="Powertalon"
-					value={model.powertalon}
-					onChangeValue={(v) => setModel(Model.from({ ...model, powertalon: v }))}
-				/>
-				<Checkbox
-					label="Might Seed"
-					value={model.mightSeed}
-					onChangeValue={(v) => setModel(Model.from({ ...model, mightSeed: v }))}
-				/>
+				<Checkbox label="Powercharm" value={model.powercharm} onChangeValue={model.setPowercharm} />
+				<Checkbox label="Powertalon" value={model.powertalon} onChangeValue={model.setPowertalon} />
+				<Checkbox label="Might Seed" value={model.mightSeed} onChangeValue={model.setMightSeed} />
 				<Checkbox
 					label="Demon Powder"
 					value={model.demonPowder}
-					onChangeValue={(v) => setModel(Model.from({ ...model, demonPowder: v }))}
+					onChangeValue={model.setDemonPowder}
 				/>
-				<Checkbox
-					label="Power Drum"
-					value={model.powerDrum}
-					onChangeValue={(v) => setModel(Model.from({ ...model, powerDrum: v }))}
-				/>
+				<Checkbox label="Power Drum" value={model.powerDrum} onChangeValue={model.setPowerDrum} />
 				<Checkbox
 					label="Rousing Roar"
 					value={model.rousingRoar}
-					onChangeValue={(v) => setModel(Model.from({ ...model, rousingRoar: v }))}
+					onChangeValue={model.setRousingRoar}
 				/>
 				<Checkbox
 					label="Dango Booster"
 					value={model.dangoBooster}
-					onChangeValue={(v) => setModel(Model.from({ ...model, dangoBooster: v }))}
+					onChangeValue={model.setDangoBooster}
 				/>
 			</div>
 			<h4 className="mt-3">Weapon</h4>
@@ -59,35 +43,30 @@ export const ComboBox = ({ model, setModel }: Props) => {
 				<Checkbox
 					label="Power Sheathe"
 					value={model.powerSheathe}
-					onChangeValue={(v) => setModel(Model.from({ ...model, powerSheathe: v }))}
+					onChangeValue={model.setPowerSheathe}
 				/>
 			)}
 			{model.weapon.type === "Long Sword" && (
 				<Select
 					label="Spirit Gauge"
 					options={Object.keys(LongSwordSpiritGauge) as (keyof typeof LongSwordSpiritGauge)[]}
-					onSelectOption={(o) => setModel(Model.from({ ...model, spiritGauge: o }))}
+					onSelectOption={model.setSpiritGauge}
 					formatter={(v) => v}
 				/>
 			)}
 			<h4 className="mt-3">Miscellaneous</h4>
 			<p className="text-xs text-slate-500 mb-1">Buffs from your Petalace, Hunting Horn, etc</p>
 			<div className="grid grid-cols-3 gap-2">
+				<NumberInput label="Raw (Flat)" value={model.miscRaw} onChangeValue={model.setMiscRaw} />
 				<NumberInput
-					label="Raw (+)"
-					value={model.miscRaw}
-					onChangeValue={(v) => setModel(Model.from({ ...model, miscRaw: v }))}
-				/>
-				<NumberInput
-					label="Raw (×)"
+					label="Raw (%)"
 					value={model.miscMultiplier}
-					onChangeValue={(v) => setModel(Model.from({ ...model, miscMultiplier: v }))}
-					step={0.01}
+					onChangeValue={model.setMiscMultiplier}
 				/>
 				<NumberInput
 					label="Affinity (%)"
 					value={model.miscAffinity}
-					onChangeValue={(v) => setModel(Model.from({ ...model, miscAffinity: v }))}
+					onChangeValue={model.setMiscAffinity}
 				/>
 			</div>
 		</Box>

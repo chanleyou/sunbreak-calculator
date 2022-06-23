@@ -15,7 +15,7 @@ import {
 	SharpnessEleMultipliers,
 	LongSwordSpiritGauge,
 } from ".";
-import { JSONclone, lowest, multiply, sum } from "../utils";
+import { JSONclone, lowest, multiply, sum, calculateUI } from "../utils";
 
 export interface ModelAttributes {
 	_weapon: Weapon;
@@ -54,10 +54,7 @@ export interface ModelAttributes {
 	combo?: Attack[];
 }
 
-export function calculateUI(base: number, multipliers = 1, bonuses = 0): number {
-	return Math.floor(base * multipliers + bonuses + 0.1);
-}
-
+// deprecated, use hooks/useModel.ts instead
 export class Model implements ModelAttributes {
 	// Weapon
 	_weapon: Weapon;

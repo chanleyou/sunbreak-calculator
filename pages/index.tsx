@@ -1,16 +1,17 @@
+import produce from "immer";
 import { NextPage } from "next";
-import React, { useMemo, useState } from "react";
+import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
 import {
 	ArmorSlot,
 	Column,
 	Box,
-	CharmSlot,
 	Select,
 	SkillToggle,
 	TextDisplay,
 	WeaponPickerModal,
 	ValueBox,
 	BuffBox,
+	CharmSlot,
 } from "../components";
 import {
 	Arms,
@@ -23,26 +24,66 @@ import {
 	SkillKey,
 	Skills,
 	Waists,
-	Model,
 } from "../data";
 import formatter from "../formatter";
-import { useForceUpdate } from "../hooks";
+import { Model } from "../hooks";
+
+function prod<T>(setter: Dispatch<SetStateAction<T>>) {
+	return (fn: (t: T) => void) => setter((n) => produce(n, fn));
+}
 
 type Props = {
 	model: Model;
-	setModel: (m: Model) => void;
 };
 
-const Main: NextPage<Props> = ({ model, setModel }) => {
-	const forceUpdate = useForceUpdate();
+const Main: NextPage<Props> = ({ model }) => {
+	const {
+		weapon,
+		setWeapon,
+		sharpness,
+		setSharpness,
+		rampageSkills,
+		setRampageSkills,
+		helm,
+		setHelm,
+		chest,
+		setChest,
+		arms,
+		setArms,
+		waist,
+		setWaist,
+		legs,
+		weaponDecos,
+		setWeaponDecos,
+		setLegs,
+		helmDecos,
+		setHelmDecos,
+		chestDecos,
+		setChestDecos,
+		armsDecos,
+		setArmsDecos,
+		waistDecos,
+		setWaistDecos,
+		legsDecos,
+		setLegsDecos,
+		charmDecos,
+		setCharmDecos,
+		charmSkillOne,
+		setCharmSkillOne,
+		charmSkillTwo,
+		setCharmSkillTwo,
+		skills,
+		disabledSkills,
+		setDisabledSkills,
+	} = model;
 
-	const [showWeaponPicker, setShowWeaponPicker] = useState(model == undefined);
+	const [showWeaponPicker, setShowWeaponPicker] = useState(false);
 
 	const isRanged = useMemo(() => {
-		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === model?.weapon.type);
-	}, [model]);
+		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === weapon.type);
+	}, [weapon]);
 
-	const property = formatter.formatWeaponProperties(model.weapon);
+	const property = formatter.formatWeaponProperties(weapon);
 
 	return (
 		<>
@@ -54,71 +95,63 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 							onClick={() => setShowWeaponPicker(true)}
 							className="text-element cursor-pointer text-xs"
 						>
-							{model.weapon.name}
+							{weapon.name}
 						</div>
 						<WeaponPickerModal
-							weapon={model.weapon}
-							setWeapon={(w) => {
-								if (w === model._weapon) return;
-								model.weapon = w;
-								forceUpdate();
-							}}
+							weapon={weapon}
+							setWeapon={setWeapon}
 							show={showWeaponPicker}
 							setShow={setShowWeaponPicker}
 						/>
 					</div>
 					<div className="grid grid-cols-3 gap-2">
-						<TextDisplay label="Raw" value={model.weapon.raw} />
+						<TextDisplay label="Raw" value={weapon.raw} />
 						<TextDisplay
 							label="Element"
-							value={model.weapon.element ? formatter.formatElement(model.weapon.element) : "0"}
+							value={weapon.element ? formatter.formatElement(weapon.element) : "0"}
 						/>
-						<TextDisplay
-							label="Affinity (%)"
-							value={model.weapon.affinity ? model.weapon.affinity : "0"}
-						/>
+						<TextDisplay label="Affinity (%)" value={weapon.affinity ? weapon.affinity : "0"} />
 					</div>
 					{property && <TextDisplay label={property.key} value={property.value} />}
 					{!isRanged && (
 						<Select
 							label="Sharpness"
 							options={[...Sharpnesses]}
-							value={model.sharpness}
-							onSelectOption={(s) => {
-								model.sharpness = s;
-								forceUpdate();
-							}}
+							value={sharpness}
+							onSelectOption={setSharpness}
 							formatter={(o) => o}
 							disabled={isRanged}
 						/>
 					)}
-					{model.weapon.rampageSkills.map((opts, i) => {
+					{weapon.rampageSkills.map((opts, i) => {
 						return (
 							<Select
-								key={`${model.weapon.name}-rs-${i}`}
+								key={`${weapon.name}-rs-${i}`}
 								options={opts}
-								onSelectOption={(v) => {
-									model.rampageSkills[i] = v;
-									forceUpdate();
-								}}
+								onSelectOption={(v) =>
+									prod(setRampageSkills)((rs) => {
+										rs[i] = v;
+									})
+								}
 								formatter={(v) => RampageSkills[v].name}
-								value={model.rampageSkills[i]}
+								value={rampageSkills[i]}
 								label="Rampage Skill"
 							/>
 						);
 					})}
 					<div className="grid grid-cols-3 gap-2">
-						{model.weapon.decos.map((s, i) => (
+						{weapon.decos.map((s, i) => (
 							<Select
-								key={`weapon-${model.weapon.name}-${i}`}
+								key={`weapon-${weapon.name}-${i}`}
 								label={`Decoration [${s}]`}
 								options={Decorations.filter((d) => d.rank <= s)}
-								value={model.weaponDecos[i]}
+								value={weaponDecos[i]}
 								formatter={(o) => o.name}
-								onSelectOption={(o) => {
-									model.weaponDecos[i] = o;
-									forceUpdate();
-								}}
+								onSelectOption={(d) =>
+									prod(setWeaponDecos)((ds) => {
+										ds[i] = d;
+									})
+								}
 							/>
 						))}
 					</div>
@@ -127,101 +160,76 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 					<ArmorSlot
 						label="Helm"
 						options={[...Helms]}
-						value={model.helm}
-						onSelectOption={(a) => {
-							model.helm = a;
-							setModel(model.refresh());
-						}}
-						decos={model.helmDecos}
-						onSelectDeco={(d, i) => {
-							model.helmDecos[i] = d;
-							forceUpdate();
-						}}
+						value={helm}
+						onSelectOption={setHelm}
+						decos={helmDecos}
+						onSelectDeco={(d, i) =>
+							prod(setHelmDecos)((ds) => {
+								ds[i] = d;
+							})
+						}
 					/>
 					<ArmorSlot
 						label="Chest"
 						options={[...Chests]}
-						value={model.chest}
-						onSelectOption={(a) => {
-							model.chest = a;
-							forceUpdate();
-						}}
-						decos={model.chestDecos}
-						onSelectDeco={(d, i) => {
-							model.chestDecos[i] = d;
-							forceUpdate();
-						}}
+						value={chest}
+						onSelectOption={setChest}
+						decos={chestDecos}
+						onSelectDeco={(d, i) =>
+							prod(setChestDecos)((ds) => {
+								ds[i] = d;
+							})
+						}
 					/>
 					<ArmorSlot
 						label="Arms"
 						options={[...Arms]}
-						value={model.arms}
-						onSelectOption={(a) => {
-							model.arms = a;
-							forceUpdate();
-						}}
-						decos={model.armsDecos}
-						onSelectDeco={(d, i) => {
-							model.armsDecos[i] = d;
-							forceUpdate();
-						}}
+						value={arms}
+						onSelectOption={setArms}
+						decos={armsDecos}
+						onSelectDeco={(d, i) =>
+							prod(setArmsDecos)((ds) => {
+								ds[i] = d;
+							})
+						}
 					/>
 					<ArmorSlot
 						label="Waist"
 						options={[...Waists]}
-						value={model.waist}
-						onSelectOption={(a) => {
-							model.waist = a;
-							forceUpdate();
-						}}
-						decos={model.waistDecos}
-						onSelectDeco={(d, i) => {
-							model.waistDecos[i] = d;
-							forceUpdate();
-						}}
+						value={waist}
+						onSelectOption={setWaist}
+						decos={waistDecos}
+						onSelectDeco={(d, i) =>
+							prod(setWaistDecos)((ds) => {
+								ds[i] = d;
+							})
+						}
 					/>
 					<ArmorSlot
 						label="Legs"
 						options={[...Legs]}
-						value={model.legs}
-						onSelectOption={(a) => {
-							model.legs = a;
-							forceUpdate();
-						}}
-						decos={model.legsDecos}
-						onSelectDeco={(d, i) => {
-							model.legsDecos[i] = d;
-							forceUpdate();
-						}}
+						value={legs}
+						onSelectOption={setLegs}
+						decos={legsDecos}
+						onSelectDeco={(d, i) =>
+							prod(setLegsDecos)((ds) => {
+								ds[i] = d;
+							})
+						}
 					/>
 				</Box>
 				<Box head="Charm">
-					<CharmSlot
-						value={model.charmSlotOne}
-						onSetValue={(ss) => {
-							model.charmSlotOne = ss;
-							forceUpdate();
-						}}
-					/>
-					<CharmSlot
-						value={model.charmSlotTwo}
-						onSetValue={(ss) => {
-							model.charmSlotTwo = ss;
-							forceUpdate();
-						}}
-					/>
+					<CharmSlot value={charmSkillOne} onSetValue={setCharmSkillOne} />
+					<CharmSlot value={charmSkillTwo} onSetValue={setCharmSkillTwo} />
 					<div className="grid grid-cols-3 gap-2">
 						{[4, 2, 1].map((s, i) => (
 							<Select
 								key={`charm-deco-${i}`}
 								label={`Decoration [${s}]`}
 								options={Decorations.filter((d) => d.rank <= s)}
-								value={model.charmDecos[i]}
+								value={charmDecos[i]}
 								formatter={(o) => o.name}
-								onSelectOption={(o) => {
-									model.charmDecos[i] = o;
-									forceUpdate();
-								}}
+								onSelectOption={(o) => prod(setCharmDecos)((ds) => (ds[i] = o))}
 							/>
 						))}
 					</div>
@@ -229,9 +237,9 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 			</Column>
 			<Column>
 				<ValueBox model={model} />
-				<BuffBox model={model} setModel={setModel} />
+				<BuffBox model={model} />
 				<Box head="Skills">
-					{(Object.entries(model.skills()) as [SkillKey, number][])
+					{(Object.entries(skills) as [SkillKey, number][])
 						.sort(([aS, aL], [bS, bL]) => {
 							if (aL < bL) return 1;
 							if (aL > bL) return -1;
@@ -244,13 +252,12 @@ const Main: NextPage<Props> = ({ model, setModel }) => {
 									key={skill}
 									value={value}
 									maxRank={Skills[skill].ranks.length}
-									active={!model.disabledSkills.includes(skill)}
+									active={!disabledSkills.includes(skill)}
 									canDisable={!("conditional" in Skills[skill])}
 									label={Skills[skill].name}
 									onChangeValue={(v) => {
-										if (!v) model.disabledSkills.push(skill);
-										else model.disabledSkills = model.disabledSkills.filter((s) => s !== skill);
-										forceUpdate();
+										if (!v) disabledSkills.push(skill);
+										else setDisabledSkills(disabledSkills.filter((s) => s !== skill));
 									}}
 								/>
 							);

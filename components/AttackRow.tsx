@@ -1,5 +1,6 @@
 import React from "react";
-import { Attack, Model } from "../data";
+import { Attack } from "../data";
+import { Model } from "../hooks";
 import { roundToDigits } from "../utils";
 
 type Props = {
@@ -20,7 +21,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 	const dullingStrikeCrit = model.dullCrit(attack);
 	const brutalStrike = model.brutalStrike(attack);
 
-	const average = roundToDigits(model.average(attack));
+	const average = roundToDigits(model.attackAverage(attack));
 
 	return (
 		<tr key={attack.name} onClick={onClick}>

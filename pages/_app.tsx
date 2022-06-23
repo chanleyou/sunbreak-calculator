@@ -1,12 +1,12 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { createContext } from "react";
 import { Header } from "../components";
-import { useState } from "react";
-import { Model, Weapons } from "../data";
 import "../styles/globals.css";
+import { useModel } from "../hooks";
 
 function MyApp({ Component, pageProps }: AppProps) {
-	const [model, setModel] = useState<Model>(Model.new(Weapons[0]));
+	const model = useModel();
 
 	return (
 		<>
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			</Head>
 			<Header />
 			<main className="p-2 gap-2 flex flex-col md:flex-row md:justify-center">
-				<Component {...pageProps} model={model} setModel={setModel} />
+				<Component {...pageProps} model={model} />
 			</main>
 		</>
 	);
