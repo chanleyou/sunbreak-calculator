@@ -7,7 +7,7 @@ type Props = {
 
 const TextDisplay = ({ label, value }: Props) => {
 	return (
-		<div className="py-1 mb-1">
+		<div>
 			<label>{label}</label>
 			<div className="text-element bg-slate-50 border-slate-300">{value}</div>
 		</div>

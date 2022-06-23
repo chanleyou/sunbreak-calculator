@@ -38,7 +38,7 @@
 	.text-element {
 		@apply p-1
 		text-xs
-		mb-1
+		mb-2
 		rounded
 		border border-gray-300 
 		w-full;
@@ -65,7 +65,7 @@
 	}
 
 	select {
-		@apply read-only:bg-white disabled:bg-gray-100 disabled:text-gray-600;
+		@apply read-only:bg-white disabled:bg-gray-100 disabled:border-gray-100 disabled:text-gray-600;
 	}
 
 	label {

@@ -22,7 +22,7 @@ export default function Select<T>({
 	small,
 	disabled,
 }: Props<T>) {
-	let className = "mb-1 relative";
+	let className = "mb-2 relative";
 	if (small) className += " flex items-baseline gap-2";
 
 	return (

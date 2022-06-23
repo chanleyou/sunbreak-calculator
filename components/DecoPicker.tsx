@@ -12,13 +12,6 @@ type Props = {
 const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 	const [show, setShow] = useState(false);
 
-	const classNames = [
-		"my-1",
-		"text-element",
-		!value ? "text-gray-500" : "text-neutral-900",
-		disabled ? "disabled" : "",
-	];
-
 	const options = Decorations.filter((d) => d.rank <= level).sort((a, b) => {
 		if (a.rank < b.rank) return -1;
 		if (a.rank > b.rank) return 1;
@@ -31,9 +24,10 @@ const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 				onClick={() => {
 					if (!disabled) setShow(true);
 				}}
-				className={classNames.join(" ")}
+				isPlaceholder={!value}
+				disabled={disabled}
 			>
-				{disabled ? "-" : value ? value.name : `Decoration [${level}]`}
+				{disabled ? "\u00a0" : value ? value.name : `Decoration [${level}]`}
 			</TextBox>
 			<Modal show={show} setShow={setShow} head={`Select Decoration ${level}`}>
 				<div className="overflow-scroll">
