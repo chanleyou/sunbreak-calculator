@@ -1,8 +1,7 @@
 import React from "react";
-import { Box, TextDisplay } from ".";
+import { Box, TextDisplay, SharpnessBar } from ".";
 import formatter from "../formatter";
 import { Model } from "../model";
-import SharpnessBar from "./SharpnessBar";
 
 type Props = {
 	model: Model;
