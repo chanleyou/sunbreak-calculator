@@ -14,17 +14,7 @@ import {
 	BuffBox,
 	TextBox,
 } from "../components";
-import {
-	Arms,
-	Chests,
-	Decorations,
-	Helms,
-	Legs,
-	RampageSkills,
-	SkillKey,
-	Skills,
-	Waists,
-} from "../data";
+import { Arms, Chests, Helms, Legs, RampageSkills, SkillKey, Skills, Waists } from "../data";
 import { Model } from "../model";
 
 function prod<T>(setter: Dispatch<SetStateAction<T>>) {

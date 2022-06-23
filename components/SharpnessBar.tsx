@@ -11,13 +11,14 @@ const SharpnessBar = ({ sharpnessArray, small }: Props) => {
 	return (
 		<div className={small ? "" : "py-1 mb-1"}>
 			{!small && <label>Sharpness</label>}
-			<div className="flex">
+			<div
+				className={`flex ${small ? "" : "bg-gray-300 border-4 border-r-8 border-gray-300 w-fit"}`}
+			>
 				{sharpnessArray.map((v, i) => {
+					if (v === 0) return;
 					return (
 						<div
-							className={`border ${small ? "h-3" : "h-4"} border-gray-300 ${
-								i == 0 ? "border-r-0" : i == sharpnessArray.length - 1 ? "border-l-0" : "border-x-0"
-							}`}
+							className={`inline-block ${small ? "h-3" : "h-4"}`}
 							key={`${id}-${i}`}
 							style={{ width: `${small ? v / 5 : v / 2}px`, backgroundColor: Sharpnesses[i] }}
 						/>

@@ -35,7 +35,7 @@ const Modal = ({ show, setShow, head, subhead, children }: Props) => {
 		>
 			<div
 				onClick={(e) => e.stopPropagation()}
-				className="bg-white rounded-sm drop-shadow p-4 w-full h-full md:w-240 md:h-5/6 flex flex-col"
+				className="bg-white rounded-sm drop-shadow p-4 w-full h-full md:w-240 h-5/6 flex flex-col"
 			>
 				{head && <h3 className="mb-2">{head}</h3>}
 				{subhead && <h5 className="text-gray-500 mb-2">{subhead}</h5>}

@@ -61,7 +61,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 
 							const classNames = ["cursor-pointer"];
 
-							if (weapon.name === w.name) classNames.push("bg-gray-200");
+							if (weapon.name === w.name) classNames.push("bg-gray-300");
 
 							return (
 								<tr
@@ -77,11 +77,17 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 									<td>{affinity}</td>
 									{sharpness && (
 										<td>
-											<SharpnessBar sharpnessArray={sharpness} small />
-											<SharpnessBar
-												sharpnessArray={sharpnessHandicraft(sharpness, handicraft, 50)}
-												small
-											/>
+											<div
+												className={
+													weapon.name === w.name ? "" : "bg-gray-300 border-4 border-gray-300"
+												}
+											>
+												<SharpnessBar sharpnessArray={sharpness} small />
+												<SharpnessBar
+													sharpnessArray={sharpnessHandicraft(sharpness, handicraft, 50)}
+													small
+												/>
+											</div>
 										</td>
 									)}
 									<td>{element && formatter.formatElement(element)}</td>
