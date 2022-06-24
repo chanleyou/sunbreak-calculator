@@ -53,6 +53,16 @@ export const Helms: Armor[] = [
 		],
 		decorations: [2],
 	},
+	{
+		name: "Narwa's Helm X",
+		skills: [
+			["ThunderAlignment", 1],
+			["RapidMorph", 1],
+			["OffensiveGuard", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Helms;

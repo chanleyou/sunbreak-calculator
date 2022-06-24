@@ -274,6 +274,10 @@ export const Skills = {
 		name: "Wind Alignment",
 		ranks: [1, 2, 3, 4, 5],
 	},
+	ThunderAlignment: {
+		name: "Thunder Alignment",
+		ranks: [1, 2, 3, 4, 5],
+	},
 	FlinchFree: {
 		name: "Flinch Free",
 		ranks: [1, 2, 3],
@@ -292,6 +296,10 @@ export const Skills = {
 	},
 	Slugger: {
 		name: "Slugger",
+		ranks: [1, 2, 3],
+	},
+	MarathonRunner: {
+		name: "Marathon Runner",
 		ranks: [1, 2, 3],
 	},
 } as const;

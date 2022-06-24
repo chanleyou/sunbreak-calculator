@@ -33,6 +33,7 @@ export const Decorations: Decoration[] = [
 	{ rank: 4, name: "Dragon Jewel 4", skill: ["DragonAttack", 4] },
 	{ rank: 2, name: "Attack Jewel 2", skill: ["AttackBoost", 1] },
 	{ rank: 2, name: "Expert Jewel 2", skill: ["CriticalEye", 1] },
+	{ rank: 2, name: "Wirebug Jewel 2", skill: ["WirebugWhisperer", 1] },
 	{ rank: 4, name: "Wirebug Jewel 4", skill: ["WirebugWhisperer", 2] },
 	{ rank: 2, name: "Crit Element Jewel 2", skill: ["CriticalElement", 1] },
 	{ rank: 4, name: "Crit Element Jewel 4", skill: ["CriticalElement", 2] },
@@ -47,4 +48,5 @@ export const Decorations: Decoration[] = [
 	{ rank: 2, name: "Shield Jewel 2", skill: ["Guard", 1] },
 	{ rank: 2, name: "Ironwall Jewel 2", skill: ["GuardUp", 1] },
 	{ rank: 4, name: "Earplugs Jewel 4", skill: ["Earplugs", 2] },
+	{ rank: 2, name: "Razor Jewel 2", skill: ["RazorSharp", 1] },
 ];
