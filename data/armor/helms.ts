@@ -43,6 +43,16 @@ export const Helms: Armor[] = [
 		],
 		decorations: [3],
 	},
+	{
+		name: "Ibushi's Helm X",
+		skills: [
+			["WindAlignment", 1],
+			["Focus", 1],
+			["EvadeExtender", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Helms;

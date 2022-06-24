@@ -18,6 +18,16 @@ export const Chests: Armor[] = [
 		],
 		decorations: [4, 1],
 	},
+	{
+		name: "Ibushi's Breastplate X",
+		skills: [
+			["WindAlignment", 1],
+			["Guard", 1],
+			["FlinchFree", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Chests;

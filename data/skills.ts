@@ -266,6 +266,34 @@ export const Skills = {
 		name: "Handicraft",
 		ranks: [10, 20, 30, 40, 50],
 	},
+	HungerResistance: {
+		name: "Hunger Resistance",
+		ranks: [1, 2, 3],
+	},
+	WindAlignment: {
+		name: "Wind Alignment",
+		ranks: [1, 2, 3, 4, 5],
+	},
+	FlinchFree: {
+		name: "Flinch Free",
+		ranks: [1, 2, 3],
+	},
+	Constitution: {
+		name: "Constitution",
+		ranks: [1, 2, 3],
+	},
+	StaminaSurge: {
+		name: "Stamina Surge",
+		ranks: [1, 2, 3],
+	},
+	EvadeWindow: {
+		name: "Evade Window",
+		ranks: [1, 2, 3],
+	},
+	Slugger: {
+		name: "Slugger",
+		ranks: [1, 2, 3],
+	},
 } as const;
 
 export type SkillMap = Partial<{ [key in SkillKey]: number }>;

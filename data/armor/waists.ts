@@ -19,6 +19,16 @@ export const Waists: Armor[] = [
 		],
 		decorations: [2, 1],
 	},
+	{
+		name: "Ibushi's Faulds",
+		skills: [
+			["WindAlignment", 1],
+			["PowerProlonger", 1],
+			["EvadeWindow", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Waists;

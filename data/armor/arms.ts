@@ -18,6 +18,16 @@ export const Arms: Armor[] = [
 		],
 		decorations: [4],
 	},
+	{
+		name: "Ibushi's Pauldrons X",
+		skills: [
+			["WindAlignment", 1],
+			["Constitution", 1],
+			["StaminaSurge", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Arms;

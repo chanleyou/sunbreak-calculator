@@ -142,14 +142,29 @@ export const useModel = () => {
 			(n): n is SkillSlot => n != undefined,
 		);
 
-		return [armorSkills, decoSkills, charmSkills].flat().reduce<SkillMap>((acc, [skill, value]) => {
-			const maxRank = Skills[skill].ranks.length;
-			const current = acc[skill];
-			const newValue = current ? current + value : value;
+		const base = [armorSkills, decoSkills, charmSkills]
+			.flat()
+			.reduce<SkillMap>((acc, [skill, value]) => {
+				const maxRank = Skills[skill].ranks.length;
+				const current = acc[skill];
+				const newValue = current ? current + value : value;
 
-			acc[skill] = lowest(newValue, maxRank);
-			return acc;
-		}, {});
+				acc[skill] = lowest(newValue, maxRank);
+				return acc;
+			}, {});
+
+		// Stormsoul
+		if (!base.Stormsoul || base.Stormsoul < 4) return base;
+		const bonus = base.Stormsoul - 3;
+
+		return produce(base, (draft) => {
+			(Object.entries(draft) as [SkillKey, number][]).forEach(([skill, level]) => {
+				if (skill === "Stormsoul") return;
+
+				const maxRank = Skills[skill].ranks.length;
+				draft[skill] = lowest(maxRank, level + bonus);
+			});
+		});
 	}, [helm, chest, arms, waist, legs, _decos, charmSkillOne, charmSkillTwo]);
 
 	const activeSkills = useMemo(() => {
@@ -414,7 +429,6 @@ export const useModel = () => {
 
 			const sharpnessEleMultiplier = sharpness ? SharpnessEleMultipliers[sharpness] : 1;
 
-			// TODO: check if phial burst, ED pre-finishers count as sword attacks for phial
 			const multipliers = [
 				eleMod,
 				sharpnessEleMultiplier,

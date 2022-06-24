@@ -17,6 +17,16 @@ export const Legs: Armor[] = [
 		],
 		decorations: [3, 1],
 	},
+	{
+		name: " Ibushi's Foot X",
+		skills: [
+			["WindAlignment", 1],
+			["Slugger", 1],
+			["GuardUp", 1],
+			["Stormsoul", 1],
+		],
+		decorations: [2],
+	},
 ];
 
 export default Legs;

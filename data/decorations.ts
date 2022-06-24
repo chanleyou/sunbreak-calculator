@@ -7,6 +7,7 @@ export type Decoration = {
 };
 
 export const Decorations: Decoration[] = [
+	{ rank: 1, name: "Hungerless Jewel 1", skill: ["HungerResistance", 1] },
 	{ rank: 1, name: "Grinder Jewel 1", skill: ["SpeedSharpening", 1] },
 	{ rank: 4, name: "Grinder Jewel 4", skill: ["SpeedSharpening", 3] },
 	{ rank: 1, name: "Blaze Jewel 1", skill: ["FireAttack", 1] },

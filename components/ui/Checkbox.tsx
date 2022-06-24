@@ -9,7 +9,7 @@ type Props = {
 
 export default function Checkbox({ value, onChangeValue, label, disabled }: Props) {
 	return (
-		<div>
+		<div className="flex my-2">
 			<input
 				type="checkbox"
 				checked={value}
