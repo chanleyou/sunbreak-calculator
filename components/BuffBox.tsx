@@ -10,8 +10,42 @@ type Props = {
 export const ComboBox = ({ model }: Props) => {
 	return (
 		<Box head="Buffs">
+			<div className="grid grid-cols-3">
+				{model.weapon.type === "Great Sword" && (
+					<Checkbox
+						label="Power Sheathe"
+						value={model.powerSheathe}
+						onChangeValue={model.setPowerSheathe}
+					/>
+				)}
+				{model.isRanged && (
+					<>
+						<Checkbox
+							label="Dango Marksman"
+							value={model.dangoMarksman}
+							onChangeValue={model.setDangoMarksman}
+						/>
+						<Checkbox
+							label="Dango Temper"
+							value={model.dangoTemper}
+							onChangeValue={model.setDangoTemper}
+						/>
+					</>
+				)}
+			</div>
+			{model.weapon.type === "Long Sword" && (
+				<>
+					<label>Spirit Gauge</label>
+					<Select
+						value={model.spiritGauge}
+						options={Object.keys(LongSwordSpiritGauge) as (keyof typeof LongSwordSpiritGauge)[]}
+						onSelectOption={model.setSpiritGauge}
+						formatter={(v) => v}
+					/>
+				</>
+			)}
+			<label>Demondrug</label>
 			<Select
-				label="Demondrug"
 				formatter={(v) => v}
 				options={Object.keys(Demondrug) as (keyof typeof Demondrug)[]}
 				onSelectOption={model.setDemondrug}
@@ -38,38 +72,6 @@ export const ComboBox = ({ model }: Props) => {
 					onChangeValue={model.setRousingRoar}
 				/>
 			</div>
-			<h4 className="mt-3">Weapon</h4>
-			<div className="grid grid-cols-2">
-				{model.weapon.type === "Great Sword" && (
-					<Checkbox
-						label="Power Sheathe"
-						value={model.powerSheathe}
-						onChangeValue={model.setPowerSheathe}
-					/>
-				)}
-			</div>
-			{model.isRanged && (
-				<>
-					<Checkbox
-						label="Dango Marksman"
-						value={model.dangoMarksman}
-						onChangeValue={model.setDangoMarksman}
-					/>
-					<Checkbox
-						label="Dango Temper"
-						value={model.dangoTemper}
-						onChangeValue={model.setDangoTemper}
-					/>
-				</>
-			)}
-			{model.weapon.type === "Long Sword" && (
-				<Select
-					label="Spirit Gauge"
-					options={Object.keys(LongSwordSpiritGauge) as (keyof typeof LongSwordSpiritGauge)[]}
-					onSelectOption={model.setSpiritGauge}
-					formatter={(v) => v}
-				/>
-			)}
 			<h4 className="mt-3">Miscellaneous</h4>
 			<p className="text-xs text-slate-500 mb-1">Buffs from your Petalace, Hunting Horn, etc</p>
 			<div className="grid grid-cols-3 gap-2">

@@ -79,7 +79,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 										<td>
 											<div
 												className={
-													weapon.name === w.name ? "" : "bg-gray-300 border-4 border-gray-300"
+													weapon.name === w.name ? "" : "bg-gray-300 border-4 border-gray-300 w-fit"
 												}
 											>
 												<SharpnessBar sharpnessArray={sharpness} small />
