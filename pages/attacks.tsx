@@ -65,7 +65,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 								<th>Hit</th>
 								{model.hasDullingStrike && <th>DS Hit</th>}
 								<th>Crit</th>
-								{model.hasBrutalStrike && <th>Brutal</th>}
+								{model.brutalStrikeChance > 0 && <th>Brutal</th>}
 								{model.hasDullingStrike && <th>DS Crit</th>}
 								<th>Avg</th>
 							</tr>

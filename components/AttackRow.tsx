@@ -32,7 +32,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 					<td>{hit}</td>
 					{model.rampageSkills.includes("DullingStrike") && <td>{dullingStrikeHit}</td>}
 					<td>{noCrit ? "-" : crit}</td>
-					{model.rampageSkills.includes("BrutalStrike") && <td>{noCrit ? "-" : brutalStrike}</td>}
+					{model.brutalStrikeChance > 0 && <td>{noCrit ? "-" : brutalStrike}</td>}
 					{model.rampageSkills.includes("DullingStrike") && (
 						<td>{noCrit ? "-" : dullingStrikeCrit}</td>
 					)}
