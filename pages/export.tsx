@@ -42,14 +42,22 @@ const Export: NextPage<Props> = ({ model }) => {
 
 			model.setCharmSkillOne(json.charmSkillOne);
 			model.setCharmSkillTwo(json.charmSkillTwo);
+
+			// Buffs
 			model.setDemondrug(json.demondrug);
 			model.setPowercharm(json.powercharm);
 			model.setPowertalon(json.powertalon);
 			model.setDangoBooster(json.dangoBooster);
 			model.setMightSeed(json.mightSeed);
 			model.setDemonPowder(json.demonPowder);
+
+			// Weapon Buffs
 			model.setSpiritGauge(json.spiritGauge);
 			model.setPowerSheathe(json.powerSheathe);
+			model.setGroundSplitter(json.groundSplitter);
+			model.setDangoMarksman(json.dangoMarksman);
+			model.setDangoTemper(json.dangoTemper);
+
 			model.setMiscRaw(json.miscRaw);
 			model.setMiscMultiplier(json.miscMultiplier);
 			model.setMiscAffinity(json.miscAffinity);

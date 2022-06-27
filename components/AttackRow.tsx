@@ -28,13 +28,13 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 			<td>{name}</td>
 			{!short && (
 				<>
-					<td>{mv}</td>
+					<td>{mv ? mv : ""}</td>
 					<td>{hit}</td>
 					{model.rampageSkills.includes("DullingStrike") && <td>{dullingStrikeHit}</td>}
-					<td>{noCrit ? "-" : crit}</td>
-					{model.brutalStrikeChance > 0 && <td>{noCrit ? "-" : brutalStrike}</td>}
+					<td>{noCrit ? "" : crit}</td>
+					{model.brutalStrikeChance > 0 && <td>{noCrit ? "" : brutalStrike}</td>}
 					{model.rampageSkills.includes("DullingStrike") && (
-						<td>{noCrit ? "-" : dullingStrikeCrit}</td>
+						<td>{noCrit ? "" : dullingStrikeCrit}</td>
 					)}
 				</>
 			)}

@@ -11,6 +11,13 @@ export const ComboBox = ({ model }: Props) => {
 	return (
 		<Box head="Buffs">
 			<div className="grid grid-cols-3">
+				{model.weapon.type === "Gunlance" && (
+					<Checkbox
+						label="Ground Splitter"
+						value={model.groundSplitter}
+						onChangeValue={model.setGroundSplitter}
+					/>
+				)}
 				{model.weapon.type === "Great Sword" && (
 					<Checkbox
 						label="Power Sheathe"

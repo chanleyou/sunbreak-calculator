@@ -15,7 +15,6 @@ export const GunlanceAttacks: Attack[] = [
 	{ name: "Rising Slash", mv: 30 },
 	{ name: "Overhead Smash", mv: 48 },
 	{ name: "Wide Sweep", mv: 68 },
-	{ name: "Wyrmstake Cannon (1st Hit)", mv: 28 },
 	{ name: "Blast Dash Overhead Smash", mv: 55 },
 	{ name: "Jumping Thrust", mv: 25 },
 	{ name: "Jumping Smash", mv: 44 },
@@ -25,7 +24,9 @@ export const GunlanceAttacks: Attack[] = [
 	{
 		name: "Shelling",
 		mv: 0,
+		ignoreHz: true,
 		noCrit: true,
+		artillery: true,
 		shelling: {
 			Normal: [
 				{ raw: 8, fire: 4 },
@@ -51,9 +52,41 @@ export const GunlanceAttacks: Attack[] = [
 		},
 	},
 	{
+		name: "Shelling (Burst Fire)",
+		mv: 0,
+		noCrit: true,
+		ignoreHz: true,
+		artillery: true,
+		shelling: {
+			Normal: [
+				{ raw: 9, fire: 5 },
+				{ raw: 12, fire: 7 },
+				{ raw: 16, fire: 8 },
+				{ raw: 19, fire: 9 },
+				{ raw: 22, fire: 10 },
+			],
+			Wide: [
+				{ raw: 18, fire: 6 },
+				{ raw: 25, fire: 8 },
+				{ raw: 31, fire: 9 },
+				{ raw: 36, fire: 10 },
+				{ raw: 40, fire: 11 },
+			],
+			Long: [
+				{ raw: 12, fire: 9 },
+				{ raw: 17, fire: 11 },
+				{ raw: 22, fire: 13 },
+				{ raw: 26, fire: 15 },
+				{ raw: 29, fire: 16 },
+			],
+		},
+	},
+	{
 		name: "Charged Shelling",
 		mv: 0,
 		noCrit: true,
+		ignoreHz: true,
+		artillery: true,
 		shelling: {
 			Normal: [
 				{ raw: 12, fire: 6 },
@@ -79,9 +112,11 @@ export const GunlanceAttacks: Attack[] = [
 		},
 	},
 	{
-		name: "Strong Charged Shelling",
+		name: "Charged Shelling Lv2",
 		mv: 0,
 		noCrit: true,
+		ignoreHz: true,
+		artillery: true,
 		shelling: {
 			Normal: [
 				{ raw: 12, fire: 6 },
@@ -106,16 +141,80 @@ export const GunlanceAttacks: Attack[] = [
 			],
 		},
 	},
+	{ name: "Wyrmstake Cannon (1st Hit)", mv: 28 },
+	{
+		name: "Wyrmstake (Tick)",
+		mv: 0,
+		noCrit: true,
+		shelling: {
+			Normal: [
+				{ raw: 8, fire: 0 },
+				{ raw: 11, fire: 0 },
+				{ raw: 14, fire: 0 },
+				{ raw: 16, fire: 0 },
+				{ raw: 18, fire: 0 },
+			],
+			Wide: [
+				{ raw: 70, fire: 0 },
+				{ raw: 78, fire: 0 },
+				{ raw: 86, fire: 0 },
+				{ raw: 94, fire: 0 },
+				{ raw: 100, fire: 0 },
+			],
+			Long: [
+				{ raw: 8, fire: 0 },
+				{ raw: 11, fire: 0 },
+				{ raw: 14, fire: 0 },
+				{ raw: 16, fire: 0 },
+				{ raw: 18, fire: 0 },
+			],
+		},
+	},
+	{
+		name: "Wyrmstake (Explosion)",
+		mv: 0,
+		noCrit: true,
+		ignoreHz: true,
+		artillery: true,
+		shelling: {
+			Normal: [
+				{ raw: 60, fire: 15 },
+				{ raw: 68, fire: 17 },
+				{ raw: 76, fire: 19 },
+				{ raw: 83, fire: 20 },
+				{ raw: 90, fire: 21 },
+			],
+			Wide: [
+				{ raw: 80, fire: 10 },
+				{ raw: 90, fire: 12 },
+				{ raw: 100, fire: 14 },
+				{ raw: 110, fire: 16 },
+				{ raw: 120, fire: 18 },
+			],
+			Long: [
+				{ raw: 60, fire: 15 },
+				{ raw: 68, fire: 17 },
+				{ raw: 76, fire: 19 },
+				{ raw: 83, fire: 20 },
+				{ raw: 90, fire: 21 },
+			],
+		},
+	},
 	{
 		name: "Wyvern's Fire",
 		mv: 0,
 		noCrit: true,
+		ignoreHz: true,
+		artillery: true,
 		shelling: {
 			Normal: WyvernFire,
 			Wide: WyvernFire,
 			Long: WyvernFire,
 		},
 	},
+	{ name: "Hail Cutter (1st Hit)", mv: 30, silkbind: true },
+	{ name: "Hail Cutter (2st Hit)", mv: 85, eleMod: 2, silkbind: true },
+	{ name: "Ground Splitter", mv: 68, silkbind: true },
 ];
 
 export default GunlanceAttacks;

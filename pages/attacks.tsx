@@ -1,4 +1,4 @@
-import produce from "immer";
+import { produce } from "immer";
 import { NextPage } from "next";
 import { useMemo } from "react";
 import { AttackRow, Box, NumberInput, ComboBox, ValueBox, BuffBox, Column } from "../components";
@@ -18,20 +18,23 @@ type Props = {
 
 const Attacks: NextPage<Props> = ({ model }) => {
 	const attacks = useMemo(() => {
-		if (!model) return GreatSwordAttacks;
-		if (model.weapon.type === "Switch Axe") return SwitchAxeAttacks;
-		if (model.weapon.type === "Great Sword") return GreatSwordAttacks;
-		if (model.weapon.type === "Gunlance") {
-			const output = GunlanceAttacks;
+		const { type, properties } = model.weapon;
 
-			if (model.weapon.properties.type != "Wide") {
-				return output.filter((a) => a.name !== "Strong Charged Shelling");
-			}
-
-			return output;
+		if (type === "Switch Axe") return SwitchAxeAttacks;
+		if (type === "Great Sword") return GreatSwordAttacks;
+		if (type === "Gunlance") {
+			return produce(GunlanceAttacks, (draft) => {
+				if (properties.type != "Wide") {
+					draft = draft.filter((a) => a.name !== "Charged Shelling Lv2");
+				}
+				if (properties.type != "Normal") {
+					draft = draft.filter((a) => a.name !== "Shelling (Burst Fire)");
+				}
+				return draft;
+			});
 		}
-		if (model.weapon.type === "Light Bowgun") return LightBowgunAttacks;
-		if (model.weapon.type === "Heavy Bowgun") return HeavyBowgunAttacks;
+		if (type === "Light Bowgun") return LightBowgunAttacks;
+		if (type === "Heavy Bowgun") return HeavyBowgunAttacks;
 		return GreatSwordAttacks;
 	}, [model]);
 

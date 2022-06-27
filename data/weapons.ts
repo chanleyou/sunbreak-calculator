@@ -160,9 +160,9 @@ export const Weapons: Weapon[] = [
 		properties: { type: "Element", value: 0 },
 	},
 	{
-		name: "Some Gunlance",
+		name: "Sample Gunlance",
 		type: "Gunlance",
-		raw: 0,
+		raw: 200,
 		sharpness: [0, 0, 0, 0, 0, 0, 0],
 		handicraft: [0, 0, 0, 0],
 		decos: [],

@@ -94,6 +94,7 @@ export const useModel = () => {
 	// Weapon Buffs
 	const [spiritGauge, setSpiritGauge] = useState<keyof typeof LongSwordSpiritGauge>();
 	const [powerSheathe, setPowerSheathe] = useState(false);
+	const [groundSplitter, setGroundSplitter] = useState(false);
 	const [dangoTemper, setDangoTemper] = useState(false);
 	const [dangoMarksman, setDangoMarksman] = useState(false);
 
@@ -365,14 +366,19 @@ export const useModel = () => {
 
 	const rawHit = useCallback(
 		(attack: Attack): number => {
-			const { mv, hzMod, ignoreHz, morph, sword, silkbind, shelling } = attack;
+			const { mv, hzMod, ignoreHz, morph, sword, silkbind, shelling, artillery } = attack;
 
 			if (weapon.type === "Gunlance" && shelling) {
-				const artillery = activeSkills.Artillery
-					? Skills.Artillery.ranks[activeSkills.Artillery - 1]
-					: 1;
-
-				return shelling[weapon.properties.type][weapon.properties.value - 1].raw * artillery;
+				return (
+					shelling[weapon.properties.type][weapon.properties.value - 1].raw *
+					multiply(
+						artillery && activeSkills.Artillery
+							? Skills.Artillery.ranks[activeSkills.Artillery - 1]
+							: 1,
+						artillery && groundSplitter ? 1.2 : 1,
+						ignoreHz ? 1 : hitzone / 100,
+					)
+				);
 			}
 
 			const sharpnessRawMultiplier = sharpness ? SharpnessRawMultipliers[sharpness] : 1;
@@ -405,20 +411,21 @@ export const useModel = () => {
 			isRanged,
 			dangoMarksman,
 			dangoTemper,
+			groundSplitter,
 		],
 	);
 
 	const eleHit = useCallback(
 		(attack: Attack): number => {
-			const { sword, eleMod, shelling } = attack;
+			const { sword, eleMod, shelling, artillery } = attack;
 
 			if (weapon.type === "Gunlance" && shelling) {
-				const artillery = activeSkills.Artillery
-					? Skills.Artillery.ranks[activeSkills.Artillery - 1]
-					: 1;
 				return multiply(
 					shelling[weapon.properties.type][weapon.properties.value - 1].fire,
-					artillery,
+					artillery && activeSkills.Artillery
+						? Skills.Artillery.ranks[activeSkills.Artillery - 1]
+						: 1,
+					artillery && groundSplitter ? 1.2 : 1,
 					hitzoneEle / 100,
 				);
 			}
@@ -439,7 +446,16 @@ export const useModel = () => {
 
 			return base * multiply(...multipliers);
 		},
-		[effectiveEle, dragonPhial, hitzoneEle, rampageSkills, weapon, sharpness, activeSkills],
+		[
+			effectiveEle,
+			dragonPhial,
+			hitzoneEle,
+			rampageSkills,
+			weapon,
+			sharpness,
+			activeSkills,
+			groundSplitter,
+		],
 	);
 
 	const rawCrit = useCallback(
@@ -599,6 +615,8 @@ export const useModel = () => {
 		setSpiritGauge,
 		powerSheathe,
 		setPowerSheathe,
+		groundSplitter,
+		setGroundSplitter,
 		dangoMarksman,
 		setDangoMarksman,
 		dangoTemper,
