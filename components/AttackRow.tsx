@@ -24,7 +24,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 	const average = roundToDigits(model.attackAverage(attack));
 
 	return (
-		<tr key={attack.name} onClick={onClick}>
+		<tr className="cursor-pointer" key={attack.name} onClick={onClick}>
 			<td>{name}</td>
 			{!short && (
 				<>

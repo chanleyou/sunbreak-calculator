@@ -14,7 +14,7 @@ const CharmSlot = ({ value, onSetValue }: Props) => {
 				<Select
 					value={value ? value[0] : undefined}
 					label="Skill"
-					options={Object.keys(Skills) as SkillKey[]}
+					options={(Object.keys(Skills) as SkillKey[]).sort((a, b) => (a > b ? 1 : -1))}
 					renderer={(t) => Skills[t as SkillKey].name}
 					formatter={(t) => t}
 					onSelectOption={(skill) => {

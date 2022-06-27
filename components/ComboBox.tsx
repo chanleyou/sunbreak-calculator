@@ -24,6 +24,7 @@ export const ComboBox = ({ model }: Props) => {
 							const average = roundToDigits(model.attackAverage(a));
 							return (
 								<tr
+									className="cursor-pointer"
 									onClick={() => {
 										model.setCombo((c) =>
 											produce(c, (d) => {

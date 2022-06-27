@@ -292,7 +292,7 @@ export const Skills = {
 	},
 	EvadeWindow: {
 		name: "Evade Window",
-		ranks: [1, 2, 3],
+		ranks: [1, 2, 3, 4, 5],
 	},
 	Slugger: {
 		name: "Slugger",

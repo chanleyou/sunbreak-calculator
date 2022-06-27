@@ -97,6 +97,7 @@ export const useModel = () => {
 	const [groundSplitter, setGroundSplitter] = useState(false);
 	const [dangoTemper, setDangoTemper] = useState(false);
 	const [dangoMarksman, setDangoMarksman] = useState(false);
+	const [dangoBombardier, setDangoBombardier] = useState(false);
 
 	// Misc. Buffs
 	const [miscRaw, setMiscRaw] = useState(0);
@@ -376,6 +377,7 @@ export const useModel = () => {
 							? Skills.Artillery.ranks[activeSkills.Artillery - 1]
 							: 1,
 						artillery && groundSplitter ? 1.2 : 1,
+						artillery && dangoBombardier ? 1.1 : 1,
 						ignoreHz ? 1 : hitzone / 100,
 					)
 				);
@@ -409,9 +411,10 @@ export const useModel = () => {
 			rampageSkills,
 			effectiveRaw,
 			isRanged,
+			groundSplitter,
 			dangoMarksman,
 			dangoTemper,
-			groundSplitter,
+			dangoBombardier,
 		],
 	);
 
@@ -426,6 +429,7 @@ export const useModel = () => {
 						? Skills.Artillery.ranks[activeSkills.Artillery - 1]
 						: 1,
 					artillery && groundSplitter ? 1.2 : 1,
+					artillery && dangoBombardier ? 1.1 : 1,
 					hitzoneEle / 100,
 				);
 			}
@@ -455,6 +459,7 @@ export const useModel = () => {
 			sharpness,
 			activeSkills,
 			groundSplitter,
+			dangoBombardier,
 		],
 	);
 
@@ -621,6 +626,8 @@ export const useModel = () => {
 		setDangoMarksman,
 		dangoTemper,
 		setDangoTemper,
+		dangoBombardier,
+		setDangoBombardier,
 		miscRaw,
 		setMiscRaw,
 		miscMultiplier,

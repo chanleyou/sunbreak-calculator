@@ -12,11 +12,18 @@ export const ComboBox = ({ model }: Props) => {
 		<Box head="Buffs">
 			<div className="grid grid-cols-3">
 				{model.weapon.type === "Gunlance" && (
-					<Checkbox
-						label="Ground Splitter"
-						value={model.groundSplitter}
-						onChangeValue={model.setGroundSplitter}
-					/>
+					<>
+						<Checkbox
+							label="Ground Splitter"
+							value={model.groundSplitter}
+							onChangeValue={model.setGroundSplitter}
+						/>
+						<Checkbox
+							label="Dango Bombardier"
+							value={model.dangoBombardier}
+							onChangeValue={model.setDangoBombardier}
+						/>
+					</>
 				)}
 				{model.weapon.type === "Great Sword" && (
 					<Checkbox
