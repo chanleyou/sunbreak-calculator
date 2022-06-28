@@ -70,7 +70,8 @@ export interface IWeapon {
 	element?: WeaponElement;
 	status?: WeaponStatus;
 	rampageSkills: RampageSkillKey[][];
-	properties?: SwitchAxePhial | ChargeBladePhial | GunlanceShelling | HuntingHornSongs;
+	songs?: HuntingHornSongs;
+	properties?: SwitchAxePhial | ChargeBladePhial | GunlanceShelling | KinsectLevel;
 }
 
 export type WeaponElement = {
@@ -101,7 +102,7 @@ export const LongSwordSpiritGauge = {
 
 export type Hammer = IMeleeWeapon & { type: "Hammer" };
 
-export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; properties: HuntingHornSongs };
+export type HuntingHorn = IMeleeWeapon & { type: "Hunting Horn"; songs: HuntingHornSongs };
 
 export type HuntingHornSongs = [string, string, string];
 
@@ -127,7 +128,9 @@ export type ChargeBladePhial = "Impact" | "Element";
 
 export type ChargeBlade = IMeleeWeapon & { type: "Charge Blade"; properties: ChargeBladePhial };
 
-export type InsectGlaive = IMeleeWeapon & { type: "Insect Glaive"; kinsectLevel: number };
+export type KinsectLevel = number;
+
+export type InsectGlaive = IMeleeWeapon & { type: "Insect Glaive"; properties: KinsectLevel };
 
 export type Bow = IWeapon & { type: "Bow"; sharpness: undefined; handicraft: undefined };
 

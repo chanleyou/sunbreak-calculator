@@ -14,7 +14,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 90, 60, 0, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S)"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Kamura Chorus II",
@@ -29,7 +29,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 70, 70, 0, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S)"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Kamura Chorus III",
@@ -44,7 +44,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 70, 90, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S)"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Kamura Chorus IV",
@@ -59,7 +59,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 80, 80, 20, 10, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S)"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Kamura Chorus V",
@@ -74,7 +74,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 80, 90, 40, 30, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Kamura Ninja Horn",
@@ -89,7 +89,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [40, 90, 60, 60, 50, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Poetic Bell I",
@@ -105,7 +105,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 20 },
 		sharpness: [60, 40, 90, 60, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Poetic Bell II",
@@ -121,7 +121,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 24 },
 		sharpness: [60, 80, 100, 80, 30, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Summoning Bell",
@@ -137,7 +137,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 28 },
 		sharpness: [60, 40, 120, 90, 40, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (S)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sublime Bell I",
@@ -153,7 +153,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 24 },
 		sharpness: [190, 40, 40, 30, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Sublime Bell II",
@@ -169,7 +169,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 26 },
 		sharpness: [190, 40, 40, 30, 40, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Araknahorn",
@@ -185,7 +185,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 29 },
 		sharpness: [190, 30, 40, 30, 40, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Basarios Rock I",
@@ -201,7 +201,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 10 },
 		sharpness: [20, 20, 180, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
+		songs: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
 	},
 	{
 		name: "Basarios Rock Mk.II",
@@ -217,7 +217,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 12 },
 		sharpness: [20, 10, 180, 40, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
+		songs: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
 	},
 	{
 		name: "Gigant Rock",
@@ -233,7 +233,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 15 },
 		sharpness: [20, 30, 180, 70, 0, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
+		songs: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
 	},
 	{
 		name: "Usurper's Growl I",
@@ -249,7 +249,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 20 },
 		sharpness: [60, 40, 50, 100, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
+		songs: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
 	},
 	{
 		name: "Usurper's Growl II",
@@ -265,7 +265,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 24 },
 		sharpness: [60, 30, 100, 90, 20, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
+		songs: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
 	},
 	{
 		name: "Despot's Thunderclap",
@@ -281,7 +281,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 28 },
 		sharpness: [60, 40, 120, 100, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
+		songs: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
 	},
 	{
 		name: "Zurogong Primo I",
@@ -296,7 +296,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [140, 20, 40, 0, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Attack Up", "Defense Up", "Sonic Barrier"],
+		songs: ["Attack Up", "Defense Up", "Sonic Barrier"],
 	},
 	{
 		name: "Zurogong Primo II",
@@ -311,7 +311,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [140, 30, 50, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Defense Up", "Sonic Barrier"],
+		songs: ["Attack Up", "Defense Up", "Sonic Barrier"],
 	},
 	{
 		name: "Zurogong Secundo",
@@ -326,7 +326,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [20, 50, 150, 80, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Attack Up", "Defense Up", "Sonic Barrier"],
+		songs: ["Attack Up", "Defense Up", "Sonic Barrier"],
 	},
 	{
 		name: "Striped Dragonga I",
@@ -341,7 +341,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 30, 100, 90, 10, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Striped Dragonga II",
@@ -356,7 +356,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 40, 130, 100, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Tigrex Horn",
@@ -371,7 +371,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 50, 120, 120, 30, 30, 0],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Bariguiro I",
@@ -387,7 +387,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 15 },
 		sharpness: [50, 50, 80, 70, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Bariguiro II",
@@ -403,7 +403,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 18 },
 		sharpness: [50, 30, 130, 100, 40, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Algiguiro",
@@ -419,7 +419,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 20 },
 		sharpness: [50, 70, 80, 100, 50, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Frilled Flute I",
@@ -435,7 +435,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 12 },
 		sharpness: [50, 50, 120, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Frilled Flute II",
@@ -451,7 +451,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 15 },
 		sharpness: [40, 60, 110, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Illusory Flute",
@@ -467,7 +467,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 19 },
 		sharpness: [50, 90, 120, 90, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Iron Horn I",
@@ -482,7 +482,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 70, 50, 0, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
 	},
 	{
 		name: "Wind Horn",
@@ -497,7 +497,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 60, 70, 0, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
 	},
 	{
 		name: "Metal Bagpipe I",
@@ -512,7 +512,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 60, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
 	},
 	{
 		name: "Great Bagpipe",
@@ -527,7 +527,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 60, 70, 50, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Defense Up"],
 	},
 	{
 		name: "Heavy Bagpipe I",
@@ -542,7 +542,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [100, 90, 90, 50, 20, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
 	},
 	{
 		name: "Fortissimo",
@@ -557,7 +557,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [90, 90, 90, 50, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
 	},
 	{
 		name: "Hidden Harmonic I",
@@ -572,7 +572,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [100, 30, 70, 100, 50, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Hidden Harmonic II",
@@ -587,7 +587,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 40, 120, 90, 60, 20, 0],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Cry in the Night",
@@ -602,7 +602,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 40, 100, 90, 70, 30, 0],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Pukei Bagpipe I",
@@ -618,7 +618,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 18 },
 		sharpness: [60, 70, 20, 50, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Pukei Bagpipe II",
@@ -634,7 +634,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 24 },
 		sharpness: [60, 60, 70, 90, 20, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Datura Lurr",
@@ -650,7 +650,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 27 },
 		sharpness: [60, 60, 100, 100, 30, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Flammenkornett I",
@@ -666,7 +666,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 18 },
 		sharpness: [140, 120, 30, 60, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Flammenkornett II",
@@ -682,7 +682,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 20 },
 		sharpness: [130, 120, 20, 80, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Forte Flammenkornett",
@@ -698,7 +698,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 22 },
 		sharpness: [120, 120, 30, 60, 20, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Valkyrie Chordmaker I",
@@ -714,7 +714,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 16 },
 		sharpness: [50, 50, 100, 50, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Valkyrie Chordmaker II",
@@ -730,7 +730,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 18 },
 		sharpness: [40, 50, 90, 70, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Queen Chordmaker",
@@ -746,7 +746,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 22 },
 		sharpness: [40, 60, 90, 90, 20, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Sandpipe I",
@@ -761,7 +761,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 130, 0, 0, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sandpipe II",
@@ -776,7 +776,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 70, 120, 40, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sandcrier",
@@ -791,7 +791,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 70, 130, 90, 0, 0, 0],
 		handicraft: [20, 10, 20, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Frog Flute I",
@@ -807,7 +807,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 12 },
 		sharpness: [30, 70, 80, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Frog Flute II",
@@ -823,7 +823,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 16 },
 		sharpness: [40, 90, 110, 60, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Amphibia Allargando",
@@ -839,7 +839,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 18 },
 		sharpness: [40, 90, 110, 110, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Wind Thief Horn I",
@@ -854,7 +854,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 50, 50, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
+		songs: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Wind Thief Horn II",
@@ -869,7 +869,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 50, 70, 50, 0, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
+		songs: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Gale Horn",
@@ -884,7 +884,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 70, 30, 70, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
+		songs: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Droth Drone I",
@@ -900,7 +900,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 30 },
 		sharpness: [50, 40, 70, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Droth Drone II",
@@ -916,7 +916,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 32 },
 		sharpness: [60, 60, 80, 50, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Droth Roar",
@@ -932,7 +932,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 35 },
 		sharpness: [60, 50, 70, 90, 30, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Bone Horn I",
@@ -947,7 +947,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 90, 40, 0, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Defense Up", "Attack Up"],
+		songs: ["Environment Damage Negated", "Defense Up", "Attack Up"],
 	},
 	{
 		name: "Bone Horn II",
@@ -962,7 +962,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 70, 50, 0, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Defense Up", "Attack Up"],
+		songs: ["Environment Damage Negated", "Defense Up", "Attack Up"],
 	},
 	{
 		name: "Hardened Bone Horn",
@@ -977,7 +977,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [100, 70, 70, 10, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Defense Up", "Attack Up"],
+		songs: ["Environment Damage Negated", "Defense Up", "Attack Up"],
 	},
 	{
 		name: "Hunter's Horn I",
@@ -992,7 +992,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 70, 60, 40, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Environment Damage Negated", "Divine Protection", "Attack Up"],
+		songs: ["Environment Damage Negated", "Divine Protection", "Attack Up"],
 	},
 	{
 		name: "Native's Horn",
@@ -1007,7 +1007,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [150, 120, 20, 60, 0, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Environment Damage Negated", "Divine Protection", "Attack Up"],
+		songs: ["Environment Damage Negated", "Divine Protection", "Attack Up"],
 	},
 	{
 		name: "Duo Horn I",
@@ -1022,7 +1022,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [90, 80, 80, 100, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Duo Horn II",
@@ -1037,7 +1037,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [90, 60, 80, 120, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Duo Risoluto",
@@ -1052,7 +1052,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 60, 80, 120, 10, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Bull Grunt I",
@@ -1067,7 +1067,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 90, 110, 20, 10, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Bull Grunt II",
@@ -1082,7 +1082,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 80, 90, 50, 10, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Wild Grunt",
@@ -1097,7 +1097,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [80, 90, 110, 60, 10, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Flame Feroce I",
@@ -1113,7 +1113,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 25 },
 		sharpness: [50, 80, 70, 50, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
+		songs: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
 	},
 	{
 		name: "Flame Feroce II",
@@ -1129,7 +1129,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 32 },
 		sharpness: [70, 90, 80, 90, 20, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
+		songs: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
 	},
 	{
 		name: "Rathalos Feroce",
@@ -1145,7 +1145,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 35 },
 		sharpness: [70, 70, 80, 90, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
+		songs: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
 	},
 	{
 		name: "Kulu Mosso I",
@@ -1160,7 +1160,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 40, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
+		songs: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
 	},
 	{
 		name: "Kulu Mosso II",
@@ -1175,7 +1175,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 70, 40, 70, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
+		songs: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
 	},
 	{
 		name: "Kulu Grosso",
@@ -1190,7 +1190,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 60, 50, 90, 30, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
+		songs: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
 	},
 	{
 		name: "Khezu Horn I",
@@ -1206,7 +1206,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 20 },
 		sharpness: [40, 30, 110, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Khezu Horn II",
@@ -1222,7 +1222,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 24 },
 		sharpness: [50, 40, 120, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Khezu Flute",
@@ -1238,7 +1238,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 32 },
 		sharpness: [60, 40, 110, 70, 20, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Vicello Nulo I",
@@ -1253,7 +1253,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [110, 20, 70, 0, 0, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Vicello Nulo II",
@@ -1268,7 +1268,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [110, 20, 30, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Vicello Unu",
@@ -1283,7 +1283,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [130, 20, 30, 70, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Vicello Nulo Black I",
@@ -1299,7 +1299,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 15 },
 		sharpness: [150, 30, 30, 60, 30, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Nulo Black II",
@@ -1315,7 +1315,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 17 },
 		sharpness: [140, 20, 20, 80, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Uno Black",
@@ -1331,7 +1331,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 20 },
 		sharpness: [160, 20, 20, 90, 60, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (S)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Nulo Green I",
@@ -1347,7 +1347,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 15 },
 		sharpness: [150, 40, 30, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
+		songs: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
 	},
 	{
 		name: "Vicello Nulo Green II",
@@ -1363,7 +1363,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 18 },
 		sharpness: [140, 20, 20, 80, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
+		songs: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
 	},
 	{
 		name: "Vicello Unu Green",
@@ -1379,7 +1379,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 21 },
 		sharpness: [150, 40, 20, 90, 50, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
+		songs: ["Defense Up", "Tremors Negated", "Health Recovery (S)"],
 	},
 	{
 		name: "Vicello Nulo White I",
@@ -1395,7 +1395,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 8 },
 		sharpness: [140, 10, 20, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
+		songs: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
 	},
 	{
 		name: "Vicello Nulo White II",
@@ -1411,7 +1411,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 10 },
 		sharpness: [130, 20, 30, 70, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
+		songs: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
 	},
 	{
 		name: "Vicello Unu White",
@@ -1427,7 +1427,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 13 },
 		sharpness: [140, 20, 20, 80, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
+		songs: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
 	},
 	{
 		name: "Sinister Strum I",
@@ -1443,7 +1443,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 13 },
 		sharpness: [160, 20, 40, 80, 0, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Sinister Strum II",
@@ -1459,7 +1459,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 16 },
 		sharpness: [170, 20, 20, 90, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Sinister Shadestrum",
@@ -1475,7 +1475,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 23 },
 		sharpness: [190, 10, 20, 90, 40, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Denden Daiko I",
@@ -1491,7 +1491,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 15 },
 		sharpness: [30, 40, 150, 80, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
+		songs: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
 	},
 	{
 		name: "Denden Daiko II",
@@ -1507,7 +1507,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 17 },
 		sharpness: [30, 50, 180, 80, 10, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
+		songs: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
 	},
 	{
 		name: "Denden Doomsounder",
@@ -1523,7 +1523,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 20 },
 		sharpness: [30, 50, 170, 80, 20, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
+		songs: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
 	},
 	{
 		name: "Azure Elder Horn I",
@@ -1539,7 +1539,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 9 },
 		sharpness: [20, 20, 20, 40, 100, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
+		songs: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Azure Elder Horn II",
@@ -1555,7 +1555,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 11 },
 		sharpness: [20, 20, 50, 50, 110, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
+		songs: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Abyssal Gale Horn",
@@ -1571,7 +1571,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 14 },
 		sharpness: [20, 20, 80, 60, 120, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
+		songs: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Rookslayer Drum I",
@@ -1587,7 +1587,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 15 },
 		sharpness: [60, 90, 60, 90, 0, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
+		songs: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
 	},
 	{
 		name: "Rookslayer Drum II",
@@ -1603,7 +1603,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 16 },
 		sharpness: [60, 110, 90, 80, 10, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
+		songs: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
 	},
 	{
 		name: "Bazelreid Rookslayer",
@@ -1619,7 +1619,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 18 },
 		sharpness: [60, 110, 80, 80, 20, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
+		songs: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
 	},
 	{
 		name: "Thunderbolt Horn I",
@@ -1635,7 +1635,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 34 },
 		sharpness: [20, 20, 190, 40, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
+		songs: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
 	},
 	{
 		name: "Abyssal Storm Horn",
@@ -1651,7 +1651,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 41 },
 		sharpness: [10, 20, 220, 40, 60, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
+		songs: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
 	},
 	{
 		name: "Daora's Taus I",
@@ -1667,7 +1667,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 32 },
 		sharpness: [50, 60, 130, 70, 40, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
+		songs: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Daora's Baphophone",
@@ -1683,7 +1683,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 35 },
 		sharpness: [50, 70, 130, 50, 40, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
+		songs: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Teostra's Tiple I",
@@ -1699,7 +1699,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 40 },
 		sharpness: [60, 70, 80, 130, 10, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
+		songs: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
 	},
 	{
 		name: "Teostra's Orphée",
@@ -1715,7 +1715,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 42 },
 		sharpness: [60, 70, 70, 110, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
+		songs: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
 	},
 	{
 		name: "Blessed Ocarina I",
@@ -1731,7 +1731,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 37 },
 		sharpness: [170, 30, 60, 70, 20, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
+		songs: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
 	},
 	{
 		name: "Cursed Ocarina",
@@ -1747,7 +1747,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 40 },
 		sharpness: [170, 30, 60, 50, 40, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
+		songs: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
 	},
 	{
 		name: "Redwing Flute I",
@@ -1763,7 +1763,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 32 },
 		sharpness: [180, 0, 0, 0, 0, 70, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
+		songs: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
 	},
 	{
 		name: "Reddnaught Ritmico",
@@ -1779,7 +1779,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 37 },
 		sharpness: [60, 0, 0, 0, 0, 90, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
+		songs: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
 	},
 	{
 		name: "Poison Fungasax I",
@@ -1795,7 +1795,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 30 },
 		sharpness: [40, 60, 150, 0, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
+		songs: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
 	},
 	{
 		name: "Poison Fungasax II",
@@ -1811,7 +1811,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 32 },
 		sharpness: [40, 60, 170, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
+		songs: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
 	},
 	{
 		name: "Toxic Fungasax",
@@ -1827,7 +1827,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 35 },
 		sharpness: [30, 70, 140, 60, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
+		songs: ["Stamina Use Reduced", "Health Recovery (S)", "Defense Up"],
 	},
 	{
 		name: "Magia Charm I",
@@ -1843,7 +1843,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 12 },
 		sharpness: [50, 30, 110, 10, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Magia Charm II",
@@ -1859,7 +1859,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 14 },
 		sharpness: [50, 60, 110, 30, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Magia Charm III",
@@ -1875,7 +1875,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 16 },
 		sharpness: [50, 60, 110, 80, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Magia Charmbell",
@@ -1891,7 +1891,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 20 },
 		sharpness: [50, 60, 110, 120, 10, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (S)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Cornupion I",
@@ -1907,7 +1907,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 10 },
 		sharpness: [50, 40, 100, 60, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
+		songs: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
 	},
 	{
 		name: "Cornupion II",
@@ -1923,7 +1923,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 12 },
 		sharpness: [40, 30, 100, 80, 0, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
+		songs: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
 	},
 	{
 		name: "Webbed Cornupion",
@@ -1939,7 +1939,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 15 },
 		sharpness: [40, 50, 90, 100, 20, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
+		songs: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
 	},
 	{
 		name: "Grass Flute I",
@@ -1955,7 +1955,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 10 },
 		sharpness: [90, 60, 80, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
+		songs: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
 	},
 	{
 		name: "Grass Flute II",
@@ -1971,7 +1971,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 12 },
 		sharpness: [90, 60, 60, 90, 0, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
+		songs: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
 	},
 	{
 		name: "Bombadgy's Cry",
@@ -1987,7 +1987,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 15 },
 		sharpness: [90, 60, 60, 130, 10, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
+		songs: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
 	},
 	{
 		name: "Rampage Agitato I",
@@ -2002,7 +2002,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [70, 70, 90, 20, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Rampage Agitato II",
@@ -2017,7 +2017,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 70, 80, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Rampage Agitato III",
@@ -2032,7 +2032,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 70, 80, 30, 20, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Rampage Agitato IV",
@@ -2047,7 +2047,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 70, 70, 30, 30, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Rampage Agitato V",
@@ -2062,7 +2062,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 70, 50, 50, 30, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Rampage Agitato S",
@@ -2077,7 +2077,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 70, 30, 60, 40, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Health Recovery (S)", "Sonic Wave"],
 	},
 	{
 		name: "Defender Horn I",
@@ -2092,7 +2092,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [50, 50, 60, 40, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
+		songs: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
 	},
 	{
 		name: "Champion Horn",
@@ -2107,7 +2107,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 70, 60, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
+		songs: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
 	},
 	{
 		name: "Champion Horn II",
@@ -2122,7 +2122,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 70, 60, 0, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
+		songs: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
 	},
 	{
 		name: "Champion Horn III",
@@ -2137,7 +2137,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 70, 70, 40, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
+		songs: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
 	},
 	{
 		name: "Guardian Horn",
@@ -2152,7 +2152,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 0",
 		sharpness: [60, 60, 70, 70, 40, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
+		songs: ["Health Recovery (S)", "Stun Negated", "Divine Protection"],
 	},
 	{
 		name: "Kamura Warrior Flute",
@@ -2167,7 +2167,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [40, 90, 60, 60, 100, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Kamura Warrior Flute+",
@@ -2182,7 +2182,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [40, 90, 60, 60, 90, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Fine Kamura Flute",
@@ -2197,7 +2197,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [40, 70, 60, 60, 100, 20, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
+		songs: ["Defense Up", "Attack Up", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Duke's Grail",
@@ -2213,7 +2213,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 23 },
 		sharpness: [180, 40, 40, 10, 30, 50, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["0", "Earplugs (L)", "Sharpness Loss Reduced"],
+		songs: ["0", "Earplugs (L)", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Magician's Allure",
@@ -2229,7 +2229,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 26 },
 		sharpness: [180, 30, 30, 10, 30, 50, 20],
 		handicraft: [50, 0, 0, 0],
-		properties: ["0", "Earplugs (L)", "Sharpness Loss Reduced"],
+		songs: ["0", "Earplugs (L)", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Summoning Bell+",
@@ -2245,7 +2245,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 30 },
 		sharpness: [60, 40, 110, 90, 40, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sublime Bell",
@@ -2261,7 +2261,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 32 },
 		sharpness: [60, 40, 100, 90, 40, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sublime Bell+",
@@ -2277,7 +2277,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 35 },
 		sharpness: [60, 40, 100, 90, 40, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
+		songs: ["Health Recovery (L)", "Blight Negated", "Stamina Use Reduced"],
 	},
 	{
 		name: "Araknatootle",
@@ -2293,7 +2293,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 30 },
 		sharpness: [190, 30, 40, 30, 40, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Araknatootle+",
@@ -2309,7 +2309,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 31 },
 		sharpness: [180, 30, 40, 30, 40, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Doomed Bell",
@@ -2325,7 +2325,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 33 },
 		sharpness: [190, 10, 30, 20, 40, 60, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Knockbacks Negated"],
 	},
 	{
 		name: "Garance Toll",
@@ -2341,7 +2341,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 14 },
 		sharpness: [40, 150, 40, 20, 80, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
+		songs: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
 	},
 	{
 		name: "Garance Toll+",
@@ -2357,7 +2357,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 16 },
 		sharpness: [40, 140, 40, 20, 80, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
+		songs: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
 	},
 	{
 		name: "Kampa Da Lavater",
@@ -2373,7 +2373,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 18 },
 		sharpness: [40, 120, 40, 20, 80, 50, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
+		songs: ["Environment Damage Negated", "Attack Up", "Blight Negated"],
 	},
 	{
 		name: "Gigant Rock+",
@@ -2389,7 +2389,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 22 },
 		sharpness: [30, 40, 180, 70, 30, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
+		songs: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
 	},
 	{
 		name: "Titan's Rock",
@@ -2405,7 +2405,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 25 },
 		sharpness: [20, 30, 180, 70, 50, 0, 0],
 		handicraft: [0, 20, 30, 0],
-		properties: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
+		songs: ["Tremors Negated", "Sonic Barrier", "Stamina Use Reduced"],
 	},
 	{
 		name: "Despot's Thunderclap+",
@@ -2421,7 +2421,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 31 },
 		sharpness: [40, 40, 110, 100, 50, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
+		songs: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
 	},
 	{
 		name: "Oppressor's Boon",
@@ -2437,7 +2437,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 35 },
 		sharpness: [40, 40, 100, 100, 50, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
+		songs: ["Stun Negated", "Attack Up", "Knockbacks Negated"],
 	},
 	{
 		name: "Zurogong Secundo+",
@@ -2452,7 +2452,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [20, 50, 150, 80, 50, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Defense Up", "Sonic Barrier"],
+		songs: ["Attack Up", "Defense Up", "Sonic Barrier"],
 	},
 	{
 		name: "Zurogong Tertio",
@@ -2467,7 +2467,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [20, 50, 150, 80, 50, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Attack Up", "Defense Up", "Sonic Barrier"],
+		songs: ["Attack Up", "Defense Up", "Sonic Barrier"],
 	},
 	{
 		name: "Tigrex Horn+",
@@ -2482,7 +2482,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [50, 50, 120, 120, 30, 30, 0],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Tigrex Roar",
@@ -2497,7 +2497,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [50, 50, 120, 120, 30, 20, 10],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Tigrex Roar+",
@@ -2512,7 +2512,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [50, 40, 120, 120, 30, 20, 20],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
+		songs: ["Earplugs (S)", "Attack Up", "Sonic Wave"],
 	},
 	{
 		name: "Guiro Frula",
@@ -2528,7 +2528,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 23 },
 		sharpness: [50, 70, 80, 80, 70, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Guiro Frula+",
@@ -2544,7 +2544,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 25 },
 		sharpness: [50, 70, 80, 80, 70, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Frigiguiro",
@@ -2560,7 +2560,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 28 },
 		sharpness: [50, 70, 80, 70, 60, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Affinity Up"],
 	},
 	{
 		name: "Illusory Flute+",
@@ -2576,7 +2576,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 22 },
 		sharpness: [50, 90, 90, 90, 30, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Nightmare Flute",
@@ -2592,7 +2592,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 26 },
 		sharpness: [50, 90, 90, 80, 40, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Nightmare Flute+",
@@ -2608,7 +2608,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 30 },
 		sharpness: [50, 80, 80, 80, 60, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Attack Up", "Earplugs (S)", "Defense Up"],
+		songs: ["Attack Up", "Earplugs (S)", "Defense Up"],
 	},
 	{
 		name: "Bloom Snow Flute",
@@ -2624,7 +2624,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 47 },
 		sharpness: [30, 40, 60, 90, 80, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
+		songs: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
 	},
 	{
 		name: "Bloom Snow Flute+",
@@ -2640,7 +2640,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 55 },
 		sharpness: [40, 50, 50, 100, 90, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
+		songs: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
 	},
 	{
 		name: "Flicker Blizzard Flute",
@@ -2656,7 +2656,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 63 },
 		sharpness: [40, 50, 50, 100, 80, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
+		songs: ["Stamina Use Reduced", "Health Regeneration", "Stun Negated"],
 	},
 	{
 		name: "Fortissimo+",
@@ -2671,7 +2671,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [90, 90, 80, 50, 30, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
 	},
 	{
 		name: "Rinforzato",
@@ -2686,7 +2686,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [85, 85, 80, 50, 30, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
 	},
 	{
 		name: "Rinforzato+",
@@ -2701,7 +2701,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [70, 70, 70, 50, 30, 60, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
+		songs: ["Sonic Wave", "Stamina Recovery Up", "Attack Up"],
 	},
 	{
 		name: "Grundner Flap",
@@ -2717,7 +2717,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 21 },
 		sharpness: [60, 20, 80, 120, 50, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
+		songs: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
 	},
 	{
 		name: "Grundner Flap+",
@@ -2733,7 +2733,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 23 },
 		sharpness: [60, 20, 60, 120, 60, 30, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
+		songs: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
 	},
 	{
 		name: "Grünlicht Flap",
@@ -2749,7 +2749,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 26 },
 		sharpness: [60, 20, 60, 120, 60, 30, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
+		songs: ["Wind Pressure Negated", "Stamina Recovery Up", "Affinity Up"],
 	},
 	{
 		name: "Frostmoon Wailer",
@@ -2765,7 +2765,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 19 },
 		sharpness: [20, 10, 20, 30, 140, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Frostmoon Wailer+",
@@ -2781,7 +2781,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 21 },
 		sharpness: [20, 10, 20, 20, 140, 40, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Harmonic Resonance",
@@ -2797,7 +2797,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 23 },
 		sharpness: [20, 10, 20, 30, 150, 50, 20],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
+		songs: ["Elemental Attack Boost", "Stamina Use Reduced", "Earplugs (S)"],
 	},
 	{
 		name: "Horn of Deprivation",
@@ -2812,7 +2812,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "1, 0, 0",
 		sharpness: [70, 40, 100, 90, 70, 30, 0],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Horn of Deprivation+",
@@ -2827,7 +2827,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "1, 0, 0",
 		sharpness: [70, 30, 100, 90, 70, 30, 10],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Avidya Harmonic",
@@ -2842,7 +2842,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "1, 0, 0",
 		sharpness: [60, 30, 100, 90, 60, 30, 30],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
+		songs: ["Stamina Recovery Up", "Attack Up", "Affinity Up"],
 	},
 	{
 		name: "Datura Lurr+",
@@ -2858,7 +2858,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 27 },
 		sharpness: [60, 60, 90, 90, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Datura Accelerando",
@@ -2874,7 +2874,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 30 },
 		sharpness: [60, 60, 80, 90, 50, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Datura Accelerando+",
@@ -2890,7 +2890,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 34 },
 		sharpness: [60, 60, 50, 80, 50, 50, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
+		songs: ["Elemental Attack Boost", "Stamina Recovery Up", "Health Regeneration"],
 	},
 	{
 		name: "Forte Flammenkornett+",
@@ -2906,7 +2906,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 26 },
 		sharpness: [110, 100, 30, 60, 50, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Horn of the Indomitable",
@@ -2922,7 +2922,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 30 },
 		sharpness: [100, 100, 30, 60, 60, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Horn of the Indomitable+",
@@ -2938,7 +2938,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 34 },
 		sharpness: [100, 100, 30, 40, 70, 10, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
+		songs: ["Stamina Recovery Up", "Health Recovery (S)", "Attack Up"],
 	},
 	{
 		name: "Queen Chordmaker+",
@@ -2954,7 +2954,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 24 },
 		sharpness: [40, 60, 80, 80, 30, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Queen's Harmonium",
@@ -2970,7 +2970,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 26 },
 		sharpness: [40, 60, 90, 100, 30, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Queen's Harmonium+",
@@ -2986,7 +2986,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 27 },
 		sharpness: [40, 60, 90, 90, 30, 40, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Divine Protection"],
 	},
 	{
 		name: "Rosengitarre",
@@ -3002,7 +3002,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 17 },
 		sharpness: [100, 60, 10, 150, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
+		songs: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
 	},
 	{
 		name: "Rosengitarre+",
@@ -3018,7 +3018,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 19 },
 		sharpness: [100, 60, 10, 150, 30, 0, 0],
 		handicraft: [0, 30, 20, 0],
-		properties: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
+		songs: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
 	},
 	{
 		name: "Rosenseele",
@@ -3034,7 +3034,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 21 },
 		sharpness: [90, 50, 10, 150, 30, 20, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
+		songs: ["Health Recovery (S) + Antidote", "Knockbacks Negated", "Attack and Defense Up"],
 	},
 	{
 		name: "Sandcrier+",
@@ -3049,7 +3049,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 70, 120, 80, 20, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sandscreecher",
@@ -3064,7 +3064,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 70, 110, 80, 20, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Sandscreecher+",
@@ -3079,7 +3079,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 70, 100, 80, 20, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
+		songs: ["Defense Up", "Sonic Wave", "Stamina Use Reduced"],
 	},
 	{
 		name: "Amphibia Allargando+",
@@ -3095,7 +3095,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 20 },
 		sharpness: [40, 90, 90, 100, 30, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Amphibia Larghetto",
@@ -3111,7 +3111,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 22 },
 		sharpness: [40, 80, 75, 100, 55, 0, 0],
 		handicraft: [25, 25, 0, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Amphibia Larghetto+",
@@ -3127,7 +3127,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 24 },
 		sharpness: [40, 80, 70, 100, 60, 0, 0],
 		handicraft: [0, 30, 20, 0],
-		properties: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
+		songs: ["Health Recovery (S)", "Attack Up", "Tremors Negated"],
 	},
 	{
 		name: "Gale Horn+",
@@ -3142,7 +3142,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 70, 30, 70, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
+		songs: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Great Gale Horn",
@@ -3157,7 +3157,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 70, 30, 70, 50, 50, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
+		songs: ["Stamina Recovery Up", "Affinity Up", "Health Recovery (S)"],
 	},
 	{
 		name: "Droth Roar+",
@@ -3173,7 +3173,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 38 },
 		sharpness: [60, 50, 70, 80, 40, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Echoing Droth Roar",
@@ -3189,7 +3189,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 41 },
 		sharpness: [60, 50, 70, 100, 60, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Echoing Droth Roar+",
@@ -3205,7 +3205,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 46 },
 		sharpness: [60, 50, 70, 80, 60, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Defense Up", "Sonic Wave"],
+		songs: ["Blight Negated", "Defense Up", "Sonic Wave"],
 	},
 	{
 		name: "Golm Drum",
@@ -3220,7 +3220,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 40, 110, 90, 50, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
+		songs: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
 	},
 	{
 		name: "Golm Drum+",
@@ -3235,7 +3235,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 40, 110, 80, 60, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
+		songs: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
 	},
 	{
 		name: "Seismic Pauken",
@@ -3250,7 +3250,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [60, 40, 100, 80, 70, 0, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
+		songs: ["Attack Up", "Sonic Barrier", "Tremors Negated"],
 	},
 	{
 		name: "Sonic Glass",
@@ -3266,7 +3266,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 17 },
 		sharpness: [80, 90, 110, 60, 10, 0, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
+		songs: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
 	},
 	{
 		name: "Sonic Glass+",
@@ -3282,7 +3282,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 19 },
 		sharpness: [80, 90, 110, 60, 10, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
+		songs: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
 	},
 	{
 		name: "Glass Queen",
@@ -3298,7 +3298,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 21 },
 		sharpness: [70, 70, 80, 50, 30, 50, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
+		songs: ["Stamina Use Reduced", "Defense Up", "Wind Pressure Negated"],
 	},
 	{
 		name: "Shell Castanet",
@@ -3314,7 +3314,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 14 },
 		sharpness: [50, 70, 30, 120, 60, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Affinity Up", "0"],
+		songs: ["Defense Up", "Affinity Up", "0"],
 	},
 	{
 		name: "Shell Castanet+",
@@ -3330,7 +3330,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 15 },
 		sharpness: [50, 70, 30, 120, 55, 25, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Affinity Up", "0"],
+		songs: ["Defense Up", "Affinity Up", "0"],
 	},
 	{
 		name: "Colored Castanet",
@@ -3346,7 +3346,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Water", value: 18 },
 		sharpness: [50, 70, 30, 120, 50, 20, 10],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Affinity Up", "0"],
+		songs: ["Defense Up", "Affinity Up", "0"],
 	},
 	{
 		name: "Vadya Muse",
@@ -3361,7 +3361,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 60, 60, 100, 30, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "0"],
+		songs: ["Defense Up", "Stamina Use Reduced", "0"],
 	},
 	{
 		name: "Vadya Muse+",
@@ -3376,7 +3376,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 60, 60, 100, 30, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "0"],
+		songs: ["Defense Up", "Stamina Use Reduced", "0"],
 	},
 	{
 		name: "Allysyl Muse",
@@ -3391,7 +3391,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 50, 60, 100, 30, 30, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "0"],
+		songs: ["Defense Up", "Stamina Use Reduced", "0"],
 	},
 	{
 		name: "Duo Risoluto+",
@@ -3406,7 +3406,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [80, 60, 80, 100, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Horned Tyrant's Horn",
@@ -3421,7 +3421,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [70, 60, 80, 90, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Horned Tyrant's Horn+",
@@ -3436,7 +3436,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 0, 1",
 		sharpness: [70, 60, 80, 90, 50, 0, 0],
 		handicraft: [0, 30, 20, 0],
-		properties: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Defense Up", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Feral Grunt",
@@ -3451,7 +3451,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 90, 100, 60, 20, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Feral Grunt+",
@@ -3466,7 +3466,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 90, 90, 60, 20, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Barbarian Grunt",
@@ -3481,7 +3481,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [80, 90, 90, 60, 20, 10, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
+		songs: ["Divine Protection", "Knockbacks Negated", "Stun Negated"],
 	},
 	{
 		name: "Rathalos Feroce+",
@@ -3497,7 +3497,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 41 },
 		sharpness: [70, 60, 70, 80, 50, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
+		songs: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
 	},
 	{
 		name: "Ophelia's Grace",
@@ -3513,7 +3513,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Fire", value: 48 },
 		sharpness: [70, 60, 70, 80, 50, 20, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
+		songs: ["Elemental Attack Boost", "Sonic Wave", "Stamina Recovery Up"],
 	},
 	{
 		name: "Kulu Grosso+",
@@ -3528,7 +3528,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [70, 60, 50, 90, 30, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
+		songs: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
 	},
 	{
 		name: "Kulu Katolos Mosso",
@@ -3543,7 +3543,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [70, 60, 50, 90, 80, 0, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
+		songs: ["Defense Up", "Stamina Recovery Up", "Stun Negated"],
 	},
 	{
 		name: "Khezu Flute+",
@@ -3559,7 +3559,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 34 },
 		sharpness: [60, 40, 90, 70, 40, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Khezu Keen",
@@ -3575,7 +3575,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 36 },
 		sharpness: [60, 40, 120, 70, 50, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Khezu Keen+",
@@ -3591,7 +3591,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 45 },
 		sharpness: [50, 40, 110, 70, 40, 40, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
+		songs: ["Earplugs (S)", "Health Regeneration", "Elemental Attack Boost"],
 	},
 	{
 		name: "Vicello Du Black",
@@ -3607,7 +3607,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 26 },
 		sharpness: [160, 20, 20, 90, 60, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Tre Black",
@@ -3623,7 +3623,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 33 },
 		sharpness: [160, 20, 20, 80, 55, 15, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Kvar Black",
@@ -3639,7 +3639,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 46 },
 		sharpness: [140, 20, 20, 70, 60, 40, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
+		songs: ["Health Recovery (L)", "Stamina Use Reduced", "Earplugs (L)"],
 	},
 	{
 		name: "Vicello Du Green",
@@ -3655,7 +3655,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 23 },
 		sharpness: [150, 40, 20, 80, 60, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Defense Up", "Tremors Negated", "Health Recovery (L)"],
+		songs: ["Defense Up", "Tremors Negated", "Health Recovery (L)"],
 	},
 	{
 		name: "Vicello Tre Green",
@@ -3671,7 +3671,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 25 },
 		sharpness: [150, 40, 20, 60, 60, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Defense Up", "Tremors Negated", "Health Recovery (L)"],
+		songs: ["Defense Up", "Tremors Negated", "Health Recovery (L)"],
 	},
 	{
 		name: "Vicello Du White",
@@ -3687,7 +3687,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 25 },
 		sharpness: [160, 20, 20, 80, 70, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
+		songs: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
 	},
 	{
 		name: "Vicello Tre White",
@@ -3703,7 +3703,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 43 },
 		sharpness: [130, 20, 20, 70, 70, 40, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
+		songs: ["Health Regeneration", "Stamina Use Reduced", "Sonic Wave"],
 	},
 	{
 		name: "Sinister Shadestrum+",
@@ -3719,7 +3719,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 26 },
 		sharpness: [180, 10, 20, 80, 50, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Mighty Souleraser",
@@ -3735,7 +3735,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 29 },
 		sharpness: [180, 10, 20, 80, 50, 10, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Devil's Lute",
@@ -3751,7 +3751,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 30 },
 		sharpness: [170, 10, 10, 80, 50, 20, 10],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
+		songs: ["Sonic Barrier", "Attack and Defense Up", "Health Regeneration"],
 	},
 	{
 		name: "Kummerklang",
@@ -3767,7 +3767,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 17 },
 		sharpness: [60, 30, 110, 60, 70, 20, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
+		songs: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
 	},
 	{
 		name: "Kummerklang+",
@@ -3783,7 +3783,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 19 },
 		sharpness: [60, 30, 110, 60, 70, 20, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
+		songs: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
 	},
 	{
 		name: "Trauerklang",
@@ -3799,7 +3799,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 21 },
 		sharpness: [60, 30, 100, 60, 70, 30, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
+		songs: ["Health Recovery (S)", "Sharpness Loss Reduced", "0"],
 	},
 	{
 		name: "La Sépulture",
@@ -3815,7 +3815,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 28 },
 		sharpness: [50, 40, 140, 60, 40, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Elemental Attack Boost", "Blight Negated", "Wind Pressure Negated"],
+		songs: ["Elemental Attack Boost", "Blight Negated", "Wind Pressure Negated"],
 	},
 	{
 		name: "Le Grégorien",
@@ -3831,7 +3831,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 36 },
 		sharpness: [40, 40, 120, 60, 40, 50, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Elemental Attack Boost", "Blight Negated", "Wind Pressure Negated"],
+		songs: ["Elemental Attack Boost", "Blight Negated", "Wind Pressure Negated"],
 	},
 	{
 		name: "Denden Doomsounder+",
@@ -3847,7 +3847,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 21 },
 		sharpness: [30, 50, 160, 50, 60, 0, 0],
 		handicraft: [20, 20, 10, 0],
-		properties: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
+		songs: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
 	},
 	{
 		name: "Denden Delugesong",
@@ -3863,7 +3863,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 23 },
 		sharpness: [30, 50, 160, 40, 70, 0, 0],
 		handicraft: [10, 20, 20, 0],
-		properties: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
+		songs: ["Attack and Defense Up", "Environment Damage Negated", "Tremors Negated"],
 	},
 	{
 		name: "Demonlord Djembe",
@@ -3879,7 +3879,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 16 },
 		sharpness: [20, 50, 110, 70, 50, 10, 40],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack and Affinity Up", "Earplugs (L)", "Sonic Wave"],
+		songs: ["Attack and Affinity Up", "Earplugs (L)", "Sonic Wave"],
 	},
 	{
 		name: "Skytremor Typhoon",
@@ -3895,7 +3895,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 18 },
 		sharpness: [20, 20, 80, 60, 170, 0, 0],
 		handicraft: [0, 0, 50, 0],
-		properties: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
+		songs: ["Stamina Use Reduced", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Skytremor Rumble",
@@ -3911,7 +3911,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Thunder", value: 56 },
 		sharpness: [10, 20, 170, 40, 50, 60, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
+		songs: ["Stun Negated", "Health Recovery (L)", "Health Regeneration"],
 	},
 	{
 		name: "Baselsium Rookslayer",
@@ -3927,7 +3927,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 22 },
 		sharpness: [60, 110, 80, 60, 30, 10, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
+		songs: ["Earplugs (S)", "Attack Up", "Health Recovery (L)"],
 	},
 	{
 		name: "Daora's Baphophone+",
@@ -3943,7 +3943,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 37 },
 		sharpness: [50, 70, 130, 50, 40, 10, 0],
 		handicraft: [40, 10, 0, 0],
-		properties: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
+		songs: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Daora's Diabassoon",
@@ -3959,7 +3959,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 39 },
 		sharpness: [40, 60, 130, 50, 40, 30, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
+		songs: ["Environment Damage Negated", "Stamina Use Reduced", "Sharpness Loss Reduced"],
 	},
 	{
 		name: "Teostra's Orphée+",
@@ -3975,7 +3975,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 45 },
 		sharpness: [60, 70, 60, 90, 50, 20, 0],
 		handicraft: [30, 20, 0, 0],
-		properties: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
+		songs: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
 	},
 	{
 		name: "Teostra's Musica",
@@ -3991,7 +3991,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 50 },
 		sharpness: [60, 70, 60, 80, 50, 30, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
+		songs: ["Health Regeneration", "Health Recovery (S) + Antidote", "Attack and Defense Up"],
 	},
 	{
 		name: "Cursed Ocarina+",
@@ -4007,7 +4007,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 44 },
 		sharpness: [170, 30, 60, 50, 40, 0, 0],
 		handicraft: [0, 30, 20, 0],
-		properties: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
+		songs: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
 	},
 	{
 		name: "Genie's Ocarina",
@@ -4023,7 +4023,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 50 },
 		sharpness: [160, 30, 50, 50, 40, 20, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
+		songs: ["Earplugs (L)", "Wind Pressure Negated", "Elemental Attack Boost"],
 	},
 	{
 		name: "Crimson Clearwing",
@@ -4039,7 +4039,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 40 },
 		sharpness: [60, 0, 0, 0, 0, 140, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
+		songs: ["Elemental Attack Boost", "Attack and Affinity Up", "Sonic Wave"],
 	},
 	{
 		name: "Abyssal Hollow",
@@ -4055,7 +4055,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Dragon", value: 29 },
 		sharpness: [50, 50, 50, 50, 50, 50, 50],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Blight Negated", "Elemental Attack Boost", "Attack Up"],
+		songs: ["Blight Negated", "Elemental Attack Boost", "Attack Up"],
 	},
 	{
 		name: "Toxic Fungasax+",
@@ -4071,7 +4071,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 38 },
 		sharpness: [30, 70, 140, 80, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Recovery (L)", "Defense Up"],
+		songs: ["Stamina Use Reduced", "Health Recovery (L)", "Defense Up"],
 	},
 	{
 		name: "Mycotoxic Fungasax",
@@ -4087,7 +4087,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Poison", value: 42 },
 		sharpness: [30, 70, 140, 60, 50, 0, 0],
 		handicraft: [0, 50, 0, 0],
-		properties: ["Stamina Use Reduced", "Health Recovery (L)", "Defense Up"],
+		songs: ["Stamina Use Reduced", "Health Recovery (L)", "Defense Up"],
 	},
 	{
 		name: "Magia Charmbell+",
@@ -4103,7 +4103,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 22 },
 		sharpness: [50, 60, 90, 80, 60, 10, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Health Recovery (L)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (L)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Bell of Laertes",
@@ -4119,7 +4119,7 @@ const huntingHorns: HuntingHorn[] = [
 		element: { type: "Ice", value: 25 },
 		sharpness: [50, 60, 90, 70, 60, 20, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Health Recovery (L)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
+		songs: ["Health Recovery (L)", "Sonic Barrier", "Health Recovery (S) + Antidote"],
 	},
 	{
 		name: "Hamlet's Horn",
@@ -4135,7 +4135,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 16 },
 		sharpness: [40, 50, 90, 90, 30, 0, 0],
 		handicraft: [20, 30, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
+		songs: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
 	},
 	{
 		name: "Gossamer Cornupion",
@@ -4151,7 +4151,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Paralysis", value: 18 },
 		sharpness: [40, 50, 90, 100, 70, 0, 0],
 		handicraft: [10, 40, 0, 0],
-		properties: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
+		songs: ["Health Recovery (S) + Antidote", "Defense Up", "Affinity Up"],
 	},
 	{
 		name: "Bombadgy's Cry+",
@@ -4167,7 +4167,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 18 },
 		sharpness: [90, 60, 60, 110, 30, 0, 0],
 		handicraft: [25, 25, 0, 0],
-		properties: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
+		songs: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
 	},
 	{
 		name: "Raccoon Dog Auldhorn",
@@ -4183,7 +4183,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Blast", value: 23 },
 		sharpness: [80, 50, 50, 90, 50, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
+		songs: ["Wind Pressure Negated", "Health Regeneration", "Sonic Barrier"],
 	},
 	{
 		name: "Royal Order's Horn",
@@ -4198,7 +4198,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [20, 20, 20, 10, 150, 30, 0],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Divine Protection", "Sonic Barrier"],
+		songs: ["Attack Up", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Royal Order's Horn+",
@@ -4213,7 +4213,7 @@ const huntingHorns: HuntingHorn[] = [
 		// "Rampage Slots": "0, 1, 0",
 		sharpness: [20, 10, 10, 10, 150, 30, 20],
 		handicraft: [50, 0, 0, 0],
-		properties: ["Attack Up", "Divine Protection", "Sonic Barrier"],
+		songs: ["Attack Up", "Divine Protection", "Sonic Barrier"],
 	},
 	{
 		name: "Antique Machina HH",
@@ -4229,7 +4229,7 @@ const huntingHorns: HuntingHorn[] = [
 		status: { type: "Sleep", value: 15 },
 		sharpness: [110, 100, 100, 20, 20, 30, 20],
 		handicraft: [0, 0, 0, 0],
-		properties: ["Tremors Negated", "Knockbacks Negated", "Sharpness Loss Reduced"],
+		songs: ["Tremors Negated", "Knockbacks Negated", "Sharpness Loss Reduced"],
 	},
 ];
 

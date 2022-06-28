@@ -11,13 +11,15 @@ const formatWeaponPropertyKey = (t: WeaponType): string | undefined => {
 			return "Shelling";
 		case "Hunting Horn":
 			return "Songs";
+		case "Insect Glaive":
+			return "Kinsect";
 	}
 };
 
 const formatWeaponProperties = (w: Weapon): { key: string; value: string } | undefined => {
 	switch (w.type) {
-		case "Hunting Horn":
-			return { key: "Songs", value: w.properties.join("\n") };
+		case "Insect Glaive":
+			return { key: "Kinsect", value: `Level ${w.properties}` };
 		case "Gunlance":
 			return { key: "Shelling", value: `${w.properties.type} ${w.properties.value}` };
 		case "Switch Axe":

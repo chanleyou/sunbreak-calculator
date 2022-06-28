@@ -55,7 +55,8 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 					</thead>
 					<tbody className="text-neutral-600">
 						{filteredWeapons.map((w) => {
-							const { name, raw, element, status, affinity, sharpness, handicraft, decos } = w;
+							const { name, raw, element, status, affinity, sharpness, handicraft, decos, songs } =
+								w;
 
 							const other = formatter.formatWeaponProperties(w);
 
@@ -103,6 +104,13 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 										})} */}
 									</td>
 									{other && <td>{other.value}</td>}
+									{songs && (
+										<td>
+											{songs.map((s) => (
+												<p key={s}>{s}</p>
+											))}
+										</td>
+									)}
 									<td>
 										{w.rampageSkills.flat().map((rs) => (
 											<p key={rs}>{RampageSkills[rs].name}</p>
