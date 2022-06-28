@@ -51,7 +51,7 @@ export default function skillToggle({
 
 	return (
 		<div className="mb-2">
-			<label>{label}</label>
+			<label className={!active ? "line-through" : ""}>{label}</label>
 			<div className="flex">
 				<div className="flex-1 flex place-items-center pl-1">
 					{boxes.map((b) => (
