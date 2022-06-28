@@ -171,10 +171,11 @@ export const useModel = () => {
 
 	const activeSkills = useMemo(() => {
 		return produce(skills, (draft) => {
-			return disabledSkills.reduce<SkillMap>((acc, ds) => {
-				acc[ds] = 0;
-				return acc;
-			}, draft);
+			disabledSkills.forEach((ds) => {
+				delete draft[ds];
+			});
+
+			return draft;
 		});
 	}, [skills, disabledSkills]);
 
