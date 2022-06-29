@@ -221,7 +221,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							);
 						})}
 				</Box>
-				{/* <BuffBox model={model} /> */}
+				<BuffBox model={model} />
 			</Column>
 		</>
 	);

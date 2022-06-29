@@ -226,6 +226,7 @@ export const useModel = () => {
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
 				case "Agitator":
+				case "Foray":
 					bonuses.push(Skills[skill].ranks[level].flat);
 					break;
 				case "OffensiveGuard":
@@ -244,6 +245,9 @@ export const useModel = () => {
 					if (Skills[skill].ranks[level].sharpnesses.some((s) => s === sharpness)) {
 						multipliers.push(Skills[skill].ranks[level].multiplier);
 					}
+					break;
+				case "GrinderS":
+					multipliers.push(Skills[skill].ranks[level].rawMultiplier);
 			}
 		});
 
@@ -313,10 +317,50 @@ export const useModel = () => {
 					if (type !== "Thunder" && type !== "Dragon") break;
 					multipliers.push(Skills[skill].ranks[level].multiplier);
 					break;
+				case "GrinderS":
+					multipliers.push(Skills[skill].ranks[level].eleMultiplier);
+					break;
 			}
 		});
 
 		return calculateUI(weapon.element.value, multiply(...multipliers), sum(...bonuses));
+	}, [weapon, activeSkillsEntries]);
+
+	const effectiveStatus = useMemo(() => {
+		if (!weapon.status) return 0;
+		const type = weapon.status.type;
+
+		const bonuses: number[] = [];
+		const multipliers: number[] = [];
+
+		activeSkillsEntries.forEach(([skill, level]) => {
+			level = level - 1;
+
+			switch (skill) {
+				case "PoisonAttack":
+					if (type !== "Poison") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "BlastAttack":
+					if (type !== "Blast") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "ParalysisAttack":
+					if (type !== "Paralysis") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "SleepAttack":
+					if (type !== "Sleep") break;
+					bonuses.push(Skills[skill].ranks[level].flat);
+					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+			}
+		});
+
+		return calculateUI(weapon.status.value, multiply(...multipliers), sum(...bonuses));
 	}, [weapon, activeSkillsEntries]);
 
 	const dragonPhial = useMemo(() => {
@@ -653,6 +697,7 @@ export const useModel = () => {
 		activeSkillsEntries,
 		effectiveRaw,
 		effectiveEle,
+		effectiveStatus,
 		dragonPhial,
 		effectiveAffinity,
 		rawHit,

@@ -588,9 +588,9 @@ export const Skills = {
 	GrinderS: {
 		name: "Grinder (S)",
 		ranks: [
-			{ raw: 1.1, ele: 1.075 },
-			{ raw: 1.1, ele: 1.075 },
-			{ raw: 1.1, ele: 1.075 },
+			{ rawMultiplier: 1.1, eleMultiplier: 1.075 },
+			{ rawMultiplier: 1.1, eleMultiplier: 1.075 },
+			{ rawMultiplier: 1.1, eleMultiplier: 1.075 },
 		],
 		conditional: true,
 	},
