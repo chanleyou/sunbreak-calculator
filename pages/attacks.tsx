@@ -22,19 +22,19 @@ const Attacks: NextPage<Props> = ({ model }) => {
 
 		if (type === "Switch Axe") return SwitchAxeAttacks;
 		if (type === "Great Sword") return GreatSwordAttacks;
-		if (type === "Gunlance") {
-			return produce(GunlanceAttacks, (draft) => {
-				if (properties.type != "Wide") {
-					draft = draft.filter((a) => a.name !== "Charged Shelling Lv2");
-				}
-				if (properties.type != "Normal") {
-					draft = draft.filter((a) => a.name !== "Shelling (Burst Fire)");
-				}
-				return draft;
-			});
-		}
-		if (type === "Light Bowgun") return LightBowgunAttacks;
-		if (type === "Heavy Bowgun") return HeavyBowgunAttacks;
+		// if (type === "Gunlance") {
+		// 	return produce(GunlanceAttacks, (draft) => {
+		// 		if (properties.type != "Wide") {
+		// 			draft = draft.filter((a) => a.name !== "Charged Shelling Lv2");
+		// 		}
+		// 		if (properties.type != "Normal") {
+		// 			draft = draft.filter((a) => a.name !== "Shelling (Burst Fire)");
+		// 		}
+		// 		return draft;
+		// 	});
+		// }
+		// if (type === "Light Bowgun") return LightBowgunAttacks;
+		// if (type === "Heavy Bowgun") return HeavyBowgunAttacks;
 		return GreatSwordAttacks;
 	}, [model]);
 

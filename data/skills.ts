@@ -175,6 +175,7 @@ export const Skills = {
 	PunishingDraw: {
 		name: "Punishing Draw",
 		ranks: [3, 5, 7],
+		conditional: true,
 	},
 	RapidMorph: {
 		name: "Rapid Morph",
@@ -305,8 +306,3 @@ export const Skills = {
 } as const;
 
 export type SkillMap = Partial<{ [key in SkillKey]: number }>;
-
-export const Demondrug = {
-	Demondrug: 5,
-	"Mega Demondrug": 7,
-} as const;

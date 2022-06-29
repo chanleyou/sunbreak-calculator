@@ -54,7 +54,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600">
-						{filteredWeapons.map((w) => {
+						{filteredWeapons.map((w, i) => {
 							const { name, raw, element, status, affinity, sharpness, handicraft, decos, songs } =
 								w;
 
@@ -67,7 +67,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 							return (
 								<tr
 									className={classNames.join(" ")}
-									key={name}
+									key={`${weaponType}-${name}-${i}`}
 									onClick={() => {
 										setWeapon(w);
 										setShow(false);
