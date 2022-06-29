@@ -403,7 +403,8 @@ export const useModel = () => {
 					if (hitzone >= 45) affinity.push(Skills.WeaknessExploit.ranks[level]);
 					break;
 				case "Agitator":
-					affinity.push(Skills.Agitator.ranks[level].affinity);
+				case "Foray":
+					affinity.push(Skills[skill].ranks[level].affinity);
 					break;
 			}
 		});
