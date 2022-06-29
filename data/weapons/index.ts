@@ -1,12 +1,15 @@
 import { RampageSkillKey } from "../rampage";
+import chargeBlades from "./chargeBlades";
 import dualBlades from "./dualBlades";
 import greatSwords from "./greatSwords";
 import gunlances from "./gunlances";
 import hammers from "./hammers";
 import huntingHorns from "./huntingHorns";
+import lances from "./lances";
 import longSwords from "./longSwords";
 import switchAxes from "./switchAxes";
 import swordAndShields from "./swordAndShields";
+import insectGlaives from "./insectGlaives";
 
 export type ElementType = "Fire" | "Water" | "Thunder" | "Ice" | "Dragon";
 export type StatusType = "Blast" | "Paralysis" | "Poison" | "Sleep";
@@ -162,12 +165,15 @@ export type Weapon =
 	| HeavyBowgun;
 
 export const Weapons: Weapon[] = [
-	...greatSwords,
-	...switchAxes,
-	...gunlances,
 	...swordAndShields,
 	...dualBlades,
+	...greatSwords,
 	...longSwords,
 	...hammers,
 	...huntingHorns,
+	...lances,
+	...gunlances,
+	...switchAxes,
+	...chargeBlades,
+	...insectGlaives,
 ];

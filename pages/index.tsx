@@ -17,6 +17,8 @@ import {
 import { Arms, Chests, Helms, Legs, RampageSkills, SkillKey, Skills, Waists } from "../data";
 import { Model } from "../model";
 
+const WeaponPickerModalComponent = React.lazy(() => WeaponPickerModal);
+
 function prod<T>(setter: Dispatch<SetStateAction<T>>) {
 	return (fn: (t: T) => void) => setter((n) => produce(n, fn));
 }
