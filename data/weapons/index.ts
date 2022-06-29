@@ -73,6 +73,7 @@ export interface IWeapon {
 	element?: WeaponElement;
 	status?: WeaponStatus;
 	rampageSkills: RampageSkillKey[][];
+	rampageSlots: number[];
 	songs?: HuntingHornSongs;
 	properties?: SwitchAxePhial | ChargeBladePhial | GunlanceShelling | KinsectLevel;
 }

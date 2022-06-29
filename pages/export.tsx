@@ -25,6 +25,7 @@ const Export: NextPage<Props> = ({ model }) => {
 			// remember order
 			model.setWeapon(json.weapon);
 			model.setRampageSkills(json.rampageSkills);
+			model.setRampageDecos(json.rampageDecos);
 
 			model.setHelm(json.helm);
 			model.setChest(json.chest);
@@ -57,15 +58,25 @@ const Export: NextPage<Props> = ({ model }) => {
 			model.setGroundSplitter(json.groundSplitter);
 			model.setDangoMarksman(json.dangoMarksman);
 			model.setDangoTemper(json.dangoTemper);
+			model.setDangoTemper(json.dangoBombardier);
 
+			// Misc. Buffs
 			model.setMiscRaw(json.miscRaw);
 			model.setMiscMultiplier(json.miscMultiplier);
 			model.setMiscAffinity(json.miscAffinity);
+
+			// Palico
 			model.setPowerDrum(json.powerDrum);
 			model.setRousingRoar(json.rousingRoar);
+
+			// Hitzone
 			model.setHitzone(json.hitzone);
 			model.setHitzoneEle(json.hitzoneEle);
+
+			// Skills
 			model.setDisabledSkills(json.disabledSkills);
+
+			// Combo
 			model.setCombo(json.combo);
 
 			router.push("/");

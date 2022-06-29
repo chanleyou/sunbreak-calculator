@@ -14,6 +14,7 @@ import {
 	BuffBox,
 	TextBox,
 } from "../components";
+import RampageDecoPicker from "../components/RampageDecoPicker";
 import { RampageSkills, SkillKey, Skills } from "../data";
 import { Model } from "../model";
 
@@ -84,6 +85,23 @@ const Main: NextPage<Props> = ({ model }) => {
 							show={showWeaponPicker}
 							setShow={setShowWeaponPicker}
 						/>
+						<div className={weapon.rampageSlots.length > 1 ? "grid grid-cols-3 gap-2" : ""}>
+							{weapon.rampageSlots.map((lvl, i) => {
+								return (
+									<RampageDecoPicker
+										key={`${weapon.name}-rd-${i}`}
+										level={lvl}
+										value={model.rampageDecos[i]}
+										setValue={(v) =>
+											prod(model.setRampageDecos)((rd) => {
+												if (v) rd[i] = v;
+												else rd[i] = undefined;
+											})
+										}
+									/>
+								);
+							})}
+						</div>
 						<div className={weapon.rampageSkills.length > 1 ? "grid grid-cols-3 gap-2" : ""}>
 							{weapon.rampageSkills.map((opts, i) => {
 								return (

@@ -435,7 +435,7 @@ export const Skills = {
 	},
 	Steadiness: {
 		name: "Steadiness",
-		ranks: [1, 2],
+		ranks: [1, 2, 3],
 	},
 	TuneUp: {
 		// TODO: figure out what this is

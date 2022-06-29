@@ -103,7 +103,6 @@ export const Decorations: Decoration[] = [
 	{ rank: 1, name: "Pep Jewel 1", skill: ["SleepResistance", 1] },
 	{ rank: 1, name: "Antipara Jewel 1", skill: ["ParalysisResistance", 1] },
 	{ rank: 1, name: "Antidote Jewel 1", skill: ["PoisonResistance", 1] },
-	{ rank: 1, name: "Bomber Jewel 1", skill: ["Bombardier", 1] },
 	{ rank: 1, name: "Fire Res Jewel 1", skill: ["FireResistance", 1] },
 	{ rank: 1, name: "Ice Res Jewel 1", skill: ["IceResistance", 1] },
 	{ rank: 1, name: "Water Res Jewel 1", skill: ["WaterResistance", 1] },

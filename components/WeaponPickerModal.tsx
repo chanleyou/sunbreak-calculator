@@ -112,8 +112,8 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 										</td>
 									)}
 									<td>
-										{w.rampageSkills.flat().map((rs) => (
-											<p key={rs}>{RampageSkills[rs].name}</p>
+										{w.rampageSlots.map((rs) => (
+											<p key={rs}>{w.rampageSlots.join(", ")}</p>
 										))}
 									</td>
 								</tr>

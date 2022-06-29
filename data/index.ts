@@ -30,3 +30,4 @@ export {
 } from "./attacks";
 export type { Attack } from "./attacks";
 export { Demondrug } from "./items";
+export { RampageDecorations, type RampageDecoration } from "./rampageDecos";

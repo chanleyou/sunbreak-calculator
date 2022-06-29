@@ -6,6 +6,7 @@ import {
 	Decoration,
 	Demondrug,
 	LongSwordSpiritGauge,
+	RampageDecoration,
 	RampageSkillKey,
 	RampageSkills,
 	SharpnessEleMultipliers,
@@ -32,6 +33,7 @@ export const useModel = () => {
 	// Weapon
 	const [_weapon, setWeapon] = useState<Weapon>(Weapons[0]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
+	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
 
 	const isRanged = useMemo(() => {
 		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === _weapon.type);
@@ -39,6 +41,7 @@ export const useModel = () => {
 
 	useEffect(() => {
 		setRampageSkills([]);
+		setRampageDecos([]);
 		setWeaponDecos([]);
 		setSpiritGauge(undefined);
 		setPowerSheathe(false);
@@ -397,6 +400,7 @@ export const useModel = () => {
 				case "CriticalEye":
 				case "CriticalDraw":
 				case "MaximumMight":
+				case "LatentPower":
 					affinity.push(Skills[skill].ranks[level]);
 					break;
 				case "WeaknessExploit":
@@ -623,6 +627,8 @@ export const useModel = () => {
 		sharpness,
 		rampageSkills,
 		setRampageSkills,
+		rampageDecos,
+		setRampageDecos,
 		helm,
 		setHelm,
 		chest,

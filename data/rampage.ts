@@ -27,7 +27,30 @@ export type RampageSkillKey =
 	| "SilkbindBoost"
 	| "BrutalStrike"
 	| "DullingStrike"
-	| "IceblightExploit";
+	| "DefenseGrinder1"
+	| "DefenseGrinder2"
+	| "HellionMode"
+	| "MaximumVolume"
+	| "PhialSwitchBoost"
+	| "LastingArcShot"
+	| "DragonExploit"
+	| "AntiAerialSpecies"
+	| "AntiAquaticSpecies"
+	| "SmallMonsterExploit"
+	| "FireblightExploit"
+	| "IceblightExploit"
+	| "ThunderblightExploit"
+	| "WaterblightExploit"
+	| "MagnamaloSoul"
+	| "ValstraxSoul"
+	| "ChameleosSoul"
+	| "TeostraSoul"
+	| "IbushiSoul"
+	| "NarwaSoul"
+	| "BuddyRally"
+	| "SpiribirdDoubled"
+	| "WyrmstakeBoost"
+	| "FangedExploit";
 
 export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	AttackBoost1: { name: "Attack Boost 1", raw: 4 },
@@ -50,7 +73,30 @@ export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	SilkbindBoost: { name: "Silkbind Boost" }, // x1.1 multi to silkbind attacks
 	BrutalStrike: { name: "Brutal Strike" }, // 15% chance for negative crit to instead deal 1.5x damage
 	DullingStrike: { name: "Dulling Strike" }, // 10% chance to deal +20% damage when sharpness <= green
+	HellionMode: { name: "HellionMode" },
+	MaximumVolume: { name: "Maximum Volume" },
+	PhialSwitchBoost: { name: "Phial Switch Boost" },
+	LastingArcShot: { name: "Lasting Arc Shot" },
+	DragonExploit: { name: "Dragon Exploit" },
+	AntiAerialSpecies: { name: "Anti-Aerial Species" },
+	AntiAquaticSpecies: { name: "Anti-Aquatic Species" },
+	SmallMonsterExploit: { name: "Small Monster Exploit" },
+	FireblightExploit: { name: "Fireblight Exploit" },
 	IceblightExploit: { name: "Iceblight Exploit" },
+	ThunderblightExploit: { name: "Thunderblight Exploit" },
+	WaterblightExploit: { name: "Waterblight Exploit" },
+	MagnamaloSoul: { name: "Magnamalo Soul" },
+	ValstraxSoul: { name: "Valstrax Soul" },
+	ChameleosSoul: { name: "Chameleos Soul" },
+	TeostraSoul: { name: "Teostra Soul" },
+	IbushiSoul: { name: "Ibushi Soul" },
+	NarwaSoul: { name: "Narwa Soul" },
+	BuddyRally: { name: "Buddy Rally" },
+	SpiribirdDoubled: { name: "Spiribird Doubled" },
+	WyrmstakeBoost: { name: "Wyrmstake Boost" },
+	FangedExploit: { name: "Fanged Exploit" },
+	DefenseGrinder1: { name: "Defense Grinder 1" },
+	DefenseGrinder2: { name: "Defense Grinder 2" },
 };
 
 export type HasRampageSkill = Partial<{ [K in RampageSkillKey]: boolean }>;
