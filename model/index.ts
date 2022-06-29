@@ -35,6 +35,8 @@ export const useModel = () => {
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
 
+	const rampage = useMemo(() => [...rampageSkills, ...rampageDecos], [rampageSkills, rampageDecos]);
+
 	const isRanged = useMemo(() => {
 		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === _weapon.type);
 	}, [_weapon]);
@@ -543,8 +545,8 @@ export const useModel = () => {
 	const _baseCritChance = useMemo(() => Math.abs(effectiveAffinity), [effectiveAffinity]);
 	const _baseHitChance = useMemo(() => 100 - _baseCritChance, [_baseCritChance]);
 
-	const hasDullingStrike = useMemo(() => rampageSkills.includes("DullingStrike"), [rampageSkills]);
-	const hasBrutalStrike = useMemo(() => rampageSkills.includes("BrutalStrike"), [rampageSkills]);
+	const hasDullingStrike = useMemo(() => rampage.includes("DullingStrike"), [rampage]);
+	const hasBrutalStrike = useMemo(() => rampage.includes("BrutalStrike"), [rampage]);
 
 	const hitChance = useMemo(() => {
 		return hasDullingStrike ? _baseHitChance * 0.9 : _baseHitChance;
