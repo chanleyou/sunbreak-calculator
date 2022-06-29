@@ -1,5 +1,4 @@
-export { Helms, Chests, Arms, Waists, Legs } from "./armor";
-export type { Armor } from "./armor";
+export { Armors, type ArmorType, type Armor } from "./armor";
 export { Decorations } from "./decorations";
 export type { Decoration } from "./decorations";
 export { Skills } from "./skills";

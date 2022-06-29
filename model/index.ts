@@ -305,7 +305,7 @@ export const useModel = () => {
 					if (type !== "Fire") break;
 					multipliers.push(Skills[skill].ranks[level]);
 					break;
-				case "DaoraBlessing":
+				case "KushalaBlessing":
 					if (type !== "Water" && type !== "Ice") break;
 					multipliers.push(Skills[skill].ranks[level]);
 					break;

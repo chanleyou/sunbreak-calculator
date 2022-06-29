@@ -14,7 +14,7 @@ import {
 	BuffBox,
 	TextBox,
 } from "../components";
-import { Arms, Chests, Helms, Legs, RampageSkills, SkillKey, Skills, Waists } from "../data";
+import { RampageSkills, SkillKey, Skills } from "../data";
 import { Model } from "../model";
 
 function prod<T>(setter: Dispatch<SetStateAction<T>>) {
@@ -120,8 +120,7 @@ const Main: NextPage<Props> = ({ model }) => {
 						)}
 					</div>
 					<ArmorSlot
-						label="Helm"
-						options={[...Helms]}
+						type="Helm"
 						value={helm}
 						onSelectOption={setHelm}
 						decos={helmDecos}
@@ -132,8 +131,7 @@ const Main: NextPage<Props> = ({ model }) => {
 						}
 					/>
 					<ArmorSlot
-						label="Chest"
-						options={[...Chests]}
+						type="Chest"
 						value={chest}
 						onSelectOption={setChest}
 						decos={chestDecos}
@@ -144,8 +142,7 @@ const Main: NextPage<Props> = ({ model }) => {
 						}
 					/>
 					<ArmorSlot
-						label="Arms"
-						options={[...Arms]}
+						type="Arms"
 						value={arms}
 						onSelectOption={setArms}
 						decos={armsDecos}
@@ -156,8 +153,7 @@ const Main: NextPage<Props> = ({ model }) => {
 						}
 					/>
 					<ArmorSlot
-						label="Waist"
-						options={[...Waists]}
+						type="Waist"
 						value={waist}
 						onSelectOption={setWaist}
 						decos={waistDecos}
@@ -168,8 +164,7 @@ const Main: NextPage<Props> = ({ model }) => {
 						}
 					/>
 					<ArmorSlot
-						label="Legs"
-						options={[...Legs]}
+						type="Legs"
 						value={legs}
 						onSelectOption={setLegs}
 						decos={legsDecos}
@@ -226,7 +221,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							);
 						})}
 				</Box>
-				<BuffBox model={model} />
+				{/* <BuffBox model={model} /> */}
 			</Column>
 		</>
 	);

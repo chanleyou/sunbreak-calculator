@@ -1,12 +1,19 @@
 import { SkillSlot } from "../skills";
-export { default as Helms } from "./helms";
-export { default as Chests } from "./chests";
-export { default as Arms } from "./arms";
-export { default as Waists } from "./waists";
-export { default as Legs } from "./legs";
+
+export type ArmorType = "Helm" | "Chest" | "Arms" | "Waist" | "Legs";
 
 export type Armor = {
 	name: string;
+	type: ArmorType;
+	defense: number;
 	skills: SkillSlot[];
 	decorations: number[];
+	rarity: number;
+	fireRes: number;
+	waterRes: number;
+	iceRes: number;
+	thunderRes: number;
+	dragonRes: number;
 };
+
+export { default as Armors } from "./raw";

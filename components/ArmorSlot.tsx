@@ -1,22 +1,21 @@
 import React, { memo, useState } from "react";
-import { Armor, Decoration } from "../data";
+import { Armor, Decoration, ArmorType, Armors } from "../data";
 import { ArmorPickerModal, DecoPicker } from ".";
 
 type SlotProps = {
-	label: string;
-	options: Armor[];
+	type: ArmorType;
 	value?: Armor;
 	onSelectOption: (a: Armor | undefined) => void;
 	decos: (Decoration | undefined)[];
 	onSelectDeco: (d: Decoration | undefined, i: number) => void;
 };
 
-const ArmorSlot = ({ label, options, value, onSelectOption, decos, onSelectDeco }: SlotProps) => {
+const ArmorSlot = ({ type, value, onSelectOption, decos, onSelectDeco }: SlotProps) => {
 	const [showPicker, setShowPicker] = useState(false);
 	return (
 		<>
 			<div className="py-1">
-				<label>{label}</label>
+				<label>{type}</label>
 				<div
 					onClick={() => setShowPicker(true)}
 					className={`text-element cursor-pointer ${!value ? "text-gray-500" : ""}`}
@@ -27,7 +26,7 @@ const ArmorSlot = ({ label, options, value, onSelectOption, decos, onSelectDeco 
 					{[0, 1, 2].map((i) => (
 						<DecoPicker
 							disabled={!value || value.decorations[i] === undefined}
-							key={`${label}-deco-${i}`}
+							key={`${type}-deco-${i}`}
 							value={decos[i]}
 							setValue={(d) => onSelectDeco(d, i)}
 							level={value ? value?.decorations[i] : 0}
@@ -38,7 +37,7 @@ const ArmorSlot = ({ label, options, value, onSelectOption, decos, onSelectDeco 
 			<ArmorPickerModal
 				value={value}
 				setValue={onSelectOption}
-				options={options}
+				options={Armors.filter((a) => a.type === type)}
 				show={showPicker}
 				setShow={setShowPicker}
 			/>
