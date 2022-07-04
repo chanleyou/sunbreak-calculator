@@ -73,7 +73,7 @@ export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	SilkbindBoost: { name: "Silkbind Boost" }, // x1.1 multi to silkbind attacks
 	BrutalStrike: { name: "Brutal Strike" }, // 15% chance for negative crit to instead deal 1.5x damage
 	DullingStrike: { name: "Dulling Strike" }, // 10% chance to deal +20% damage when sharpness <= green
-	HellionMode: { name: "HellionMode" },
+	HellionMode: { name: "Hellion Mode" },
 	MaximumVolume: { name: "Maximum Volume" },
 	PhialSwitchBoost: { name: "Phial Switch Boost" },
 	LastingArcShot: { name: "Lasting Arc Shot" },

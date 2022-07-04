@@ -633,8 +633,8 @@ export const Skills = {
 		name: "Redirection",
 		ranks: [1, 2, 3],
 	},
-	HellfireMail: {
-		name: "HellfireMail",
+	MailOfHellfire: {
+		name: "Mail of Hellfire",
 		ranks: [
 			{ redRawUp: 15, redDefenseDown: 50, blueElementMultiplier: 1.05, blueResistancesDown: 10 },
 			{ redRawUp: 20, redDefenseDown: 75, blueElementMultiplier: 1.1, blueResistancesDown: 25 },

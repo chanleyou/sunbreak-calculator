@@ -4,10 +4,11 @@ export type ArmorType = "Helm" | "Chest" | "Arms" | "Waist" | "Legs";
 
 export type Armor = {
 	name: string;
+	series: string;
 	type: ArmorType;
 	defense: number;
 	skills: SkillSlot[];
-	decorations: number[];
+	slots: number[];
 	rarity: number;
 	fireRes: number;
 	waterRes: number;

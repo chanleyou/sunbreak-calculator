@@ -24,7 +24,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 					</thead>
 					<tbody className="text-neutral-600">
 						{options.map((a) => {
-							const { name, skills, decorations } = a;
+							const { name, skills, slots } = a;
 
 							const classNames = ["cursor-pointer"];
 
@@ -47,7 +47,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 											</p>
 										))}
 									</td>
-									<td>{decorations.join(", ")}</td>
+									<td>{slots.join(", ")}</td>
 								</tr>
 							);
 						})}
