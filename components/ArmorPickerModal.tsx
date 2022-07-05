@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Armor, Skills } from "../data";
-import { Modal } from "./ui";
+import { Modal, TextInput } from "./ui";
 
 type Props = {
 	value?: Armor;
@@ -11,9 +11,30 @@ type Props = {
 };
 
 const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) => {
+	const [search, setSearch] = useState("");
+	// const [onlyShowMasterRank, setOnlyShowMasterRank] = useState(true);
+
+	const filteredOptions = useMemo(() => {
+		if (search === "") return options;
+		return options.filter((o) => {
+			if (o.name.toLowerCase().includes(search.toLowerCase())) return true;
+
+			if (
+				o.skills
+					.map(([s, v]) => `${Skills[s].name} ${v}`)
+					.join(" ")
+					.toLowerCase()
+					.includes(search.toLowerCase())
+			)
+				return true;
+			return false;
+		});
+	}, [options, search]);
+
 	return (
 		<Modal show={show} setShow={setShow} head="Select Armor">
-			<div className="overflow-scroll">
+			<TextInput placeholder="Search..." value={search} onChangeValue={setSearch} />
+			<div className="md:overflow-auto">
 				<table className="w-full text-left">
 					<thead>
 						<tr className="border-b border-gray-200">
@@ -23,7 +44,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600">
-						{options.map((a) => {
+						{filteredOptions.map((a, i) => {
 							const { name, skills, slots } = a;
 
 							const classNames = ["cursor-pointer"];
@@ -33,7 +54,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 							return (
 								<tr
 									className={classNames.join(" ")}
-									key={name}
+									key={`${name}-${i}`}
 									onClick={() => {
 										setValue(a);
 										setShow(false);

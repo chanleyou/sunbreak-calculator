@@ -1,6 +1,16 @@
 export { default as SkillToggle } from "./SkillToggle";
 export { default as AttackRow } from "./AttackRow";
-export { Checkbox, Column, Box, Modal, Select, NumberInput, TextDisplay, TextBox } from "./ui";
+export {
+	Checkbox,
+	Column,
+	Box,
+	Modal,
+	Select,
+	NumberInput,
+	TextInput,
+	TextDisplay,
+	TextBox,
+} from "./ui";
 export { default as WeaponPickerModal } from "./WeaponPickerModal";
 export { default as ArmorSlot } from "./ArmorSlot";
 export { default as CharmSlot } from "./CharmSlot";

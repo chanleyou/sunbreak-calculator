@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
 import { SharpnessBar } from ".";
-import { RampageSkills, Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
+import { Weapon, Weapons, WeaponType, WeaponTypes } from "../data";
 import formatter from "../formatter";
 import { sharpnessHandicraft } from "../utils";
-import { Modal, Select } from "./ui";
+import { Checkbox, Modal, Select, TextInput } from ".";
 
 type Props = {
 	show: boolean;
@@ -14,11 +14,18 @@ type Props = {
 
 const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 	const [weaponType, setWeaponType] = useState<WeaponType | undefined>(weapon.type);
+	const [search, setSearch] = useState("");
+	const [onlyShowFullyUpgraded, setOnlyShowFullyUpgraded] = useState(true);
 
-	const filteredWeapons = useMemo(
-		() => (weaponType ? Weapons.filter((w) => w.type === weaponType) : []),
-		[weaponType],
-	);
+	const filteredWeapons = useMemo(() => {
+		if (!weaponType) return [];
+		return Weapons.filter((w) => {
+			if (w.type !== weaponType) return false;
+			if (onlyShowFullyUpgraded && w.rarity < 10) return false;
+			if (search === "") return true;
+			return w.name.toLowerCase().includes(search.toLowerCase());
+		});
+	}, [weaponType, search, onlyShowFullyUpgraded]);
 
 	const otherHead = useMemo(
 		() => (weaponType ? formatter.formatWeaponPropertyKey(weaponType) : undefined),
@@ -38,7 +45,19 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 				onSelectOption={setWeaponType}
 				formatter={(o) => o.toString()}
 			/>
-			<div className="overflow-scroll">
+			<div className="flex gap-2 place-items-center">
+				<div className="w-full">
+					<TextInput placeholder="Search..." value={search} onChangeValue={setSearch} />
+				</div>
+				<div className="min-w-max">
+					<Checkbox
+						label="Fully Upgraded"
+						value={onlyShowFullyUpgraded}
+						onChangeValue={setOnlyShowFullyUpgraded}
+					/>
+				</div>
+			</div>
+			<div className="md:overflow-auto">
 				<table className="w-full text-left text-xs">
 					<thead>
 						<tr className="border-b border-gray-200">

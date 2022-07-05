@@ -62,7 +62,7 @@ export const SharpnessEleMultipliers: { [K in Sharpness]: number } = {
 
 export interface IWeapon {
 	name: string;
-	rarity?: number;
+	rarity: number;
 	type: WeaponType;
 	raw: number;
 	defense?: number;

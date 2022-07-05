@@ -47,6 +47,7 @@
 	textarea,
 	div.number-input,
 	input[type="number"],
+	input[type="text"],
 	select {
 		@apply p-1
 		text-xs
@@ -60,7 +61,8 @@
 	}
 
 	textarea,
-	input[type="number"] {
+	input[type="number"],
+	input[type="text"] {
 		@apply read-only:bg-gray-100 read-only:text-gray-600;
 	}
 

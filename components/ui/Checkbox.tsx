@@ -17,10 +17,7 @@ export default function Checkbox({ value, onChangeValue, label, disabled }: Prop
 				disabled={disabled}
 			/>
 			{label && (
-				<label
-					className="ml-1 inline-block align-baseline mb-0"
-					onClick={() => onChangeValue(!value)}
-				>
+				<label className="ml-1 flex place-items-center mb-0" onClick={() => onChangeValue(!value)}>
 					{label}
 				</label>
 			)}

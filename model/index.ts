@@ -31,7 +31,7 @@ export type Model = ReturnType<typeof useModel>;
 
 export const useModel = () => {
 	// Weapon
-	const [_weapon, setWeapon] = useState<Weapon>(Weapons[0]);
+	const [_weapon, setWeapon] = useState<Weapon>(Weapons[13]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
 

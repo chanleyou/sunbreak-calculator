@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Decoration, Decorations, Skills } from "../data";
-import { Modal, TextBox } from "./ui";
+import { Modal, TextBox, TextInput } from "./ui";
 
 type Props = {
 	value?: Decoration;
@@ -11,12 +11,25 @@ type Props = {
 
 const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 	const [show, setShow] = useState(false);
+	const [search, setSearch] = useState("");
 
-	const options = Decorations.filter((d) => d.rank <= level).sort((a, b) => {
-		if (a.rank < b.rank) return -1;
-		if (a.rank > b.rank) return 1;
-		return a.name > b.name ? 1 : -1;
-	});
+	const options = useMemo(() => {
+		return Decorations.filter((d) => {
+			if (d.rank > level) return false;
+			if (search === "") return true;
+
+			if (d.name.toLowerCase().includes(search.toLowerCase())) return true;
+
+			const skillName = `${Skills[d.skill[0]].name} ${d.skill[1]}`;
+			if (skillName.toLowerCase().includes(search.toLowerCase())) return true;
+
+			return false;
+		}).sort((a, b) => {
+			if (a.rank < b.rank) return -1;
+			if (a.rank > b.rank) return 1;
+			return a.name > b.name ? 1 : -1;
+		});
+	}, [search, level]);
 
 	return (
 		<>
@@ -30,11 +43,11 @@ const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 				{disabled ? "\u00a0" : value ? value.name : `Decoration [${level}]`}
 			</TextBox>
 			<Modal show={show} setShow={setShow} head={`Select Decoration ${level}`}>
-				<div className="overflow-scroll">
+				<TextInput placeholder="Search..." value={search} onChangeValue={setSearch} />
+				<div className="md:overflow-auto">
 					<table className="w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
-								<th>Rank</th>
 								<th>Name</th>
 								<th>Skill</th>
 							</tr>
@@ -54,7 +67,6 @@ const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 											setShow(false);
 										}}
 									>
-										<td>{rank}</td>
 										<td>{name}</td>
 										<td>
 											{Skills[skill[0]].name} {skill[1]}
