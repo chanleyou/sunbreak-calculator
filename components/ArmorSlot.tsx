@@ -25,11 +25,11 @@ const ArmorSlot = ({ type, value, onSelectOption, decos, onSelectDeco }: SlotPro
 				<div className="grid grid-cols-3 gap-2">
 					{[0, 1, 2].map((i) => (
 						<DecoPicker
-							disabled={!value || value.decorations[i] === undefined}
+							disabled={!value || value.slots[i] === undefined}
 							key={`${type}-deco-${i}`}
 							value={decos[i]}
 							setValue={(d) => onSelectDeco(d, i)}
-							level={value ? value?.decorations[i] : 0}
+							level={value ? value?.slots[i] : 0}
 						/>
 					))}
 				</div>
