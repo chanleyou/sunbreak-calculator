@@ -38,9 +38,10 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 				<table className="w-full text-left">
 					<thead>
 						<tr className="border-b border-gray-200">
+							{/* <th>Rarity</th> */}
 							<th>Name</th>
 							<th>Skills</th>
-							<th>Decos</th>
+							<th>Slots</th>
 						</tr>
 					</thead>
 					<tbody className="text-neutral-600">
@@ -60,6 +61,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 										setShow(false);
 									}}
 								>
+									{/* <td>{rarity}</td> */}
 									<td>{name}</td>
 									<td>
 										{skills.map(([s, v]) => (
