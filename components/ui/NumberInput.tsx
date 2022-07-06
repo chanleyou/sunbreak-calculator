@@ -18,7 +18,7 @@ export default function NumberInput({
 	small,
 	...props
 }: Props) {
-	let className = "py-1 mb-2";
+	let className = "py-1";
 	if (small) className += " flex items-baseline gap-2";
 
 	return (

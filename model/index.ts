@@ -109,6 +109,7 @@ export const useModel = () => {
 	const [miscRaw, setMiscRaw] = useState(0);
 	const [miscMultiplier, setMiscMultiplier] = useState(0);
 	const [miscAffinity, setMiscAffinity] = useState(0);
+	const [miscElement, setMiscElement] = useState(0);
 
 	// Palico
 	const [powerDrum, setPowerDrum] = useState(false);
@@ -162,15 +163,15 @@ export const useModel = () => {
 			}, {});
 
 		// Stormsoul
-		if (!base.Stormsoul || base.Stormsoul < 4) return base;
-		const bonus = base.Stormsoul - 3;
+		if (!base.Stormsoul || Skills.Stormsoul.ranks[base.Stormsoul].boost === 0) return base;
+		const { boost } = Skills.Stormsoul.ranks[base.Stormsoul];
 
 		return produce(base, (draft) => {
 			(Object.entries(draft) as [SkillKey, number][]).forEach(([skill, level]) => {
 				if (skill === "Stormsoul") return;
 
 				const maxRank = Skills[skill].ranks.length;
-				draft[skill] = lowest(maxRank, level + bonus);
+				draft[skill] = lowest(maxRank, level + boost);
 			});
 		});
 	}, [helm, chest, arms, waist, legs, _decos, charmSkillOne, charmSkillTwo]);
@@ -278,7 +279,7 @@ export const useModel = () => {
 		if (!weapon.element) return 0;
 		const type = weapon.element.type;
 
-		const bonuses: number[] = [];
+		const bonuses: number[] = [miscElement];
 		const multipliers: number[] = [];
 
 		activeSkillsEntries.forEach(([skill, level]) => {
@@ -329,7 +330,7 @@ export const useModel = () => {
 		});
 
 		return calculateUI(weapon.element.value, multiply(...multipliers), sum(...bonuses));
-	}, [weapon, activeSkillsEntries]);
+	}, [weapon, miscElement, activeSkillsEntries]);
 
 	const effectiveStatus = useMemo(() => {
 		if (!weapon.status) return 0;
@@ -372,7 +373,7 @@ export const useModel = () => {
 		if (weapon.type !== "Switch Axe") return 0;
 		if (weapon.properties?.type !== "Dragon") return 0;
 
-		const bonuses: number[] = [];
+		const bonuses: number[] = [miscElement];
 		const multipliers: number[] = [];
 
 		activeSkillsEntries.forEach(([skill, level]) => {
@@ -390,7 +391,7 @@ export const useModel = () => {
 		});
 
 		return calculateUI(weapon.properties.value, multiply(...multipliers), sum(...bonuses));
-	}, [weapon, activeSkillsEntries]);
+	}, [weapon, miscElement, activeSkillsEntries]);
 
 	const effectiveAffinity = useMemo(() => {
 		const affinity = [weapon.affinity ?? 0, rousingRoar ? 30 : 0, miscAffinity];
@@ -689,6 +690,8 @@ export const useModel = () => {
 		setMiscMultiplier,
 		miscAffinity,
 		setMiscAffinity,
+		miscElement,
+		setMiscElement,
 		powerDrum,
 		setPowerDrum,
 		rousingRoar,

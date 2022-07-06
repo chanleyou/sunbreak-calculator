@@ -569,7 +569,7 @@ export const Skills = {
 		ranks: [1, 2, 3],
 	},
 	StaminaThief: {
-		// TODO: model
+		// TODO: model Exhaust Phial
 		name: "Stamina Thief",
 		ranks: [1.2, 1.3, 1.4],
 	},
@@ -601,25 +601,15 @@ export const Skills = {
 			{ defense: 20, resistances: 10 },
 			{ defense: 30, resistances: 20 },
 		],
-		conditional: true,
+		// conditional: true,
 	},
 	ChainCrit: {
 		name: "Chain Crit",
-		ranks: [
-			{ flat: 10, ele: 4 },
-			{ flat: 12, ele: 6 },
-			{ flat: 15, ele: 8 },
-		],
-		conditional: true,
+		ranks: [1, 2, 3],
 	},
 	Coalescence: {
 		name: "Coalescence",
-		ranks: [
-			{ flat: 12, ele: 2, status: 1.05 },
-			{ flat: 15, ele: 3, status: 1.1 },
-			{ flat: 18, ele: 4, status: 1.15 },
-		],
-		conditional: true,
+		ranks: [1, 2, 3],
 	},
 	Bloodlust: {
 		name: "Bloodlust",
@@ -635,11 +625,7 @@ export const Skills = {
 	},
 	MailOfHellfire: {
 		name: "Mail of Hellfire",
-		ranks: [
-			{ redRawUp: 15, redDefenseDown: 50, blueElementMultiplier: 1.05, blueResistancesDown: 10 },
-			{ redRawUp: 20, redDefenseDown: 75, blueElementMultiplier: 1.1, blueResistancesDown: 25 },
-			{ redRawUp: 25, redDefenseDown: 100, blueElementMultiplier: 1.2, blueResistancesDown: 50 },
-		],
+		ranks: [1, 2, 3],
 	},
 	BloodRite: {
 		name: "Blood Rite",

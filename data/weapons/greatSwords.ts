@@ -2821,7 +2821,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Azure Elder Great Sword II",
+		name: "Demonlord Goldrod",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 330,
@@ -2834,7 +2834,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Abyssal Galeblade",
+		name: "Azure Elder Great Sword I",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 180,
@@ -2847,7 +2847,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Azure Elder Great Sword II",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 200,
@@ -2860,7 +2860,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [40, 10, 0, 0],
 	},
 	{
-		name: "Thunderbolt Great Sword I",
+		name: "Abyssal Galeblade",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 210,
@@ -2873,7 +2873,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Abyssal Storm Cleaver",
+		name: "Skysplit Hurricane",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 340,
@@ -2886,7 +2886,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Thunderbolt Great Sword I",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 180,
@@ -2899,7 +2899,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Icesteel Edge I",
+		name: "Abyssal Storm Cleaver",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 190,
@@ -2912,7 +2912,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [10, 40, 0, 0],
 	},
 	{
-		name: "Daora's Decimator",
+		name: "Skysplit Thunderstorm",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 320,
@@ -2925,7 +2925,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Icesteel Edge",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 180,
@@ -2939,7 +2939,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Daora's Decimator",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 190,
@@ -2953,7 +2953,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Teostra Blade I",
+		name: "Daora's Decimator+",
 		type: "Great Sword",
 		rarity: 9,
 		raw: 310,
@@ -2967,7 +2967,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "King Teostra Blade",
+		name: "Daora's Tughril Beg",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 320,
@@ -2981,7 +2981,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Teostra Blade I",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 180,
@@ -2994,7 +2994,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "King Teostra Blade",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 190,
@@ -3007,7 +3007,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Grand Shamshir I",
+		name: "King Teostra Blade+",
 		type: "Great Sword",
 		rarity: 9,
 		raw: 330,
@@ -3020,7 +3020,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Foreboding Shamshir",
+		name: "Teostra del Sol",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 340,
@@ -3033,7 +3033,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Grand Shamshir",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 180,
@@ -3046,7 +3046,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Foreboding Shamshir",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 190,
@@ -3059,7 +3059,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Redwing Claymore I",
+		name: "Foreboding Shamshir+",
 		type: "Great Sword",
 		rarity: 9,
 		raw: 310,
@@ -3072,7 +3072,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Reddnaught Claymore",
+		name: "Dreaded Shamshir",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 320,
@@ -3085,7 +3085,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Redwing Claymore I",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 170,
@@ -3098,7 +3098,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Reddnaught Claymore",
 		type: "Great Sword",
 		rarity: 7,
 		raw: 180,
@@ -3111,7 +3111,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Wyvern's Perch I",
+		name: "Crimson Vastwing",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 340,
@@ -3124,7 +3124,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Wyvern's Perch II",
+		name: "Abyssal Eruption",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 340,
@@ -3138,7 +3138,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Roguish Deathcap",
+		name: "Wyvern's Perch I",
 		type: "Great Sword",
 		rarity: 2,
 		raw: 100,
@@ -3151,7 +3151,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Wyvern's Perch II",
 		type: "Great Sword",
 		rarity: 4,
 		raw: 180,
@@ -3164,7 +3164,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [40, 10, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Roguish Deathcap",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 210,
@@ -3177,7 +3177,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Sleepy Shellblade I",
+		name: "Roguish Deathcap+",
 		type: "Great Sword",
 		rarity: 8,
 		raw: 270,
@@ -3190,7 +3190,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [10, 40, 0, 0],
 	},
 	{
-		name: "Sleepy Shellblade II",
+		name: "Lordly Deathcap",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 340,
@@ -3203,7 +3203,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Soporific Shellblade",
+		name: "Sleepy Shellblade I",
 		type: "Great Sword",
 		rarity: 2,
 		raw: 100,
@@ -3217,7 +3217,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Sleepy Shellblade II",
 		type: "Great Sword",
 		rarity: 3,
 		raw: 120,
@@ -3231,7 +3231,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [40, 10, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Soporific Shellblade",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 180,
@@ -3245,7 +3245,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Frozen Speartuna I",
+		name: "Soporific Shellblade+",
 		type: "Great Sword",
 		rarity: 8,
 		raw: 270,
@@ -3259,7 +3259,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Frozen Speartuna II",
+		name: "Dreamdiver",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 330,
@@ -3273,7 +3273,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Freezer Speartuna",
+		name: "Freezer Speartuna I",
 		type: "Great Sword",
 		rarity: 4,
 		raw: 130,
@@ -3286,7 +3286,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Frozen Speartuna II",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 140,
@@ -3299,7 +3299,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Freezer Speartuna",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 150,
@@ -3312,7 +3312,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [40, 10, 0, 0],
 	},
 	{
-		name: "Ninja Parasol I",
+		name: "Freezer Speartuna+",
 		type: "Great Sword",
 		rarity: 8,
 		raw: 270,
@@ -3325,7 +3325,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Ninja Parasol II",
+		name: "Xiphias Gladius",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 310,
@@ -3338,7 +3338,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Dragonslayer Parasol",
+		name: "Ninja Parasol I",
 		type: "Great Sword",
 		rarity: 3,
 		raw: 160,
@@ -3351,7 +3351,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Ninja Parasol II",
 		type: "Great Sword",
 		rarity: 4,
 		raw: 170,
@@ -3364,7 +3364,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [10, 40, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Dragonslayer Parasol",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 190,
@@ -3377,7 +3377,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [0, 50, 0, 0],
 	},
 	{
-		name: "Cat's Soul I",
+		name: "Dragondance Parasol",
 		type: "Great Sword",
 		rarity: 8,
 		raw: 250,
@@ -3390,7 +3390,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Cat's Soul II",
+		name: "Dragondance Parasol+",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 310,
@@ -3403,7 +3403,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [30, 20, 0, 0],
 	},
 	{
-		name: "Cat's Curse",
+		name: "Cat's Soul I",
 		type: "Great Sword",
 		rarity: 4,
 		raw: 100,
@@ -3416,7 +3416,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Cat's Soul II",
 		type: "Great Sword",
 		rarity: 5,
 		raw: 130,
@@ -3429,7 +3429,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [40, 10, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Cat's Curse",
 		type: "Great Sword",
 		rarity: 6,
 		raw: 150,
@@ -3442,7 +3442,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Cat's Curse+",
 		type: "Great Sword",
 		rarity: 8,
 		raw: 220,
@@ -3455,7 +3455,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [20, 30, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Cat's King",
 		type: "Great Sword",
 		rarity: 10,
 		raw: 300,
@@ -3468,7 +3468,7 @@ const greatSwords: GreatSword[] = [
 		handicraft: [50, 0, 0, 0],
 	},
 	{
-		name: "Unknown",
+		name: "Royal Order Great Sword",
 		type: "Great Sword",
 		rarity: 9,
 		raw: 310,
@@ -3481,33 +3481,33 @@ const greatSwords: GreatSword[] = [
 		sharpness: [20, 10, 10, 10, 150, 30, 20],
 		handicraft: [50, 0, 0, 0],
 	},
-	// {
-	// 	name: "Rampage Cleaver I",
-	// 	type: "Great Sword",
-	// 	rarity: 10,
-	// 	raw: 320,
-	// 	affinity: 10,
-	// 	defense: 50,
-	// rampageSkills: ["0, 0, 0"],
-	// 	rampageSkills: [],
-	// 	decos: [1, 2],
-	// 	rampageSlots: [2],
-	// 	sharpness: [10, 10, 10, 10, 130, 30, 50],
-	// 	handicraft: [50, 0, 0, 0],
-	// },
-	// {
-	// 	name: "Rampage Cleaver II",
-	// 	type: "Great Sword",
-	// 	rarity: 10,
-	// 	raw: 320,
-	// rampageSkills: ["0, 0, 0"],
-	// 	rampageSkills: [],
-	// 	decos: [],
-	// 	rampageSlots: [3],
-	// 	status: { type: "Blast", value: 45 },
-	// 	sharpness: [90, 100, 100, 20, 20, 30, 40],
-	// 	handicraft: [0, 0, 0, 0],
-	// },
+	{
+		name: "Royal Order Great Sword+",
+		type: "Great Sword",
+		rarity: 10,
+		raw: 320,
+		affinity: 10,
+		defense: 50,
+		// rampageSkills: ["0, 0, 0"],
+		rampageSkills: [],
+		decos: [1, 2],
+		rampageSlots: [2],
+		sharpness: [10, 10, 10, 10, 130, 30, 50],
+		handicraft: [50, 0, 0, 0],
+	},
+	{
+		name: "Antique Machina GS",
+		type: "Great Sword",
+		rarity: 10,
+		raw: 320,
+		// rampageSkills: ["0, 0, 0"],
+		rampageSkills: [],
+		decos: [],
+		rampageSlots: [3],
+		status: { type: "Blast", value: 45 },
+		sharpness: [90, 100, 100, 20, 20, 30, 40],
+		handicraft: [0, 0, 0, 0],
+	},
 	// {
 	// 	name: "Rampage Cleaver III",
 	// 	type: "Great Sword",

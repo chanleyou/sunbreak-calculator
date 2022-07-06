@@ -46,8 +46,8 @@ export const sharpnessHandicraft = (
 		let bonusIndex = 0;
 
 		while (handicraftPoints > 0) {
+			if (bonusIndex > 3) break;
 			const limit = wh[bonusIndex];
-			if (limit === 0) break; // weapon sharpness doesn't increase further
 
 			const bonus = handicraftPoints > limit ? limit : handicraftPoints;
 

@@ -88,7 +88,7 @@ export const ComboBox = ({ model }: Props) => {
 			</div>
 			<h4 className="mt-3">Miscellaneous</h4>
 			<p className="text-xs text-slate-500 mb-1">Buffs from your Petalace, Hunting Horn, etc</p>
-			<div className="grid grid-cols-3 gap-2">
+			<div className="grid grid-cols-3 gap-x-2">
 				<NumberInput label="Raw (Flat)" value={model.miscRaw} onChangeValue={model.setMiscRaw} />
 				<NumberInput
 					label="Raw (%)"
@@ -99,6 +99,11 @@ export const ComboBox = ({ model }: Props) => {
 					label="Affinity (%)"
 					value={model.miscAffinity}
 					onChangeValue={model.setMiscAffinity}
+				/>
+				<NumberInput
+					label="Element (Flat)"
+					value={model.miscElement}
+					onChangeValue={model.setMiscElement}
 				/>
 			</div>
 		</Box>
