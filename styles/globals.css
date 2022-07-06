@@ -94,4 +94,8 @@
 	div.disabled {
 		@apply bg-neutral-100 text-neutral-50 border-neutral-300;
 	}
+
+	div.attack-mouseover {
+		@apply hidden pointer-events-none group-hover:block absolute text-xs p-1 z-50 min-w-max left-0 top-9 border border-gray-600 shadow bg-white;
+	}
 }

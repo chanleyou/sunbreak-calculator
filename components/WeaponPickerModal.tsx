@@ -19,11 +19,16 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 
 	const filteredWeapons = useMemo(() => {
 		if (!weaponType) return [];
+
 		return Weapons.filter((w) => {
 			if (w.type !== weaponType) return false;
 			if (onlyShowFullyUpgraded && w.rarity < 10) return false;
 			if (search === "") return true;
-			return w.name.toLowerCase().includes(search.toLowerCase());
+			if (w.name.toLowerCase().includes(search.toLowerCase())) return true;
+			if (w.element?.type.toLowerCase().includes(search.toLowerCase())) return true;
+			if (w.status?.type.toLowerCase().includes(search.toLowerCase())) return true;
+
+			return false;
 		});
 	}, [weaponType, search, onlyShowFullyUpgraded]);
 

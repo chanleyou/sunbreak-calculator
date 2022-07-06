@@ -63,8 +63,8 @@ const Attacks: NextPage<Props> = ({ model }) => {
 					<table className="table-auto w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
-								<th className="w-full">Attack</th>
 								<th>MV</th>
+								<th className="w-full">Attack</th>
 								<th>Hit</th>
 								{model.hasDullingStrike && <th>DS Hit</th>}
 								<th>Crit</th>

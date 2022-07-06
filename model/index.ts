@@ -600,12 +600,14 @@ export const useModel = () => {
 
 	const attackAverage = useCallback(
 		(a: Attack) => {
+			const { noCrit } = a;
+
 			return sum(
 				(hit(a) * hitChance) / 100,
-				(crit(a) * critChance) / 100,
+				(crit(a) * (noCrit ? 0 : critChance)) / 100,
 				(dullHit(a) * dullHitChance) / 100,
-				(dullCrit(a) * dullCritChance) / 100,
-				(brutalStrike(a) * brutalStrikeChance) / 100,
+				(dullCrit(a) * (noCrit ? 0 : dullCritChance)) / 100,
+				(brutalStrike(a) * (noCrit ? 0 : brutalStrikeChance)) / 100,
 			);
 		},
 		[

@@ -30,7 +30,7 @@ const RampageDecoPicker = ({ value, setValue, level, disabled }: Props) => {
 				{disabled ? "\u00a0" : value ? RampageSkills[value].name : `Rampage Slot [${level}]`}
 			</TextBox>
 			<Modal show={show} setShow={setShow} head={`Select Rampage Decoration ${level}`}>
-				<div className="overflow-scroll">
+				<div className="md:overflow-auto">
 					<table className="w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">

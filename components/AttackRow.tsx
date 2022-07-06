@@ -25,14 +25,34 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 
 	return (
 		<tr className="cursor-pointer" key={attack.name} onClick={onClick}>
+			{!short && <td>{mv ? mv : ""}</td>}
 			<td>{name}</td>
 			{!short && (
 				<>
-					<td>{mv ? mv : ""}</td>
-					<td>{hit}</td>
+					<td className="group relative">
+						{hit}
+						<div className="attack-mouseover">
+							<p>Raw: {Math.round(model.rawHit(attack))}</p>
+							<p>Ele: {Math.round(model.eleHit(attack))}</p>
+						</div>
+					</td>
 					{model.rampageSkills.includes("DullingStrike") && <td>{dullingStrikeHit}</td>}
-					<td>{noCrit ? "" : crit}</td>
-					{model.brutalStrikeChance > 0 && <td>{noCrit ? "" : brutalStrike}</td>}
+					<td className="group relative">
+						{noCrit ? "" : crit}
+						<div className="attack-mouseover">
+							<p>Raw: {Math.round(model.rawCrit(attack))}</p>
+							<p>Ele: {Math.round(model.eleCrit(attack))}</p>
+						</div>
+					</td>
+					{model.brutalStrikeChance > 0 && (
+						<td className="group relative">
+							{noCrit ? "" : brutalStrike}
+							<div className="attack-mouseover">
+								<p>Raw: {Math.round(model.brutalStrike(attack))}</p>
+								<p>Ele: {Math.round(model.eleHit(attack))}</p>
+							</div>
+						</td>
+					)}
 					{model.rampageSkills.includes("DullingStrike") && (
 						<td>{noCrit ? "" : dullingStrikeCrit}</td>
 					)}
