@@ -10,6 +10,7 @@ export {
 	TextInput,
 	TextDisplay,
 	TextBox,
+	Warning,
 } from "./ui";
 export { default as WeaponPickerModal } from "./WeaponPickerModal";
 export { default as ArmorSlot } from "./ArmorSlot";

@@ -10,6 +10,7 @@ import {
 	BuffBox,
 	Column,
 	Checkbox,
+	Warning,
 } from "../components";
 import {
 	GreatSwordAttacks,
@@ -52,6 +53,16 @@ const Attacks: NextPage<Props> = ({ model }) => {
 			<Column>
 				{/* <ValueBox model={model} /> */}
 				{/* <BuffBox model={model} setModel={setModel} /> */}
+				{/* <Warning head="Current Status">
+					<p className="text-xs">Done:</p>
+					<ul className="text-xs py-1 pl-6 list-disc">
+						<li className="">Switch Axe</li>
+					</ul>
+					<p className="text-xs">Semi-Done:</p>
+					<ul className="text-xs py-1 pl-6 list-disc">
+						<li className="">Great Sword</li>
+					</ul>
+				</Warning> */}
 				<Box head="Hitzone">
 					<div className="grid grid-cols-2 gap-x-2">
 						<NumberInput

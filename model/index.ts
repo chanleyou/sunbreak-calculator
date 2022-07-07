@@ -157,8 +157,8 @@ export const useModel = () => {
 		let base = armorSkills.reduce(addSkills, {});
 
 		// Stormsoul only affects armor skills, not charms and decorations
-		if (base.Stormsoul && Skills.Stormsoul.ranks[base.Stormsoul].boost > 0) {
-			const { boost } = Skills.Stormsoul.ranks[base.Stormsoul];
+		if (base.Stormsoul && Skills.Stormsoul.ranks[base.Stormsoul - 1].boost > 0) {
+			const { boost } = Skills.Stormsoul.ranks[base.Stormsoul - 1];
 
 			base = produce(base, (draft) => {
 				(Object.entries(draft) as [SkillKey, number][]).forEach(([skill, level]) => {

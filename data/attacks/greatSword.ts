@@ -98,8 +98,8 @@ export const GreatSwordAttacks: Attack[] = [
 		hzMod: 1.3,
 		silkbind: true,
 	},
-	{ name: "Hunting Edge (1st Hit)", mv: 30, silkbind: true },
-	{ name: "Hunting Edge (2nd Hit)", mv: 80, silkbind: true },
+	{ name: "Hunting Edge", mv: 30, silkbind: true },
+	// { name: "Hunting Edge (2nd Hit)", mv: 80, silkbind: true },
 	{ name: "Hunting Edge Mid-Air Charged Slash Lv0", mv: 118, silkbind: true },
 	{
 		name: "Hunting Edge Mid-Air Charged Slash Lv1",

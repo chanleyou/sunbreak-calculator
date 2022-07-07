@@ -99,9 +99,9 @@ export type DualBlades = IMeleeWeapon & { type: "Dual Blades" };
 export type LongSword = IMeleeWeapon & { type: "Long Sword" };
 
 export const LongSwordSpiritGauge = {
-	White: 1.05,
-	Yellow: 1.1,
-	Red: 1.2,
+	White: 1.04,
+	Yellow: 1.08,
+	Red: 1.12,
 };
 
 export type Hammer = IMeleeWeapon & { type: "Hammer" };
