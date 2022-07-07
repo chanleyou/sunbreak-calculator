@@ -58,21 +58,29 @@ export const ComboBox = ({ model }: Props) => {
 					/>
 				</>
 			)}
-			<label>Demondrug</label>
-			<Select
-				formatter={(v) => v}
-				options={Object.keys(Demondrug) as (keyof typeof Demondrug)[]}
-				onSelectOption={model.setDemondrug}
-				value={model.demondrug}
-			/>
+			<div className="grid grid-cols-2 gap-2">
+				<div>
+					<label>Demondrug</label>
+					<Select
+						formatter={(v) => v}
+						options={Object.keys(Demondrug) as (keyof typeof Demondrug)[]}
+						onSelectOption={model.setDemondrug}
+						value={model.demondrug}
+					/>
+				</div>
+				<div>
+					<label>Dango Booster</label>
+					<Select
+						value={model.dangoBooster}
+						formatter={(n) => n.toString()}
+						options={[1, 2, 3, 4]}
+						onSelectOption={model.setDangoBooster}
+					/>
+				</div>
+			</div>
 			<div className="grid grid-cols-3">
 				<Checkbox label="Powercharm" value={model.powercharm} onChangeValue={model.setPowercharm} />
 				<Checkbox label="Powertalon" value={model.powertalon} onChangeValue={model.setPowertalon} />
-				<Checkbox
-					label="Dango Booster"
-					value={model.dangoBooster}
-					onChangeValue={model.setDangoBooster}
-				/>
 				<Checkbox label="Might Seed" value={model.mightSeed} onChangeValue={model.setMightSeed} />
 				<Checkbox
 					label="Demon Powder"

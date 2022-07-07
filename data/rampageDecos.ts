@@ -11,6 +11,7 @@ export const RampageDecorations: RampageDecoration[] = [
 	{ rank: 3, name: "Elembane Jewel 3", skill: "ElementExploit" },
 	{ rank: 1, name: "Defense Edge Jewel 1", skill: "DefenseGrinder1" },
 	{ rank: 3, name: "Raging Jewel 3", skill: "HellionMode" },
+	{ rank: 2, name: "Doot Range Jewel 2", skill: "MaximumVolume" },
 	{ rank: 3, name: "Switcher Jewel 3", skill: "PhialSwitchBoost" },
 	{ rank: 2, name: "Arc Jewel 2", skill: "LastingArcShot" },
 	{ rank: 2, name: "Anti-Dragon Jewel 2", skill: "WyvernExploit" },
@@ -21,7 +22,7 @@ export const RampageDecorations: RampageDecoration[] = [
 	{ rank: 1, name: "Waterblight Jewel 1", skill: "WaterblightExploit" },
 	{ rank: 1, name: "Thunderblight Jewel 1", skill: "ThunderblightExploit" },
 	{ rank: 1, name: "Iceblight Jewel 1", skill: "IceblightExploit" },
-	{ rank: 2, name: "Magna Soul Jewel 2", skill: "MagnamaloSoul" },
+	{ rank: 2, name: "Magna Soul Jewel 2", skill: "MagnamaloSoul" }, // gives 12% true raw
 	{ rank: 2, name: "Valstrax Soul Jewel 2", skill: "ValstraxSoul" },
 	{ rank: 2, name: "Chameleos Soul Jewel 2", skill: "ChameleosSoul" },
 	{ rank: 3, name: "Daora Soul Jewel 3", skill: "KushalaDaoraSoul" },

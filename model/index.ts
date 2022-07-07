@@ -92,7 +92,7 @@ export const useModel = () => {
 	const [demondrug, setDemondrug] = useState<keyof typeof Demondrug>();
 	const [powercharm, setPowercharm] = useState(true);
 	const [powertalon, setPowertalon] = useState(true);
-	const [dangoBooster, setDangoBooster] = useState(false);
+	const [dangoBooster, setDangoBooster] = useState<number>();
 	const [mightSeed, setMightSeed] = useState(false);
 	const [demonPowder, setDemonPowder] = useState(false);
 
@@ -219,7 +219,7 @@ export const useModel = () => {
 			demondrug ? Demondrug[demondrug] : 0,
 			powercharm ? 6 : 0,
 			powertalon ? 9 : 0,
-			dangoBooster ? 9 : 0,
+			dangoBooster ? 3 * dangoBooster + 3 : 0,
 			mightSeed ? 10 : 0,
 			demonPowder ? 10 : 0,
 			miscRaw,
