@@ -445,6 +445,17 @@ export const useModel = () => {
 			// color of hit
 			const computedHitzone = multiply(ignoreHz ? 1 : hitzone / 100, hzMod, sharpnessRawMultiplier);
 
+			const switchAxeRawMulti = (() => {
+				if (weapon.type !== "Switch Axe" || weapon.properties.type !== "Power") return 1;
+
+				const hasPhialSwitchBoost = rampageSkills.includes("PhialSwitchBoost");
+
+				if (sword && morph && hasPhialSwitchBoost) return multiply(1.15 * 1.1);
+				if (morph && hasPhialSwitchBoost) return 1.15;
+				if (sword) return 1.15;
+				return 1;
+			})();
+
 			const rawMultipliers = [
 				mv / 100,
 				computedHitzone,
@@ -455,7 +466,7 @@ export const useModel = () => {
 				isRanged && dangoMarksman ? 1.1 : 1,
 				isRanged && dangoTemper ? 1.05 : 1,
 				morph && activeSkills.RapidMorph ? Skills.RapidMorph.ranks[activeSkills.RapidMorph - 1] : 1,
-				sword && weapon.type === "Switch Axe" && weapon.properties.type === "Power" ? 1.15 : 1,
+				switchAxeRawMulti,
 				silkbind && rampageSkills.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
 			];
 
@@ -479,7 +490,7 @@ export const useModel = () => {
 
 	const eleHit = useCallback(
 		(attack: Attack): number => {
-			const { sword, eleMod, shelling, artillery } = attack;
+			const { sword, morph, eleMod, shelling, artillery } = attack;
 
 			if (weapon.type === "Gunlance" && shelling) {
 				return multiply(
@@ -499,12 +510,23 @@ export const useModel = () => {
 
 			const sharpnessEleMultiplier = sharpness ? SharpnessEleMultipliers[sharpness] : 1;
 
+			const switchAxeEleMulti = (() => {
+				if (weapon.type !== "Switch Axe" || weapon.properties.type !== "Element") return 1;
+
+				const hasPhialSwitchBoost = rampageSkills.includes("PhialSwitchBoost");
+
+				if (sword && morph && hasPhialSwitchBoost) return multiply(1.45 * 1.1);
+				if (morph && hasPhialSwitchBoost) return 1.45;
+				if (sword) return 1.45;
+				return 1;
+			})();
+
 			const multipliers = [
 				eleMod,
 				sharpnessEleMultiplier,
 				hitzoneEle / 100,
 				rampageSkills.includes("ElementExploit") && hitzoneEle >= 25 ? 1.3 : 1,
-				sword && weapon.type === "Switch Axe" && weapon.properties.type === "Element" ? 1.45 : 1,
+				switchAxeEleMulti,
 			];
 
 			return base * multiply(...multipliers);
