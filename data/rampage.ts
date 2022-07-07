@@ -33,7 +33,7 @@ export type RampageSkillKey =
 	| "MaximumVolume"
 	| "PhialSwitchBoost"
 	| "LastingArcShot"
-	| "DragonExploit"
+	| "WyvernExploit"
 	| "AntiAerialSpecies"
 	| "AntiAquaticSpecies"
 	| "SmallMonsterExploit"
@@ -77,7 +77,7 @@ export const RampageSkills: Record<RampageSkillKey, RampageSkill> = {
 	MaximumVolume: { name: "Maximum Volume" },
 	PhialSwitchBoost: { name: "Phial Switch Boost" },
 	LastingArcShot: { name: "Lasting Arc Shot" },
-	DragonExploit: { name: "Dragon Exploit" },
+	WyvernExploit: { name: "Wyvern Exploit" },
 	AntiAerialSpecies: { name: "Anti-Aerial Species" },
 	AntiAquaticSpecies: { name: "Anti-Aquatic Species" },
 	SmallMonsterExploit: { name: "Small Monster Exploit" },

@@ -6,7 +6,6 @@ import {
 	Decoration,
 	Demondrug,
 	LongSwordSpiritGauge,
-	RampageDecoration,
 	RampageSkillKey,
 	RampageSkills,
 	SharpnessEleMultipliers,
@@ -145,35 +144,38 @@ export const useModel = () => {
 			.filter<Armor>((n): n is Armor => n != undefined)
 			.reduce<SkillSlot[]>((acc, s) => [...acc, ...s.skills], []);
 
+		const addSkills = (acc: SkillMap, [skill, value]: SkillSlot) => {
+			const maxRank = Skills[skill].ranks.length;
+			const current = acc[skill];
+			const newValue = current ? current + value : value;
+
+			acc[skill] = lowest(newValue, maxRank);
+			return acc;
+		};
+
+		let base = armorSkills.reduce(addSkills, {});
+
+		// Stormsoul only affects armor skills, not charms and decorations
+		if (base.Stormsoul && Skills.Stormsoul.ranks[base.Stormsoul].boost > 0) {
+			const { boost } = Skills.Stormsoul.ranks[base.Stormsoul];
+
+			base = produce(base, (draft) => {
+				(Object.entries(draft) as [SkillKey, number][]).forEach(([skill, level]) => {
+					if (skill === "Stormsoul") return;
+
+					const maxRank = Skills[skill].ranks.length;
+					draft[skill] = lowest(maxRank, level + boost);
+				});
+			});
+		}
+
 		const decoSkills = _decos.reduce<SkillSlot[]>((acc, s) => (s ? [...acc, s.skill] : acc), []);
 
 		const charmSkills = [charmSkillOne, charmSkillTwo].filter<SkillSlot>(
 			(n): n is SkillSlot => n != undefined,
 		);
 
-		const base = [armorSkills, decoSkills, charmSkills]
-			.flat()
-			.reduce<SkillMap>((acc, [skill, value]) => {
-				const maxRank = Skills[skill].ranks.length;
-				const current = acc[skill];
-				const newValue = current ? current + value : value;
-
-				acc[skill] = lowest(newValue, maxRank);
-				return acc;
-			}, {});
-
-		// Stormsoul
-		if (!base.Stormsoul || Skills.Stormsoul.ranks[base.Stormsoul].boost === 0) return base;
-		const { boost } = Skills.Stormsoul.ranks[base.Stormsoul];
-
-		return produce(base, (draft) => {
-			(Object.entries(draft) as [SkillKey, number][]).forEach(([skill, level]) => {
-				if (skill === "Stormsoul") return;
-
-				const maxRank = Skills[skill].ranks.length;
-				draft[skill] = lowest(maxRank, level + boost);
-			});
-		});
+		return [...decoSkills, ...charmSkills].reduce(addSkills, base);
 	}, [helm, chest, arms, waist, legs, _decos, charmSkillOne, charmSkillTwo]);
 
 	const activeSkills = useMemo(() => {
