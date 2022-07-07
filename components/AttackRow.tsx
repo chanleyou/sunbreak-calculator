@@ -11,10 +11,7 @@ type Props = {
 };
 
 export const AttackRow = ({ attack, model, short, onClick }: Props) => {
-	const { name, mv, noCrit } = attack;
-
-	const hit = model.hit(attack);
-	const crit = model.crit(attack);
+	const { name, noCrit } = attack;
 
 	// annoying irrelevant mechanics sigh
 	const dullingStrikeHit = model.dullHit(attack);
@@ -25,12 +22,23 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 
 	return (
 		<tr className="cursor-pointer" key={attack.name} onClick={onClick}>
-			{!short && <td>{mv ? mv : ""}</td>}
-			<td>{name}</td>
+			<td className="group relative">
+				{name}
+				<div className="attack-mouseover">
+					{Object.entries(attack).map(([k, v]) => {
+						if (k === "name") return;
+						return (
+							<p key={k}>
+								{k}: {JSON.stringify(v)}
+							</p>
+						);
+					})}
+				</div>
+			</td>
 			{!short && (
 				<>
 					<td className="group relative">
-						{hit}
+						{model.hit(attack)}
 						<div className="attack-mouseover">
 							<p>Raw: {Math.round(model.rawHit(attack))}</p>
 							<p>Ele: {Math.round(model.eleHit(attack))}</p>
@@ -38,24 +46,14 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 					</td>
 					{model.rampageSkills.includes("DullingStrike") && <td>{dullingStrikeHit}</td>}
 					<td className="group relative">
-						{noCrit ? "" : crit}
+						{noCrit ? "" : model.crit(attack)}
 						<div className="attack-mouseover">
 							<p>Raw: {Math.round(model.rawCrit(attack))}</p>
 							<p>Ele: {Math.round(model.eleCrit(attack))}</p>
 						</div>
 					</td>
-					{model.brutalStrikeChance > 0 && (
-						<td className="group relative">
-							{noCrit ? "" : brutalStrike}
-							<div className="attack-mouseover">
-								<p>Raw: {Math.round(model.brutalStrike(attack))}</p>
-								<p>Ele: {Math.round(model.eleHit(attack))}</p>
-							</div>
-						</td>
-					)}
-					{model.rampageSkills.includes("DullingStrike") && (
-						<td>{noCrit ? "" : dullingStrikeCrit}</td>
-					)}
+					{model.brutalStrikeChance > 0 && <td>{noCrit ? "" : brutalStrike}</td>}
+					{model.hasDullingStrike && <td>{noCrit ? "" : dullingStrikeCrit}</td>}
 				</>
 			)}
 			<td>{average}</td>

@@ -1,7 +1,16 @@
 import { produce } from "immer";
 import { NextPage } from "next";
 import { useMemo } from "react";
-import { AttackRow, Box, NumberInput, ComboBox, ValueBox, BuffBox, Column } from "../components";
+import {
+	AttackRow,
+	Box,
+	NumberInput,
+	ComboBox,
+	ValueBox,
+	BuffBox,
+	Column,
+	Checkbox,
+} from "../components";
 import {
 	GreatSwordAttacks,
 	GunlanceAttacks,
@@ -44,7 +53,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 				{/* <ValueBox model={model} /> */}
 				{/* <BuffBox model={model} setModel={setModel} /> */}
 				<Box head="Hitzone">
-					<div className="grid grid-cols-2 gap-2">
+					<div className="grid grid-cols-2 gap-x-2">
 						<NumberInput
 							label="Raw"
 							value={model.hitzone}
@@ -57,13 +66,17 @@ const Attacks: NextPage<Props> = ({ model }) => {
 							onChangeValue={(v) => model.setHitzoneEle(v)}
 							min={0}
 						/>
+						<Checkbox
+							label="Species Exploit"
+							value={model.antiSpecies}
+							onChangeValue={model.setAntiSpecies}
+						/>
 					</div>
 				</Box>
 				<Box head="Attacks">
 					<table className="table-auto w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
-								<th>MV</th>
 								<th className="w-full">Attack</th>
 								<th>Hit</th>
 								{model.hasDullingStrike && <th>DS Hit</th>}

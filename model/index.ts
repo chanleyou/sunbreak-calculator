@@ -117,6 +117,7 @@ export const useModel = () => {
 	// Hitzone
 	const [hitzone, setHitzone] = useState(100);
 	const [hitzoneEle, setHitzoneEle] = useState(30);
+	const [antiSpecies, setAntiSpecies] = useState(false);
 
 	// Skills
 	const [disabledSkills, setDisabledSkills] = useState<SkillKey[]>([]);
@@ -447,6 +448,7 @@ export const useModel = () => {
 			const rawMultipliers = [
 				mv / 100,
 				computedHitzone,
+				antiSpecies ? 1.05 : 1,
 				computedHitzone < 0.45 && activeSkills.MindsEye
 					? Skills.MindsEye.ranks[activeSkills.MindsEye - 1]
 					: 1,
@@ -462,6 +464,7 @@ export const useModel = () => {
 		[
 			sharpness,
 			hitzone,
+			antiSpecies,
 			activeSkills,
 			weapon,
 			rampageSkills,
@@ -704,6 +707,8 @@ export const useModel = () => {
 		setHitzone,
 		hitzoneEle,
 		setHitzoneEle,
+		antiSpecies,
+		setAntiSpecies,
 		disabledSkills,
 		setDisabledSkills,
 		combo,
