@@ -448,7 +448,7 @@ export const useModel = () => {
 			const switchAxeRawMulti = (() => {
 				if (weapon.type !== "Switch Axe" || weapon.properties.type !== "Power") return 1;
 
-				const hasPhialSwitchBoost = rampageSkills.includes("PhialSwitchBoost");
+				const hasPhialSwitchBoost = rampage.includes("PhialSwitchBoost");
 
 				if (sword && morph && hasPhialSwitchBoost) return multiply(1.15 * 1.1);
 				if (morph && hasPhialSwitchBoost) return 1.15;
