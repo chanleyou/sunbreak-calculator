@@ -27,7 +27,22 @@ const RampageDecoPicker = ({ value, setValue, level, disabled }: Props) => {
 				isPlaceholder={!value}
 				disabled={disabled}
 			>
-				{disabled ? "\u00a0" : value ? RampageSkills[value].name : `Rampage Slot [${level}]`}
+				<div className="flex space-between">
+					<p className="flex-1">
+						{disabled ? "\u00a0" : value ? RampageSkills[value].name : `Rampage Slot [${level}]`}
+					</p>
+					{value && (
+						<div
+							onClick={(e) => {
+								e.stopPropagation();
+								setValue(undefined);
+							}}
+							className="font-bold cursor-pointer flex place-items-center"
+						>
+							×
+						</div>
+					)}
+				</div>
 			</TextBox>
 			<Modal show={show} setShow={setShow} head={`Select Rampage Decoration ${level}`}>
 				<div className="md:overflow-auto">

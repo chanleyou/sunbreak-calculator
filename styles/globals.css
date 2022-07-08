@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Inter&family=Roboto+Mono";
+/* @import "https://fonts.googleapis.com/css?family=Roboto&family=Roboto+Mono"; */
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
 	html {
-		@apply bg-gradient-to-r from-neutral-400 via-neutral-300 to-neutral-400 text-neutral-900 min-h-screen;
+		@apply bg-gradient-to-r from-neutral-400 via-neutral-300 to-neutral-400 min-h-screen;
 	}
 
 	h1 {
