@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Roboto&family=Roboto+Mono";
+@import "https://fonts.googleapis.com/css?family=Inter";
 
 @tailwind base;
 @tailwind components;
@@ -71,7 +71,7 @@
 	}
 
 	label {
-		@apply block mb-1 text-slate-600 text-xs;
+		@apply block mb-1 text-xs;
 	}
 
 	table {
@@ -92,7 +92,7 @@
 	}
 
 	div.disabled {
-		@apply bg-neutral-100 text-neutral-50 border-neutral-300;
+		@apply bg-neutral-100 border-neutral-300;
 	}
 
 	div.attack-mouseover {

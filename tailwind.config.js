@@ -3,8 +3,8 @@ module.exports = {
 	content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		fontFamily: {
-			sans: ["Roboto", "Arial", "sans-serif"],
-			mono: ["Roboto Mono", "Menlo", "Consolas", "monospace"],
+			sans: ["Inter", "Arial", "sans-serif"],
+			mono: ["Menlo", "Consolas", "monospace"],
 		},
 		extend: {
 			spacing: {

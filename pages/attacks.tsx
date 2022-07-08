@@ -97,7 +97,7 @@ const Attacks: NextPage<Props> = ({ model }) => {
 								<th>Avg</th>
 							</tr>
 						</thead>
-						<tbody className="text-gray-600">
+						<tbody>
 							{attacks.map((a) => (
 								<AttackRow
 									onClick={() =>

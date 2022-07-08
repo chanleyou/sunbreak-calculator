@@ -67,9 +67,9 @@ const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 								<th>Skill</th>
 							</tr>
 						</thead>
-						<tbody className="text-neutral-600">
+						<tbody>
 							{options.map((d) => {
-								const { name, rank, skill } = d;
+								const { name, skill } = d;
 								const classNames = ["cursor-pointer"];
 								if (value?.name === d.name) classNames.push("bg-gray-200");
 

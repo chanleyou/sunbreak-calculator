@@ -49,14 +49,13 @@ const RampageDecoPicker = ({ value, setValue, level, disabled }: Props) => {
 					<table className="w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
-								<th>Rank</th>
 								<th>Name</th>
 								<th>Skill</th>
 							</tr>
 						</thead>
-						<tbody className="text-neutral-600">
+						<tbody>
 							{options.map((d) => {
-								const { name, rank, skill } = d;
+								const { name, skill } = d;
 								const classNames = ["cursor-pointer"];
 								if (value === d.skill) classNames.push("bg-gray-200");
 
@@ -69,7 +68,6 @@ const RampageDecoPicker = ({ value, setValue, level, disabled }: Props) => {
 											setShow(false);
 										}}
 									>
-										<td>{rank}</td>
 										<td>{name}</td>
 										<td>{RampageSkills[skill].name}</td>
 									</tr>

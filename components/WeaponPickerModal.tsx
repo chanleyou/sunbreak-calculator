@@ -77,7 +77,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 							<th>Rampage</th>
 						</tr>
 					</thead>
-					<tbody className="text-neutral-600">
+					<tbody>
 						{filteredWeapons.map((w, i) => {
 							const { name, raw, element, status, affinity, sharpness, handicraft, decos, songs } =
 								w;

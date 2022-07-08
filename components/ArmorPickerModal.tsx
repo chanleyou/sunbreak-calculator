@@ -44,7 +44,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 							<th>Slots</th>
 						</tr>
 					</thead>
-					<tbody className="text-neutral-600">
+					<tbody>
 						{filteredOptions.map((a, i) => {
 							const { name, skills, slots } = a;
 
