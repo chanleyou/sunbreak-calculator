@@ -15,12 +15,15 @@ const Export: NextPage<Props> = ({ model }) => {
 	const router = useRouter();
 	const [input, setInput] = useState("");
 	const [error, setError] = useState("");
+	const [exportString, setExportString] = useState("");
 
 	const tryImport = useCallback(() => {
 		setError("");
 		try {
 			const decrypted = CryptoJS.AES.decrypt(input, NOT_SO_SECRET_KEY).toString(CryptoJS.enc.Utf8);
 			const json: Model = JSON.parse(decrypted);
+
+			console.log(json);
 
 			// remember order
 			model.setWeapon(json.weapon);
@@ -85,10 +88,11 @@ const Export: NextPage<Props> = ({ model }) => {
 		}
 	}, [input, model, router]);
 
-	const exportString = useMemo(
-		() => CryptoJS.AES.encrypt(JSON.stringify(model), NOT_SO_SECRET_KEY).toString(),
-		[model],
-	);
+	const generateExport = () => {
+		const exportString = CryptoJS.AES.encrypt(JSON.stringify(model), NOT_SO_SECRET_KEY).toString();
+		navigator.clipboard.writeText(exportString);
+		setExportString(exportString);
+	};
 
 	return (
 		<Column>
@@ -106,8 +110,8 @@ const Export: NextPage<Props> = ({ model }) => {
 			</Box>
 			<Box head="Export">
 				<textarea className="my-1" disabled value={exportString} rows={10} />
-				<button type="button" onClick={() => navigator.clipboard.writeText(exportString)}>
-					Copy
+				<button type="button" onClick={generateExport}>
+					Generate
 				</button>
 			</Box>
 		</Column>

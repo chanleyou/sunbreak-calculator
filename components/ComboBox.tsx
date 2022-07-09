@@ -19,7 +19,7 @@ export const ComboBox = ({ model }: Props) => {
 							<th>Avg</th>
 						</tr>
 					</thead>
-					<tbody className="text-gray-600">
+					<tbody>
 						{model.combo.map((a, i) => {
 							const average = roundToDigits(model.attackAverage(a));
 							return (

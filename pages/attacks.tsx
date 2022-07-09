@@ -18,7 +18,17 @@ import {
 	HeavyBowgunAttacks,
 	LightBowgunAttacks,
 	SwitchAxeAttacks,
+	SwordAndShieldAttacks,
 } from "../data";
+import {
+	ChargeBladeAttacks,
+	DualBladeAttacks,
+	HammerAttacks,
+	HuntingHornAttacks,
+	InsectGlaiveAttacks,
+	LanceAttacks,
+	LongSwordAttacks,
+} from "../data/attacks";
 import { Model } from "../model";
 
 type Props = {
@@ -30,19 +40,24 @@ const Attacks: NextPage<Props> = ({ model }) => {
 	const attacks = useMemo(() => {
 		const { type, properties } = model.weapon;
 
-		if (type === "Switch Axe") return SwitchAxeAttacks;
+		if (type === "Sword and Shield") return SwordAndShieldAttacks;
+		if (type === "Dual Blades") return DualBladeAttacks;
 		if (type === "Great Sword") return GreatSwordAttacks;
-		// if (type === "Gunlance") {
-		// 	return produce(GunlanceAttacks, (draft) => {
-		// 		if (properties.type != "Wide") {
-		// 			draft = draft.filter((a) => a.name !== "Charged Shelling Lv2");
-		// 		}
-		// 		if (properties.type != "Normal") {
-		// 			draft = draft.filter((a) => a.name !== "Shelling (Burst Fire)");
-		// 		}
-		// 		return draft;
-		// 	});
-		// }
+		if (type === "Long Sword") return LongSwordAttacks;
+		if (type === "Hammer") return HammerAttacks;
+		if (type === "Hunting Horn") return HuntingHornAttacks;
+		if (type === "Lance") return LanceAttacks;
+		if (type === "Charge Blade") return ChargeBladeAttacks;
+		if (type === "Insect Glaive") return InsectGlaiveAttacks;
+		if (type === "Switch Axe") return SwitchAxeAttacks;
+		if (type === "Gunlance") {
+			return produce(GunlanceAttacks, (draft) => {
+				if (properties.type != "Wide") {
+					draft = draft.filter((a) => a.name !== "Charged Shelling Lv2");
+				}
+				return draft;
+			});
+		}
 		// if (type === "Light Bowgun") return LightBowgunAttacks;
 		// if (type === "Heavy Bowgun") return HeavyBowgunAttacks;
 		return GreatSwordAttacks;

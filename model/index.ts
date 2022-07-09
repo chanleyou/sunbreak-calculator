@@ -257,6 +257,9 @@ export const useModel = () => {
 					break;
 				case "GrinderS":
 					multipliers.push(Skills[skill].ranks[level].rawMultiplier);
+					break;
+				case "Coalescence":
+					bonuses.push(Skills[skill].ranks[level].rawFlat);
 			}
 		});
 
@@ -329,6 +332,9 @@ export const useModel = () => {
 				case "GrinderS":
 					multipliers.push(Skills[skill].ranks[level].eleMultiplier);
 					break;
+				case "Coalescence":
+					bonuses.push(Skills[skill].ranks[level].eleFlat);
+					break;
 			}
 		});
 
@@ -389,6 +395,9 @@ export const useModel = () => {
 					break;
 				case "Stormsoul":
 					multipliers.push(Skills[skill].ranks[level].multiplier);
+					break;
+				case "Coalescence":
+					bonuses.push(Skills[skill].ranks[level].eleFlat);
 					break;
 			}
 		});

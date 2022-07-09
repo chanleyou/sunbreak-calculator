@@ -609,7 +609,12 @@ export const Skills = {
 	},
 	Coalescence: {
 		name: "Coalescence",
-		ranks: [1, 2, 3],
+		ranks: [
+			{ rawFlat: 12, eleFlat: 2 },
+			{ rawFlat: 15, eleFlat: 3 },
+			{ rawFlat: 18, eleFlat: 4 },
+		],
+		conditional: true,
 	},
 	Bloodlust: {
 		name: "Bloodlust",
