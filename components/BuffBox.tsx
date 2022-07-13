@@ -93,6 +93,11 @@ export const ComboBox = ({ model }: Props) => {
 					value={model.rousingRoar}
 					onChangeValue={model.setRousingRoar}
 				/>
+				<Checkbox
+					label="Species Exploit"
+					value={model.antiSpecies}
+					onChangeValue={model.setAntiSpecies}
+				/>
 			</div>
 			<h4 className="mt-3">Miscellaneous</h4>
 			<p className="text-xs text-slate-500 mb-1">

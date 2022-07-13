@@ -92,11 +92,6 @@ const Attacks: NextPage<Props> = ({ model }) => {
 							onChangeValue={(v) => model.setHitzoneEle(v)}
 							min={0}
 						/>
-						<Checkbox
-							label="Species Exploit"
-							value={model.antiSpecies}
-							onChangeValue={model.setAntiSpecies}
-						/>
 					</div>
 				</Box>
 				<Box head="Attacks">
