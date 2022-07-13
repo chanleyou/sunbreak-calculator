@@ -15,7 +15,6 @@ const Export: NextPage<Props> = ({ model }) => {
 	const router = useRouter();
 	const [input, setInput] = useState("");
 	const [error, setError] = useState("");
-	const [exportString, setExportString] = useState("");
 
 	const tryImport = useCallback(() => {
 		setError("");
@@ -23,10 +22,8 @@ const Export: NextPage<Props> = ({ model }) => {
 			const decrypted = CryptoJS.AES.decrypt(input, NOT_SO_SECRET_KEY).toString(CryptoJS.enc.Utf8);
 			const json: Model = JSON.parse(decrypted);
 
-			console.log(json);
-
 			// remember order
-			model.setWeapon(json.weapon);
+			model.setWeapon(json._weapon);
 			model.setRampageSkills(json.rampageSkills);
 			model.setRampageDecos(json.rampageDecos);
 
@@ -88,11 +85,59 @@ const Export: NextPage<Props> = ({ model }) => {
 		}
 	}, [input, model, router]);
 
-	const generateExport = () => {
-		const exportString = CryptoJS.AES.encrypt(JSON.stringify(model), NOT_SO_SECRET_KEY).toString();
-		navigator.clipboard.writeText(exportString);
-		setExportString(exportString);
-	};
+	const exportString = useMemo(() => {
+		const keys = [
+			"_weapon",
+			"rampageSkills",
+			"rampageDecos",
+			"helm",
+			"chest",
+			"arms",
+			"waist",
+			"legs",
+			"weaponDecos",
+			"helmDecos",
+			"chestDecos",
+			"armsDecos",
+			"waistDecos",
+			"legsDecos",
+			"charmDecos",
+			"charmSkillOne",
+			"charmSkillTwo",
+			"demondrug",
+			"powercharm",
+			"powertalon",
+			"dangoBooster",
+			"mightSeed",
+			"demonPowder",
+			"spiritGauge",
+			"powerSheathe",
+			"groundSplitter",
+			"dangoMarksman",
+			"dangoTemper",
+			"dangoBombardier",
+			"miscRaw",
+			"miscMultiplier",
+			"miscAffinity",
+			"powerDrum",
+			"rousingRoar",
+			"hitzone",
+			"hitzoneEle",
+			"disabledSkills",
+			"combo",
+		];
+
+		const json = Object.keys(model)
+			.filter((k) => keys.includes(k))
+			.reduce<Partial<typeof model>>((acc, k) => {
+				return {
+					...acc,
+					[k]: model[k as keyof typeof model],
+				};
+			}, {});
+
+		return CryptoJS.AES.encrypt(JSON.stringify(json), NOT_SO_SECRET_KEY).toString();
+	}, [model]);
 
 	return (
 		<Column>
@@ -110,8 +155,8 @@ const Export: NextPage<Props> = ({ model }) => {
 			</Box>
 			<Box head="Export">
 				<textarea className="my-1" disabled value={exportString} rows={10} />
-				<button type="button" onClick={generateExport}>
-					Generate
+				<button type="button" onClick={() => navigator.clipboard.writeText(exportString)}>
+					Copy
 				</button>
 			</Box>
 		</Column>

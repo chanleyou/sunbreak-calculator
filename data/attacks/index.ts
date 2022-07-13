@@ -5,12 +5,13 @@ export type AmmoType = "Normal/Rapid" | "Pierce" | "Spread";
 export type ShellingAttack = { raw: number; fire: number };
 
 export type Attack = {
-	name: string;
 	mv: number;
+	name?: string;
 	hzMod?: number;
 	eleMod?: number;
 	statusMod?: number;
 	ignoreHz?: boolean;
+	ignoreEleHz?: boolean;
 	morph?: boolean;
 	noCrit?: boolean;
 	ammoType?: AmmoType;
