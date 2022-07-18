@@ -36,7 +36,6 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 		() => (weaponType ? formatter.formatWeaponPropertyKey(weaponType) : undefined),
 		[weaponType],
 	);
-
 	const isRanged = useMemo(() => {
 		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === weaponType);
 	}, [weaponType]);

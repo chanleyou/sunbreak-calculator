@@ -24,38 +24,45 @@ import {
 	sharpnessHandicraft,
 	getSharpnessFromArray,
 	sum,
+	roundToDigits,
 } from "../utils";
 
 export type Model = ReturnType<typeof useModel>;
 
 export const useModel = () => {
 	// Weapon
-	const [_weapon, setWeapon] = useState<Weapon>(Weapons[13]);
+	const [_weapon, _setWeapon] = useState<Weapon>(Weapons[13]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
 
-	const rampage = useMemo(() => [...rampageSkills, ...rampageDecos], [rampageSkills, rampageDecos]);
+	const rampage = useMemo(
+		() => [rampageSkills, rampageDecos].flat(),
+		[rampageSkills, rampageDecos],
+	);
 
 	const isRanged = useMemo(() => {
 		return ["Bow", "Light Bowgun", "Heavy Bowgun"].some((w) => w === _weapon.type);
 	}, [_weapon]);
 
-	useEffect(() => {
+	const setWeapon = useCallback((w: Weapon) => {
 		setRampageSkills([]);
 		setRampageDecos([]);
 		setWeaponDecos([]);
-		setSpiritGauge(undefined);
-		setPowerSheathe(false);
-		setDangoMarksman(false);
-		setDangoTemper(false);
-	}, [_weapon]);
+		if (w.type != "Long Sword") setSpiritGauge(undefined);
+		if (w.type != "Great Sword") setPowerSheathe(false);
+		if (!["Bow", "Light Bowgun", "Heavy Bowgun"].some((t) => t === w.type)) {
+			setDangoMarksman(false);
+			setDangoTemper(false);
+		}
+		_setWeapon(w);
+	}, []);
 
 	// Armor
-	const [helm, setHelm] = useState<Armor>();
-	const [chest, setChest] = useState<Armor>();
-	const [arms, setArms] = useState<Armor>();
-	const [waist, setWaist] = useState<Armor>();
-	const [legs, setLegs] = useState<Armor>();
+	const [helm, _setHelm] = useState<Armor>();
+	const [chest, _setChest] = useState<Armor>();
+	const [arms, _setArms] = useState<Armor>();
+	const [waist, _setWaist] = useState<Armor>();
+	const [legs, _setLegs] = useState<Armor>();
 
 	// Decos
 	const [weaponDecos, setWeaponDecos] = useState<(Decoration | undefined)[]>([]);
@@ -78,11 +85,30 @@ export const useModel = () => {
 		].flat();
 	}, [weaponDecos, helmDecos, chestDecos, armsDecos, waistDecos, legsDecos, charmDecos]);
 
-	useEffect(() => setHelmDecos([]), [helm]);
-	useEffect(() => setChestDecos([]), [chest]);
-	useEffect(() => setArmsDecos([]), [arms]);
-	useEffect(() => setWaistDecos([]), [waist]);
-	useEffect(() => setLegsDecos([]), [legs]);
+	const setHelm = useCallback((a: Armor | undefined) => {
+		setHelmDecos([]);
+		_setHelm(a);
+	}, []);
+
+	const setChest = useCallback((a: Armor | undefined) => {
+		setChestDecos([]);
+		_setChest(a);
+	}, []);
+
+	const setArms = useCallback((a: Armor | undefined) => {
+		setArmsDecos([]);
+		_setArms(a);
+	}, []);
+
+	const setWaist = useCallback((a: Armor | undefined) => {
+		setWaistDecos([]);
+		_setWaist(a);
+	}, []);
+
+	const setLegs = useCallback((a: Armor | undefined) => {
+		setLegsDecos([]);
+		_setLegs(a);
+	}, []);
 
 	// Charm
 	const [charmSkillOne, setCharmSkillOne] = useState<SkillSlot>();
@@ -127,7 +153,7 @@ export const useModel = () => {
 
 	const weapon = useMemo(() => {
 		return produce(_weapon, (w) => {
-			rampageSkills.forEach((rs) => {
+			rampage.forEach((rs) => {
 				if (!rs) return;
 				w.raw += RampageSkills[rs].raw ?? 0;
 				w.affinity = sum(w.affinity, RampageSkills[rs].affinity);
@@ -138,7 +164,7 @@ export const useModel = () => {
 				}
 			});
 		});
-	}, [_weapon, rampageSkills]);
+	}, [_weapon, rampage]);
 
 	const skills = useMemo(() => {
 		const armorSkills = [helm, chest, arms, waist, legs]
@@ -414,6 +440,7 @@ export const useModel = () => {
 				case "CriticalDraw":
 				case "MaximumMight":
 				case "LatentPower":
+				case "AffinitySliding":
 					affinity.push(Skills[skill].ranks[level]);
 					break;
 				case "WeaknessExploit":
@@ -474,7 +501,7 @@ export const useModel = () => {
 				isRanged && dangoTemper ? 1.05 : 1,
 				morph && activeSkills.RapidMorph ? Skills.RapidMorph.ranks[activeSkills.RapidMorph - 1] : 1,
 				switchAxeRawMulti,
-				silkbind && rampageSkills.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
+				silkbind && rampage.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
 			];
 
 			return effectiveRaw * multiply(...rawMultipliers);
@@ -485,7 +512,7 @@ export const useModel = () => {
 			antiSpecies,
 			activeSkills,
 			weapon,
-			rampageSkills,
+			rampage,
 			effectiveRaw,
 			isRanged,
 			groundSplitter,
@@ -497,7 +524,7 @@ export const useModel = () => {
 
 	const eleHit = useCallback(
 		(attack: Attack): number => {
-			const { sword, morph, eleMod, shelling, artillery } = attack;
+			const { sword, morph, eleMod, ignoreEleHz, shelling, artillery } = attack;
 
 			if (weapon.type === "Gunlance" && shelling) {
 				return multiply(
@@ -520,7 +547,7 @@ export const useModel = () => {
 			const switchAxeEleMulti = (() => {
 				if (weapon.type !== "Switch Axe" || weapon.properties.type !== "Element") return 1;
 
-				const hasPhialSwitchBoost = rampageSkills.includes("PhialSwitchBoost");
+				const hasPhialSwitchBoost = rampage.includes("PhialSwitchBoost");
 
 				if (sword && morph && hasPhialSwitchBoost) return multiply(1.45 * 1.1);
 				if (morph && hasPhialSwitchBoost) return 1.45;
@@ -531,8 +558,8 @@ export const useModel = () => {
 			const multipliers = [
 				eleMod,
 				sharpnessEleMultiplier,
-				hitzoneEle / 100,
-				rampageSkills.includes("ElementExploit") && hitzoneEle >= 25 ? 1.3 : 1,
+				ignoreEleHz ? 1 : hitzoneEle / 100,
+				rampage.includes("ElementExploit") && hitzoneEle >= 25 ? 1.3 : 1,
 				switchAxeEleMulti,
 			];
 
@@ -542,7 +569,7 @@ export const useModel = () => {
 			effectiveEle,
 			dragonPhial,
 			hitzoneEle,
-			rampageSkills,
+			rampage,
 			weapon,
 			sharpness,
 			activeSkills,
@@ -658,10 +685,39 @@ export const useModel = () => {
 		],
 	);
 
+	const efr = useMemo(() => {
+		const a: Attack = { mv: 100, ignoreHz: true };
+
+		return roundToDigits(
+			sum(
+				(rawHit(a) * hitChance) / 100,
+				(rawCrit(a) * critChance) / 100,
+				(rawHit(a) * 1.2 * dullHitChance) / 100,
+				(rawCrit(a) * 1.2 * dullCritChance) / 100,
+				rawHit(a) * 1.5 * brutalStrikeChance,
+			),
+		);
+	}, [rawHit, hitChance, rawCrit, critChance, dullHitChance, dullCritChance, brutalStrikeChance]);
+
+	const efe = useMemo(() => {
+		const a: Attack = { mv: 100, ignoreEleHz: true };
+
+		return roundToDigits(
+			sum(
+				(eleHit(a) * hitChance) / 100,
+				(eleCrit(a) * critChance) / 100,
+				(eleHit(a) * dullHitChance) / 100,
+				(eleCrit(a) * dullCritChance) / 100,
+				eleHit(a) * brutalStrikeChance,
+			),
+		);
+	}, [eleHit, hitChance, eleCrit, critChance, dullHitChance, dullCritChance, brutalStrikeChance]);
+
 	return {
+		_weapon,
+		setWeapon,
 		weapon,
 		isRanged,
-		setWeapon,
 		sharpnessArray,
 		sharpness,
 		rampageSkills,
@@ -767,6 +823,8 @@ export const useModel = () => {
 		dullCrit,
 		brutalStrike,
 		attackAverage,
+		efr,
+		efe,
 	};
 };
 

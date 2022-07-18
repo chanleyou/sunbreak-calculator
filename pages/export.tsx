@@ -4,9 +4,19 @@ import React, { useCallback, useMemo, useState } from "react";
 import CryptoJS from "crypto-js";
 import { Box, Column } from "../components";
 import { Model } from "../model";
+import { Weapons, Armors } from "../data";
 
 type Props = {
 	model: Model;
+};
+
+type ImportModel = Model & {
+	weaponId: string;
+	helmId?: string;
+	chestId?: string;
+	armsId?: string;
+	waistId: string;
+	legsId?: string;
 };
 
 const NOT_SO_SECRET_KEY = "SUNBREAK";
@@ -15,26 +25,25 @@ const Export: NextPage<Props> = ({ model }) => {
 	const router = useRouter();
 	const [input, setInput] = useState("");
 	const [error, setError] = useState("");
-	const [exportString, setExportString] = useState("");
 
 	const tryImport = useCallback(() => {
 		setError("");
 		try {
 			const decrypted = CryptoJS.AES.decrypt(input, NOT_SO_SECRET_KEY).toString(CryptoJS.enc.Utf8);
-			const json: Model = JSON.parse(decrypted);
-
-			console.log(json);
+			const json: ImportModel = JSON.parse(decrypted);
 
 			// remember order
-			model.setWeapon(json.weapon);
+			const w = Weapons.find((w) => w.name === json.weaponId);
+			if (w) model.setWeapon(w);
+
 			model.setRampageSkills(json.rampageSkills);
 			model.setRampageDecos(json.rampageDecos);
 
-			model.setHelm(json.helm);
-			model.setChest(json.chest);
-			model.setArms(json.arms);
-			model.setWaist(json.waist);
-			model.setLegs(json.legs);
+			if (json.helmId) model.setHelm(Armors.find((a) => a.name === json.helmId));
+			if (json.chestId) model.setChest(Armors.find((a) => a.name === json.chestId));
+			if (json.armsId) model.setArms(Armors.find((a) => a.name === json.armsId));
+			if (json.waistId) model.setWaist(Armors.find((a) => a.name === json.waistId));
+			if (json.legsId) model.setLegs(Armors.find((a) => a.name === json.legsId));
 
 			model.setWeaponDecos(json.weaponDecos);
 			model.setHelmDecos(json.helmDecos);
@@ -88,11 +97,62 @@ const Export: NextPage<Props> = ({ model }) => {
 		}
 	}, [input, model, router]);
 
-	const generateExport = () => {
-		const exportString = CryptoJS.AES.encrypt(JSON.stringify(model), NOT_SO_SECRET_KEY).toString();
-		navigator.clipboard.writeText(exportString);
-		setExportString(exportString);
-	};
+	const exportString = useMemo(() => {
+		const keys = [
+			"rampageSkills",
+			"rampageDecos",
+			"weaponDecos",
+			"helmDecos",
+			"chestDecos",
+			"armsDecos",
+			"waistDecos",
+			"legsDecos",
+			"charmDecos",
+			"charmSkillOne",
+			"charmSkillTwo",
+			"demondrug",
+			"powercharm",
+			"powertalon",
+			"dangoBooster",
+			"mightSeed",
+			"demonPowder",
+			"spiritGauge",
+			"powerSheathe",
+			"groundSplitter",
+			"dangoMarksman",
+			"dangoTemper",
+			"dangoBombardier",
+			"miscRaw",
+			"miscMultiplier",
+			"miscAffinity",
+			"powerDrum",
+			"rousingRoar",
+			"hitzone",
+			"hitzoneEle",
+			"disabledSkills",
+			"combo",
+		];
+
+		const base = {
+			weaponId: model.weapon.name,
+			helmId: model.helm?.name,
+			chestId: model.chest?.name,
+			armsId: model.arms?.name,
+			waistId: model.waist?.name,
+			legsId: model.legs?.name,
+		};
+
+		const json = Object.keys(model).reduce((acc, k) => {
+			if (!keys.includes(k)) return acc;
+
+			return {
+				...acc,
+				[k]: model[k as keyof typeof model],
+			};
+		}, base);
+
+		return CryptoJS.AES.encrypt(JSON.stringify(json), NOT_SO_SECRET_KEY).toString();
+	}, [model]);
 
 	return (
 		<Column>
@@ -110,8 +170,8 @@ const Export: NextPage<Props> = ({ model }) => {
 			</Box>
 			<Box head="Export">
 				<textarea className="my-1" disabled value={exportString} rows={10} />
-				<button type="button" onClick={generateExport}>
-					Generate
+				<button type="button" onClick={() => navigator.clipboard.writeText(exportString)}>
+					Copy
 				</button>
 			</Box>
 		</Column>

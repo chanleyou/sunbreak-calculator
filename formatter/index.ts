@@ -30,6 +30,8 @@ const formatWeaponProperties = (w: Weapon): { key: string; value: string } | und
 				default:
 					return { key: "Phial", value: `${w.properties.type} ${w.properties.value}` };
 			}
+		case "Charge Blade":
+			return { key: "Phial", value: w.properties };
 	}
 };
 
