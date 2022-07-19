@@ -19,7 +19,7 @@ const SharpnessBar = ({ sharpnessArray, small }: Props) => {
 							key={`${id}-${i}`}
 							style={{ width: `${small ? v / 5 : v / 2}px`, backgroundColor: Sharpnesses[i] }}
 						>
-							<p className="hidden group-hover:block absolute text-xs p-1 z-50 min-w-max top-6 border border-gray-600 shadow bg-white">
+							<p className="tooltip">
 								{Sharpnesses[i]}: {v}
 							</p>
 						</div>

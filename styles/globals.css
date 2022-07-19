@@ -107,7 +107,8 @@
 		hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-midnight-700 dark:active:bg-midnight-600 select-none;
 	}
 
-	div.attack-mouseover {
-		@apply hidden pointer-events-none group-hover:block absolute text-xs p-1 z-50 min-w-max left-0 top-9 border border-gray-600 shadow bg-white;
+	.tooltip {
+		@apply hidden pointer-events-none group-hover:block absolute text-xs p-1 z-50 min-w-max left-0 top-6 border border-gray-600 shadow 
+		bg-white text-black;
 	}
 }

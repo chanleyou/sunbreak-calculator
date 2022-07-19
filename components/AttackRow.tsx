@@ -24,7 +24,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 		<tr className="cursor-pointer" key={attack.name} onClick={onClick}>
 			<td className="group relative">
 				{name}
-				<div className="attack-mouseover">
+				<div className="tooltip">
 					{Object.entries(attack).map(([k, v]) => {
 						if (k === "name") return;
 						return (
@@ -39,7 +39,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 				<>
 					<td className="group relative">
 						{model.hit(attack)}
-						<div className="attack-mouseover">
+						<div className="tooltip">
 							<p>Raw: {Math.round(model.rawHit(attack))}</p>
 							<p>Ele: {Math.round(model.eleHit(attack))}</p>
 						</div>
@@ -47,7 +47,7 @@ export const AttackRow = ({ attack, model, short, onClick }: Props) => {
 					{model.rampageSkills.includes("DullingStrike") && <td>{dullingStrikeHit}</td>}
 					<td className="group relative">
 						{noCrit ? "" : model.crit(attack)}
-						<div className="attack-mouseover">
+						<div className="tooltip">
 							<p>Raw: {Math.round(model.rawCrit(attack))}</p>
 							<p>Ele: {Math.round(model.eleCrit(attack))}</p>
 						</div>
