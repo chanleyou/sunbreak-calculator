@@ -28,7 +28,7 @@ export default function Select<T>({
 	return (
 		<div className={className}>
 			{label && !value && (
-				<p className="absolute text-xs top-1 left-2 text-gray-500 pointer-events-none">{label}</p>
+				<p className="absolute text-xs top-1 left-2 placeholder pointer-events-none">{label}</p>
 			)}
 			<select
 				value={value ? formatter(value) : undefined}

@@ -16,7 +16,7 @@ export const Header = () => {
 	const activeClassName = "text-black dark:text-white";
 
 	return (
-		<div className="sticky top-0 w-full bg text-slate-500 drop-shadow flex items-center z-50 justify-center gap-2">
+		<div className="sticky top-0 w-full bg drop-shadow flex items-center z-50 justify-center gap-2">
 			<Link href="/">
 				<a className={router.pathname === "/" ? activeClassName : ""}>Build</a>
 			</Link>
@@ -27,7 +27,7 @@ export const Header = () => {
 				<a className={router.pathname === "/export" ? activeClassName : ""}>Export</a>
 			</Link>
 			<div className="cursor-pointer select-none" onClick={() => setDarkMode(!darkMode)}>
-				{darkMode ? "☀️" : "🌙"}
+				{darkMode ? "🌙" : "☀️"}
 			</div>
 		</div>
 	);

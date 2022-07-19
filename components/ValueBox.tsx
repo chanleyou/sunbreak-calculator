@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Row = ({ label, value }: { label: string; value: React.ReactNode | React.ReactNode[] }) => (
-	<div className="flex border-b last:border-0 border-box py-1 place-items-center">
+	<div className="flex border-b last:border-0 border-box py-1 place-items-center border-gray-300 dark:border-midnight-600">
 		<div className="w-full">{label}</div>
 		<div className="min-w-fit">{value}</div>
 	</div>

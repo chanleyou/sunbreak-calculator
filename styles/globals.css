@@ -46,6 +46,17 @@
 	.text-element {
 		@apply input mb-2;
 	}
+
+	.input.disabled {
+		@apply 
+		bg-gray-100 border-gray-100
+		dark:bg-opacity-30 dark:border-none dark:bg-midnight-700
+		select-none cursor-auto;
+	}
+
+	.placeholder {
+		@apply text-gray-400 dark:text-midnight-400;
+	}
 	
 	textarea,
 	input[type="number"],
@@ -55,7 +66,7 @@
 	}
 
 	textarea {
-		@apply disabled:text-gray-300;
+		@apply read-only:bg-neutral-100 read-only:text-neutral-500 dark:read-only:bg-midnight-900 dark:read-only:text-midnight-500;
 	}
 	
 	select {
@@ -91,7 +102,9 @@
 	}
 
 	a {
-		@apply text-sm p-3 hover:bg-neutral-100 active:bg-neutral-200 select-none;
+		@apply text-sm p-3 
+		text-slate-500 dark:text-midnight-400
+		hover:bg-neutral-100 active:bg-neutral-200 dark:hover:bg-midnight-700 dark:active:bg-midnight-600 select-none;
 	}
 
 	div.attack-mouseover {

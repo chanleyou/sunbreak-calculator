@@ -6,10 +6,12 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
 }
 
 export const TextBox = ({ children, disabled, isPlaceholder, ...props }: Props) => {
-	const classNames = ["text-element cursor-pointer flex justify-space-between active:bg-gray-100"];
+	const classNames = [
+		"text-element cursor-pointer flex justify-space-between active:bg-gray-100 dark:active:bg-midnight-600",
+	];
 
-	if (isPlaceholder) classNames.push("text-gray-400");
-	if (disabled) classNames.push("bg-gray-100 border-gray-100");
+	if (isPlaceholder) classNames.push("placeholder");
+	if (disabled) classNames.push("disabled");
 
 	return (
 		<div {...props} className={classNames.join(" ")}>

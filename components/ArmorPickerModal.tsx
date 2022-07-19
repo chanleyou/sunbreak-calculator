@@ -37,7 +37,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 			<div className="md:overflow-auto">
 				<table className="w-full text-left">
 					<thead>
-						<tr className="border-b border-gray-200">
+						<tr>
 							{/* <th>Rarity</th> */}
 							<th>Name</th>
 							<th>Skills</th>
@@ -50,7 +50,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 
 							const classNames = ["cursor-pointer"];
 
-							if (value?.name === a.name) classNames.push("bg-gray-200");
+							if (value?.name === a.name) classNames.push("bg-gray-200 dark:bg-midnight-700");
 
 							return (
 								<tr

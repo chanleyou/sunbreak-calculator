@@ -62,8 +62,10 @@ export default function skillToggle({
 								width: " 14px",
 								transform: "skewX(-24deg)",
 							}}
-							className={`mr-1 border ${
-								b < value ? "bg-gray-500 border-gray-500" : "bg-gray-100 border-gray-300"
+							className={`mr-1 ${
+								b < value
+									? "bg-gray-500 dark:bg-gray-100"
+									: "bg-gray-100 border border-gray-300 dark:bg-midnight-700 dark:border-midnight-600"
 							}`}
 						/>
 					))}
