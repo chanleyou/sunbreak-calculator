@@ -7,7 +7,7 @@
 @layer base {
 	body {
 		@apply 
-		bg-neutral-400 dark:bg-gray-900
+		bg-neutral-400 dark:bg-midnight-900
 		text-black dark:text-white
 		min-h-screen;
 	}
@@ -33,13 +33,13 @@
 	}
 
 	.bg {
-		@apply bg-white dark:bg-gray-800;
+		@apply bg-white dark:bg-midnight-800;
 	}
 
 	.input {
 		@apply 
-		bg-white dark:bg-gray-700
-		border-slate-300 dark:border-slate-600
+		bg-white dark:bg-midnight-700
+		border-slate-300 dark:border-midnight-600
 		p-1 text-xs border w-full rounded;
 	}
 
@@ -53,9 +53,13 @@
 	select {
 		@apply input;		
 	}
+
+	textarea {
+		@apply disabled:text-gray-300;
+	}
 	
 	select {
-		@apply read-only:bg-white dark:read-only:bg-gray-700
+		@apply read-only:bg-white dark:read-only:bg-midnight-700
 		disabled:border-none disabled:bg-gray-100 disabled:text-gray-400
 		dark:disabled:opacity-30
 		box-border;
@@ -83,7 +87,7 @@
 	}
 
 	tbody tr {
-		@apply border-y border-gray-200;
+		@apply border-y border-gray-200 dark:border-midnight-700;
 	}
 
 	a {

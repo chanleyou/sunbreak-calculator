@@ -64,7 +64,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 			<div className="md:overflow-auto">
 				<table className="w-full text-left text-xs">
 					<thead>
-						<tr className="border-b border-gray-200">
+						<tr>
 							<th>Name</th>
 							<th>Raw</th>
 							<th>Affinity</th>
@@ -85,7 +85,7 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 
 							const classNames = ["cursor-pointer"];
 
-							if (weapon.name === w.name) classNames.push("bg-gray-300");
+							if (weapon.name === w.name) classNames.push("bg-gray-300 dark:bg-midnight-700");
 
 							return (
 								<tr
@@ -103,7 +103,9 @@ const WeaponPickerModal = ({ show, setShow, weapon, setWeapon }: Props) => {
 										<td>
 											<div
 												className={
-													weapon.name === w.name ? "" : "bg-gray-300 border-4 border-gray-300 w-fit"
+													weapon.name === w.name
+														? ""
+														: "bg-gray-300 p-1 dark:bg-opacity-0 dark:border-none w-fit"
 												}
 											>
 												<SharpnessBar sharpnessArray={sharpness} small />
