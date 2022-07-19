@@ -5,8 +5,11 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		@apply bg-gradient-to-r from-neutral-400 via-neutral-300 to-neutral-400 min-h-screen;
+	body {
+		@apply 
+		bg-neutral-400 dark:bg-gray-900
+		text-black dark:text-white
+		min-h-screen;
 	}
 
 	h1 {
@@ -29,47 +32,43 @@
 		@apply text-sm font-bold;
 	}
 
-	button,
-	button[type="button"] {
-		@apply px-4 py-2 text-gray-100 text-sm font-bold rounded-lg bg-neutral-600
-		disabled:bg-gray-300 bg-gray-500 hover:bg-gray-400 active:bg-gray-300;
+	.bg {
+		@apply bg-white dark:bg-gray-800;
+	}
+
+	.input {
+		@apply 
+		bg-white dark:bg-gray-700
+		border-slate-300 dark:border-slate-600
+		p-1 text-xs border w-full rounded;
 	}
 
 	.text-element {
-		@apply p-1
-		text-xs
-		mb-2
-		rounded
-		border border-gray-300 
-		w-full;
+		@apply input mb-2;
 	}
-
+	
 	textarea,
-	div.number-input,
 	input[type="number"],
 	input[type="text"],
 	select {
-		@apply p-1
-		text-xs
-		border border-slate-300 rounded 
-		focus:ring-indigo-500 focus:border-indigo-500 
-		w-full;
+		@apply input;		
 	}
-
-	div.number-input {
-		@apply bg-gray-100 text-gray-600;
-	}
-
-	textarea,
-	input[type="number"],
-	input[type="text"] {
-		@apply read-only:bg-gray-100 read-only:text-gray-600;
-	}
-
+	
 	select {
-		@apply read-only:bg-white disabled:bg-gray-100 disabled:border-gray-100 disabled:text-gray-600;
+		@apply read-only:bg-white dark:read-only:bg-gray-700
+		disabled:border-none disabled:bg-gray-100 disabled:text-gray-400
+		dark:disabled:opacity-30
+		box-border;
 	}
 
+	button,
+	button[type="button"] {
+		@apply px-3 py-2 text-sm rounded-lg
+		text-white
+		bg-blue-600 disabled:bg-neutral-200 disabled:text-neutral-400
+		dark:disabled:bg-neutral-700;
+	}
+	
 	label {
 		@apply block mb-1 text-xs;
 	}
@@ -89,10 +88,6 @@
 
 	a {
 		@apply text-sm p-3 hover:bg-neutral-100 active:bg-neutral-200 select-none;
-	}
-
-	div.disabled {
-		@apply bg-neutral-100 border-neutral-300;
 	}
 
 	div.attack-mouseover {

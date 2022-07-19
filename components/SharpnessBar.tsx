@@ -10,7 +10,7 @@ const SharpnessBar = ({ sharpnessArray, small }: Props) => {
 	const id = useId();
 	return (
 		<div className={small ? "" : "py-1 mb-1"}>
-			<div className={`flex ${small ? "" : "p-1 bg-gray-300 w-fit"}`}>
+			<div className={`flex ${small ? "" : "p-1 bg-gray-300 dark:p-0 w-fit"}`}>
 				{sharpnessArray.map((v, i) => {
 					if (v === 0) return;
 					return (
