@@ -57,7 +57,7 @@ const RampageDecoPicker = ({ value, setValue, level, disabled }: Props) => {
 							{options.map((d) => {
 								const { name, skill } = d;
 								const classNames = ["cursor-pointer"];
-								if (value === d.skill) classNames.push("bg-gray-200");
+								if (value === d.skill) classNames.push("selected-item");
 
 								return (
 									<tr

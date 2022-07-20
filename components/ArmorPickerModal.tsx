@@ -50,7 +50,7 @@ const ArmorPickerModal = ({ value, setValue, options, show, setShow }: Props) =>
 
 							const classNames = ["cursor-pointer"];
 
-							if (value?.name === a.name) classNames.push("bg-gray-200 dark:bg-midnight-700");
+							if (value?.name === a.name) classNames.push("selected-item");
 
 							return (
 								<tr

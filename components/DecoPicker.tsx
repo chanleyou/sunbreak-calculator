@@ -71,7 +71,7 @@ const DecoPicker = ({ value, setValue, level, disabled }: Props) => {
 							{options.map((d) => {
 								const { name, skill } = d;
 								const classNames = ["cursor-pointer"];
-								if (value?.name === d.name) classNames.push("bg-gray-200");
+								if (value?.name === d.name) classNames.push("selected-item");
 
 								return (
 									<tr
