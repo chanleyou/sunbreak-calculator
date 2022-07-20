@@ -212,7 +212,7 @@ const Main: NextPage<Props> = ({ model }) => {
 					</div>
 				</Box>
 			</Column>
-			<Column>
+			<Column last>
 				<Box head="Skills" compact>
 					{(Object.entries(skills) as [SkillKey, number][])
 						.sort(([aS, aL], [bS, bL]) => {
