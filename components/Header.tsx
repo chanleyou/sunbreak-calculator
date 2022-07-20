@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import IonIcon from "@reacticons/ionicons";
 
 export const Header = () => {
 	const [darkMode, setDarkMode] = useState(true);
@@ -35,7 +36,7 @@ export const Header = () => {
 					onClick={() => setDarkMode(!darkMode)}
 				>
 					<p className="text-sm hidden md:block">Theme</p>
-					{darkMode ? <ion-icon name="moon" /> : <ion-icon name="sunny" />}
+					{darkMode ? <IonIcon name="moon" /> : <IonIcon name="sunny" />}
 				</div>
 			</div>
 		</div>
