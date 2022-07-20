@@ -15,12 +15,12 @@ const ArmorSlot = ({ type, value, onSelectOption, decos, onSelectDeco }: SlotPro
 	return (
 		<>
 			<div className="py-1">
-				<label>{type}</label>
+				{/* <label>{type}</label> */}
 				<div
 					onClick={() => setShowPicker(true)}
 					className={`text-element cursor-pointer ${!value ? "text-gray-500" : ""}`}
 				>
-					{value?.name || "\u00a0"}
+					{value?.name || type}
 				</div>
 				<div className="grid grid-cols-3 gap-2">
 					{[0, 1, 2].map((i) => (

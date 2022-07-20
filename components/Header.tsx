@@ -16,18 +16,27 @@ export const Header = () => {
 	const activeClassName = "text-black dark:text-white";
 
 	return (
-		<div className="sticky top-0 w-full bg drop-shadow flex items-center z-50 justify-center gap-2">
-			<Link href="/">
-				<a className={router.pathname === "/" ? activeClassName : ""}>Build</a>
-			</Link>
-			<Link href="/attacks">
-				<a className={router.pathname === "/attacks" ? activeClassName : ""}>Moves</a>
-			</Link>
-			<Link href="/export">
-				<a className={router.pathname === "/export" ? activeClassName : ""}>Export</a>
-			</Link>
-			<div className="cursor-pointer select-none" onClick={() => setDarkMode(!darkMode)}>
-				{darkMode ? "🌙" : "☀️"}
+		<div className="sticky top-0 w-full bg shadow flex">
+			<div className="flex-1" />
+			<div className="flex flex-1 gap-2 justify-center">
+				<Link href="/">
+					<a className={router.pathname === "/" ? activeClassName : ""}>Build</a>
+				</Link>
+				<Link href="/attacks">
+					<a className={router.pathname === "/attacks" ? activeClassName : ""}>Moves</a>
+				</Link>
+				<Link href="/export">
+					<a className={router.pathname === "/export" ? activeClassName : ""}>Export</a>
+				</Link>
+			</div>
+			<div className="flex flex-1 place-items-center justify-end">
+				<div
+					className="cursor-pointer flex-row flex gap-2 p-2 text-slate-500 place-items-center dark:text-midnight-400 active:text-black dark:active:text-white"
+					onClick={() => setDarkMode(!darkMode)}
+				>
+					<p className="text-sm hidden md:block">Theme</p>
+					{darkMode ? <ion-icon name="moon" /> : <ion-icon name="sunny" />}
+				</div>
 			</div>
 		</div>
 	);

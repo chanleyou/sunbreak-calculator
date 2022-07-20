@@ -213,8 +213,7 @@ const Main: NextPage<Props> = ({ model }) => {
 				</Box>
 			</Column>
 			<Column>
-				<ValueBox model={model} />
-				<Box head="Skills">
+				<Box head="Skills" compact>
 					{(Object.entries(skills) as [SkillKey, number][])
 						.sort(([aS, aL], [bS, bL]) => {
 							if (aL < bL) return 1;
@@ -239,6 +238,9 @@ const Main: NextPage<Props> = ({ model }) => {
 							);
 						})}
 				</Box>
+			</Column>
+			<Column>
+				<ValueBox model={model} />
 				<BuffBox model={model} />
 			</Column>
 		</>
