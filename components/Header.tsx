@@ -17,7 +17,7 @@ export const Header = () => {
 	const activeClassName = "text-black dark:text-white";
 
 	return (
-		<div className="sticky top-0 w-full bg shadow flex">
+		<div className="sticky top-0 w-full bg drop-shadow flex z-50">
 			<div className="flex-1" />
 			<div className="flex flex-1 gap-2 justify-center">
 				<Link href="/">
