@@ -664,7 +664,7 @@ export const useModel = () => {
 			const { noCrit } = a;
 
 			return sum(
-				(hit(a) * hitChance) / 100,
+				(hit(a) * (noCrit === true ? 100 : hitChance)) / 100,
 				(crit(a) * (noCrit ? 0 : critChance)) / 100,
 				(dullHit(a) * dullHitChance) / 100,
 				(dullCrit(a) * (noCrit ? 0 : dullCritChance)) / 100,
