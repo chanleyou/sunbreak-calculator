@@ -671,7 +671,7 @@ export const Skills = {
 	},
 	SneakAttack: {
 		name: "Sneak Attack",
-		ranks: [5, 10, 20],
+		ranks: [1.05, 1.1, 1.2],
 		conditional: true,
 	},
 } as const;
