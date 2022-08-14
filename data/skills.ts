@@ -648,6 +648,32 @@ export const Skills = {
 		name: "Bow Charge Plus",
 		ranks: [1],
 	},
+	Guts: {
+		name: "Guts",
+		ranks: [1, 2, 3],
+	},
+	StatusTrigger: {
+		name: "Status Trigger",
+		ranks: [1, 2, 3],
+	},
+	Defiance: {
+		name: "Defiance",
+		ranks: [1, 2, 3, 4, 5],
+	},
+	ElementExploit: {
+		name: "Element Exploit",
+		ranks: [1.1, 1.125, 1.15],
+	},
+	AdrenalineRush: {
+		name: "Adrenaline Rush",
+		ranks: [10, 15, 30],
+		conditional: true,
+	},
+	SneakAttack: {
+		name: "Sneak Attack",
+		ranks: [5, 10, 20],
+		conditional: true,
+	},
 } as const;
 
 export type SkillMap = Partial<{ [key in SkillKey]: number }>;

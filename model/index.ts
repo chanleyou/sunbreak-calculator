@@ -265,6 +265,7 @@ export const useModel = () => {
 				case "OffensiveGuard":
 				case "Dragonheart":
 				case "Heroics":
+				case "SneakAttack":
 					multipliers.push(Skills[skill].ranks[level]);
 					break;
 				case "Resentment":
@@ -272,6 +273,7 @@ export const useModel = () => {
 				case "PeakPerformance":
 				case "PunishingDraw":
 				case "Counterstrike":
+				case "AdrenalineRush":
 					bonuses.push(Skills[skill].ranks[level]);
 					break;
 				case "Bludgeoner":
@@ -560,6 +562,9 @@ export const useModel = () => {
 				sharpnessEleMultiplier,
 				ignoreEleHz ? 1 : hitzoneEle / 100,
 				rampage.includes("ElementExploit") && hitzoneEle >= 25 ? 1.3 : 1,
+				activeSkills.ElementExploit && hitzoneEle >= 20
+					? Skills.ElementExploit.ranks[activeSkills.ElementExploit]
+					: 1,
 				switchAxeEleMulti,
 			];
 
