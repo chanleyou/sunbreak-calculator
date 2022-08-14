@@ -265,7 +265,6 @@ export const useModel = () => {
 				case "OffensiveGuard":
 				case "Dragonheart":
 				case "Heroics":
-				case "SneakAttack":
 					multipliers.push(Skills[skill].ranks[level]);
 					break;
 				case "Resentment":
@@ -502,6 +501,7 @@ export const useModel = () => {
 				isRanged && dangoMarksman ? 1.1 : 1,
 				isRanged && dangoTemper ? 1.05 : 1,
 				morph && activeSkills.RapidMorph ? Skills.RapidMorph.ranks[activeSkills.RapidMorph - 1] : 1,
+				activeSkills.SneakAttack ? Skills.SneakAttack.ranks[activeSkills.SneakAttack - 1] : 1,
 				switchAxeRawMulti,
 				silkbind && rampage.some((rs) => rs === "SilkbindBoost") ? 1.1 : 1,
 			];
@@ -563,7 +563,7 @@ export const useModel = () => {
 				ignoreEleHz ? 1 : hitzoneEle / 100,
 				rampage.includes("ElementExploit") && hitzoneEle >= 25 ? 1.3 : 1,
 				activeSkills.ElementExploit && hitzoneEle >= 20
-					? Skills.ElementExploit.ranks[activeSkills.ElementExploit]
+					? Skills.ElementExploit.ranks[activeSkills.ElementExploit - 1]
 					: 1,
 				switchAxeEleMulti,
 			];
