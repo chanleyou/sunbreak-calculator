@@ -20715,7 +20715,7 @@ const armor: Armor[] = [
 		series: "Pride",
 		name: "Pride Helm",
 		defense: 135,
-		slots: [2, 3],
+		slots: [3, 2],
 		skills: [
 			["LatentPower", 2],
 			["AttackBoost", 1],
@@ -20823,7 +20823,7 @@ const armor: Armor[] = [
 		series: "Golden Lune",
 		name: "Golden Lunemail",
 		defense: 132,
-		slots: [2, 3],
+		slots: [3, 2],
 		skills: [
 			["Defiance", 2],
 			["Counterstrike", 2],
@@ -20859,7 +20859,7 @@ const armor: Armor[] = [
 		series: "Golden Lune",
 		name: "Golden Lunecoil",
 		defense: 132,
-		slots: [2, 3],
+		slots: [3, 2],
 		skills: [
 			["StatusTrigger", 1],
 			["Foray", 1],
@@ -21003,7 +21003,7 @@ const armor: Armor[] = [
 		series: "Lucent Narga",
 		name: "Lambent Hauberk",
 		defense: 130,
-		slots: [1, 3],
+		slots: [3, 1],
 		skills: [
 			["SneakAttack", 1],
 			["CriticalBoost", 1],
