@@ -699,7 +699,7 @@ export const useModel = () => {
 				(rawCrit(a) * critChance) / 100,
 				(rawHit(a) * 1.2 * dullHitChance) / 100,
 				(rawCrit(a) * 1.2 * dullCritChance) / 100,
-				rawHit(a) * 1.5 * brutalStrikeChance,
+				rawHit(a) * 1.5 * brutalStrikeChance / 100,
 			),
 		);
 	}, [rawHit, hitChance, rawCrit, critChance, dullHitChance, dullCritChance, brutalStrikeChance]);
@@ -713,7 +713,7 @@ export const useModel = () => {
 				(eleCrit(a) * critChance) / 100,
 				(eleHit(a) * dullHitChance) / 100,
 				(eleCrit(a) * dullCritChance) / 100,
-				eleHit(a) * brutalStrikeChance,
+				eleHit(a) * brutalStrikeChance / 100,
 			),
 		);
 	}, [eleHit, hitChance, eleCrit, critChance, dullHitChance, dullCritChance, brutalStrikeChance]);
