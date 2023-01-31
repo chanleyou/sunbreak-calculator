@@ -13,8 +13,9 @@ import {
 	DecoPicker,
 	BuffBox,
 	TextBox,
+	RampageDecoPicker,
+	WeaponAugmentationPicker,
 } from "../components";
-import RampageDecoPicker from "../components/RampageDecoPicker";
 import { RampageSkills, SkillKey, Skills } from "../data";
 import { Model } from "../model";
 
@@ -193,6 +194,15 @@ const Main: NextPage<Props> = ({ model }) => {
 						}
 					/>
 				</Box>
+				{weapon.rarity === 10 && (
+					<Box head="Weapon augmentation">
+						<WeaponAugmentationPicker
+							key={`${weapon.name}-rd-0`}
+							level={0}
+							value={model.rampageDecos[0]}
+						/>
+					</Box>
+				)}
 				<Box head="Charm">
 					<CharmSlot value={charmSkillOne} onSetValue={setCharmSkillOne} />
 					<CharmSlot value={charmSkillTwo} onSetValue={setCharmSkillTwo} />

@@ -22,3 +22,5 @@ export { default as BuffBox } from "./BuffBox";
 export { default as SharpnessBar } from "./SharpnessBar";
 export { default as ArmorPickerModal } from "./ArmorPickerModal";
 export { default as DecoPicker } from "./DecoPicker";
+export { default as WeaponAugmentationPicker } from "./WeaponAugmentationPicker";
+export { default as RampageDecoPicker} from "./RampageDecoPicker";
