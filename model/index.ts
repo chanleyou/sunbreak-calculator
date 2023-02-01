@@ -16,6 +16,8 @@ import {
 	SkillSlot,
 	Weapon,
 	Weapons,
+	WeaponAugmentations,
+	WeaponAugmentationKey,
 } from "../data";
 import {
 	calculateUI,
@@ -33,6 +35,7 @@ export const useModel = () => {
 	// Weapon
 	const [_weapon, _setWeapon] = useState<Weapon>(Weapons[13]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
+	const [weaponAugmentations, setWeaponAugmentations] = useState<(WeaponAugmentationKey | undefined)[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
 
 	const rampage = useMemo(
@@ -152,6 +155,7 @@ export const useModel = () => {
 	const [combo, setCombo] = useState<Attack[]>([]);
 
 	const weapon = useMemo(() => {
+		console.log(weaponAugmentations);
 		return produce(_weapon, (w) => {
 			rampage.forEach((rs) => {
 				if (!rs) return;
@@ -722,6 +726,8 @@ export const useModel = () => {
 		_weapon,
 		setWeapon,
 		weapon,
+		weaponAugmentations,
+		setWeaponAugmentations,
 		isRanged,
 		sharpnessArray,
 		sharpness,

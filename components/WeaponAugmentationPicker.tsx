@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import { RampageDecorations, RampageSkillKey, RampageSkills } from "../data";
+import { WeaponAugmentations, WeaponAugmentationKey, WeaponAugmentationType } from "../data";
+import { AvaialableWeaponAugmentations } from "../data/weaponaugmentation";
 import { Modal, TextBox } from "./ui";
 
 type Props = {
-	value?: RampageSkillKey;
-	setValue: (d?: RampageSkillKey) => void;
-	level: number;
+	value: (WeaponAugmentationKey | undefined)[];
+	setValue: (d: (WeaponAugmentationKey | undefined)[]) => void;
+	slotsAvailable: number;
 	disabled?: boolean;
 };
 
-const WeaponAugmentationPicker = ({ value, setValue, level, disabled }: Props) => {
+const WeaponAugmentationPicker = ({ value, setValue, slotsAvailable, disabled }: Props) => {
 	const [show, setShow] = useState(false);
 
-	const options = RampageDecorations.filter((d) => d.rank <= level).sort((a, b) => {
-		if (a.rank < b.rank) return -1;
-		if (a.rank > b.rank) return 1;
-		return a.name > b.name ? 1 : -1;
+	const options = AvaialableWeaponAugmentations.filter((d) => WeaponAugmentations[d].slots <= slotsAvailable).sort((a, b) => {
+		return WeaponAugmentations[a].name > WeaponAugmentations[b].name ? 1 : -1;
 	});
 
 	return (
@@ -29,13 +28,13 @@ const WeaponAugmentationPicker = ({ value, setValue, level, disabled }: Props) =
 			>
 				<div className="flex space-between">
 					<p className="flex-1">
-						{disabled ? "\u00a0" : value ? RampageSkills[value].name : `Rampage Slot [${level}]`}
+						{disabled ? "\u00a0" : "Weapon augmentations"}
 					</p>
 					{value && (
 						<div
 							onClick={(e) => {
 								e.stopPropagation();
-								setValue(undefined);
+								setValue([]);
 							}}
 							className="font-bold cursor-pointer flex place-items-center"
 						>
@@ -44,32 +43,33 @@ const WeaponAugmentationPicker = ({ value, setValue, level, disabled }: Props) =
 					)}
 				</div>
 			</TextBox>
-			<Modal show={show} setShow={setShow} head={`Select Rampage Decoration ${level}`}>
+			<Modal show={show} setShow={setShow} head={`Select Weapon Augmentation`}>
 				<div className="md:overflow-auto">
 					<table className="w-full text-left">
 						<thead>
 							<tr className="border-b border-gray-200">
 								<th>Name</th>
-								<th>Skill</th>
+								<th>Augmentation</th>
 							</tr>
 						</thead>
 						<tbody>
 							{options.map((d) => {
-								const { name, skill } = d;
+								const { name, slots } = WeaponAugmentations[d];
 								const classNames = ["cursor-pointer"];
-								if (value === d.skill) classNames.push("selected-item");
+								if (value.includes(d)) classNames.push("selected-item");
 
 								return (
 									<tr
 										className={classNames.join(" ")}
 										key={name}
 										onClick={() => {
-											setValue(d.skill);
+											value.push(d);
+											setValue(value);
 											setShow(false);
 										}}
 									>
 										<td>{name}</td>
-										<td>{RampageSkills[skill].name}</td>
+										<td>{slots}</td>
 									</tr>
 								);
 							})}

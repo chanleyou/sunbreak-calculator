@@ -9,28 +9,15 @@ export type WeaponAugmentationType = {
     sharpness?: number;
 };
 
-export type WeaponAugmentationKey =
-	| "AttackBoost1"
-	| "AttackBoost2"
-	| "AttackBoost3"
-	| "AttackBoost4"
-	| "AffinityBoost1"
-	| "AffinityBoost2"
-	| "ElementalBoost1"
-	| "ElementalBoost2"
-	| "ElementalBoost3"
-    | "ElementalBoost4"
-	| "ElementalBoost5"
-	| "ElementalBoost6"
-    | "StatusBoost1"
-    | "StatusBoost2"
-    | "SharpnessBoost1"
-    | "SharpnessBoost2"
-    | "ShellingBoost1"
-    | "ShellingBoost2"
-    | "RampageSlotBoost";
+export const AvaialableWeaponAugmentations = ["AttackBoost1","AttackBoost2","AttackBoost3","AttackBoost4",
+"AffinityBoost1","AffinityBoost2","ElementalBoost1","ElementalBoost2",
+"ElementalBoost3","ElementalBoost4","ElementalBoost5","ElementalBoost6",
+"StatusBoost1","StatusBoost2","SharpnessBoost1","SharpnessBoost2",
+"ShellingBoost1","ShellingBoost2","RampageSlotBoost"] as const;
+    
+export type WeaponAugmentationKey = typeof AvaialableWeaponAugmentations[number];
 
-export const WeaponAugmentation: Record<WeaponAugmentationKey, WeaponAugmentationType> = {
+export const WeaponAugmentations: Record<string, WeaponAugmentationType> = {
 	AttackBoost1: { name: "Attack Boost 1", slots: 1, raw: 5 },
 	AttackBoost2: { name: "Attack Boost 1", slots: 1, raw: 10 },
 	AttackBoost3: { name: "Attack Boost 1", slots: 1, raw: 15 },

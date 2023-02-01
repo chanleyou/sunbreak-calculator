@@ -31,6 +31,8 @@ const Main: NextPage<Props> = ({ model }) => {
 	const {
 		weapon,
 		setWeapon,
+		weaponAugmentations,
+		setWeaponAugmentations,
 		rampageSkills,
 		setRampageSkills,
 		helm,
@@ -198,8 +200,9 @@ const Main: NextPage<Props> = ({ model }) => {
 					<Box head="Weapon augmentation">
 						<WeaponAugmentationPicker
 							key={`${weapon.name}-rd-0`}
-							level={0}
-							value={model.rampageDecos[0]}
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
 						/>
 					</Box>
 				)}
