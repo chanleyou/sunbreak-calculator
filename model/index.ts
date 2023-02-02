@@ -155,7 +155,6 @@ export const useModel = () => {
 	const [combo, setCombo] = useState<Attack[]>([]);
 
 	const weapon = useMemo(() => {
-		console.log(weaponAugmentations);
 		return produce(_weapon, (w) => {
 			rampage.forEach((rs) => {
 				if (!rs) return;
@@ -167,8 +166,19 @@ export const useModel = () => {
 					w.properties.value += 10;
 				}
 			});
+			weaponAugmentations.forEach((rs) => {
+				if (!rs) return;
+				w.raw += WeaponAugmentations[rs].raw ?? 0;
+				w.affinity = sum(w.affinity, WeaponAugmentations[rs].affinity);
+				if (w.element) {
+					w.element.value += WeaponAugmentations[rs].element ?? 0;
+				}
+				if (w.type === "Gunlance") {
+					w.properties.value = Math.min(8, sum(w.properties.value, WeaponAugmentations[rs].shelling));
+				}
+			});
 		});
-	}, [_weapon, rampage]);
+	}, [_weapon, rampage, weaponAugmentations]);
 
 	const skills = useMemo(() => {
 		const armorSkills = [helm, chest, arms, waist, legs]
