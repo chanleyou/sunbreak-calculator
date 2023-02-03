@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { WeaponAugmentations, WeaponAugmentationKey, WeaponAugmentationType } from "../data";
+import formatter from "../formatter";
+import { WeaponAugmentations, WeaponAugmentationKey, WeaponAugmentationClass } from "../data";
 import { AvaialableWeaponAugmentations } from "../data/weaponaugmentation";
 import { Modal, TextBox } from "./ui";
 
 type Props = {
 	value: (WeaponAugmentationKey | undefined)[];
 	setValue: (d: (WeaponAugmentationKey | undefined)[]) => void;
+	neededClass: WeaponAugmentationClass;
 	slotsAvailable: number;
 	disabled?: boolean;
 };
 
-const WeaponAugmentationPicker = ({ value, setValue, slotsAvailable, disabled }: Props) => {
+const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable, disabled }: Props) => {
 	const [show, setShow] = useState(false);
 
-	const options = AvaialableWeaponAugmentations.filter((d) => WeaponAugmentations[d].slots <= slotsAvailable).sort((a, b) => {
+	const options = AvaialableWeaponAugmentations.filter((d) => WeaponAugmentations[d].class === neededClass && WeaponAugmentations[d].slots <= slotsAvailable).sort((a, b) => {
 		return WeaponAugmentations[a].name > WeaponAugmentations[b].name ? 1 : -1;
 	});
 
@@ -49,7 +51,8 @@ const WeaponAugmentationPicker = ({ value, setValue, slotsAvailable, disabled }:
 						<thead>
 							<tr className="border-b border-gray-200">
 								<th>Name</th>
-								<th>Augmentation</th>
+								<th>Buff</th>
+								<th>Slots</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -63,12 +66,14 @@ const WeaponAugmentationPicker = ({ value, setValue, slotsAvailable, disabled }:
 										className={classNames.join(" ")}
 										key={name}
 										onClick={() => {
+											value = value.filter(_ => WeaponAugmentations[d].class != neededClass);
 											value.push(d);
 											setValue(value);
 											setShow(false);
 										}}
 									>
 										<td>{name}</td>
+										<td>{formatter.formatWeaponAugmentation(WeaponAugmentations[d])}</td>
 										<td>{slots}</td>
 									</tr>
 								);

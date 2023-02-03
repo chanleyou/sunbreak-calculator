@@ -176,6 +176,9 @@ export const useModel = () => {
 				if (w.type === "Gunlance") {
 					w.properties.value = Math.min(8, sum(w.properties.value, WeaponAugmentations[rs].shelling));
 				}
+				if (w.status) {
+					w.status.value = sum(w.status.value, WeaponAugmentations[rs].status);
+				}
 			});
 		});
 	}, [_weapon, rampage, weaponAugmentations]);

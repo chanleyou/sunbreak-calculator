@@ -199,11 +199,54 @@ const Main: NextPage<Props> = ({ model }) => {
 				{weapon.rarity === 10 && (
 					<Box head="Weapon augmentation">
 						<WeaponAugmentationPicker
-							key={`${weapon.name}-rd-0`}
+							key={`attack-augm`}
+							neededClass="Attack"
 							slotsAvailable={10}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
 						/>
+						<WeaponAugmentationPicker
+							key={`affnity-augm`}
+							neededClass="Affnity"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>
+						{weapon.element && (<WeaponAugmentationPicker
+							key={`element-augm`}
+							neededClass="Element"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						{weapon.status && (<WeaponAugmentationPicker
+							key={`status-augm`}
+							neededClass="Status"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						{weapon.sharpness && (<WeaponAugmentationPicker
+							key={`sharpness-augm`}
+							neededClass="Sharpness"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						<WeaponAugmentationPicker
+							key={`rampage-augm`}
+							neededClass="Rampage"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>
+						{weapon.type === "Gunlance" && (<WeaponAugmentationPicker
+							key={`shelling-augm`}
+							neededClass="Shelling"
+							slotsAvailable={10}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
 					</Box>
 				)}
 				<Box head="Charm">

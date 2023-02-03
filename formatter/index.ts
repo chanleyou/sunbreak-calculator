@@ -1,6 +1,33 @@
 import { Weapon, WeaponElement, WeaponStatus, WeaponType } from "../data/weapons";
+import { WeaponAugmentationKey, WeaponAugmentations, WeaponAugmentationType } from "../data";
 
 export const formatElement = (e: WeaponElement | WeaponStatus) => `${e.type} ${e.value}`;
+
+export const formatWeaponAugmentation = (augm: WeaponAugmentationType) => {
+	switch (augm.class) {
+		case "Attack":
+			return `Increase attack by ${augm.raw}`;
+			break;
+		case "Affnity":
+			return `Increase affnity by ${augm.affinity}`;
+			break;
+		case "Element":
+			return `Increase element by ${augm.element}`;
+			break;
+		case "Status":
+			return `Increase status by ${augm.status}`;
+			break;
+		case "Sharpness":
+			return `Increase sharpness by ${augm.sharpness}`;
+			break;
+		case "Rampage":
+			return `Improve rampage slot by 1 level`;
+			break;
+		case "Shelling":
+			return `Improve shelling level by ${augm.shelling}`;
+			break;
+	}
+}
 
 const formatWeaponPropertyKey = (t: WeaponType): string | undefined => {
 	switch (t) {
@@ -39,6 +66,7 @@ const formatter = {
 	formatElement,
 	formatWeaponPropertyKey,
 	formatWeaponProperties,
+	formatWeaponAugmentation,
 };
 
 export default formatter;
