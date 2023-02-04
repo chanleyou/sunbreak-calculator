@@ -5,8 +5,8 @@ import { AvaialableWeaponAugmentations } from "../data/weaponaugmentation";
 import { Modal, TextBox } from "./ui";
 
 type Props = {
-	value: (WeaponAugmentationKey | undefined)[];
-	setValue: (d: (WeaponAugmentationKey | undefined)[]) => void;
+	value: (WeaponAugmentationKey)[];
+	setValue: (d: WeaponAugmentationKey[]) => void;
 	neededClass: WeaponAugmentationClass;
 	slotsAvailable: number;
 	disabled?: boolean;
@@ -25,18 +25,22 @@ const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable
 				onClick={() => {
 					if (!disabled) setShow(true);
 				}}
-				isPlaceholder={!value}
+				isPlaceholder={!value.some(augmKey => WeaponAugmentations[augmKey].class === neededClass)}
 				disabled={disabled}
 			>
 				<div className="flex space-between">
 					<p className="flex-1">
-						{disabled ? "\u00a0" : "Weapon augmentations"}
+						{disabled ? "\u00a0" :
+							value.some(augmKey => WeaponAugmentations[augmKey].class === neededClass) ?
+								`${value.find(augmKey => WeaponAugmentations[augmKey].class === neededClass)}` :
+								`Weapon augmentations (${neededClass}) [Available slots: ${slotsAvailable}]`}
 					</p>
 					{value && (
 						<div
 							onClick={(e) => {
+								value = value.filter(augmKey => WeaponAugmentations[augmKey].class !== neededClass);
 								e.stopPropagation();
-								setValue([]);
+								setValue(value);
 							}}
 							className="font-bold cursor-pointer flex place-items-center"
 						>
@@ -56,24 +60,26 @@ const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable
 							</tr>
 						</thead>
 						<tbody>
-							{options.map((d) => {
-								const { name, slots } = WeaponAugmentations[d];
+							{options.map((currentAugm) => {
+								const { name, slots } = WeaponAugmentations[currentAugm];
 								const classNames = ["cursor-pointer"];
-								if (value.includes(d)) classNames.push("selected-item");
+								if (value.includes(currentAugm)) {
+									classNames.push("selected-item");
+								}
 
 								return (
 									<tr
 										className={classNames.join(" ")}
 										key={name}
 										onClick={() => {
-											value = value.filter(_ => WeaponAugmentations[d].class != neededClass);
-											value.push(d);
+											value = value.filter(augm => WeaponAugmentations[augm].class !== neededClass);
+											value.push(currentAugm);
 											setValue(value);
 											setShow(false);
 										}}
 									>
 										<td>{name}</td>
-										<td>{formatter.formatWeaponAugmentation(WeaponAugmentations[d])}</td>
+										<td>{formatter.formatWeaponAugmentation(WeaponAugmentations[currentAugm])}</td>
 										<td>{slots}</td>
 									</tr>
 								);

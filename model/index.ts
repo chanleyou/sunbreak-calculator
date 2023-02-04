@@ -35,8 +35,16 @@ export const useModel = () => {
 	// Weapon
 	const [_weapon, _setWeapon] = useState<Weapon>(Weapons[13]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
-	const [weaponAugmentations, setWeaponAugmentations] = useState<(WeaponAugmentationKey | undefined)[]>([]);
+	const [weaponAugmentations, setWeaponAugmentations] = useState<WeaponAugmentationKey[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
+	const maxAugmentationSlots = 8;
+
+	const availableAugmentationSlots = useMemo(
+		() => {
+			return maxAugmentationSlots - weaponAugmentations.reduce((acc, x) => acc + WeaponAugmentations[x].slots, 0);
+		},
+		[weaponAugmentations],
+	);
 
 	const rampage = useMemo(
 		() => [rampageSkills, rampageDecos].flat(),
@@ -849,6 +857,7 @@ export const useModel = () => {
 		attackAverage,
 		efr,
 		efe,
+		availableAugmentationSlots,
 	};
 };
 
