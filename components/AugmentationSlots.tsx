@@ -17,38 +17,30 @@ const AugmentationSlots = ({ value, maxValue }: Props) => {
                 <p>Available augmentation slots: {value}</p>
             </div>
             <div className="flex-row">
-                <div style={imgDivStyle}>
-                    <img
-                        src="/assets/empty_augm.svg"
-                        alt="Deco icon"
-                        width={20}
-                        height={20}
-                    />
-                </div>
-                <div style={imgDivStyle}>
-                    <img
-                        src="/assets/empty_augm.svg"
-                        alt="Deco icon"
-                        width={20}
-                        height={20}
-                    />
-                </div>
-                <div style={imgDivStyle}>
-                    <img
-                        src="/assets/empty_augm.svg"
-                        alt="Deco icon"
-                        width={20}
-                        height={20}
-                    />
-                </div>
-                <div style={imgDivStyle}>
-                    <img
-                        src="/assets/empty_augm.svg"
-                        alt="Deco icon"
-                        width={20}
-                        height={20}
-                    />
-                </div>
+                {
+                    new Array(maxValue - value).fill(0).map((x, i) => (
+                        <div key={`augm-icon-${i}`} style={imgDivStyle}>
+                            <img
+                                src="/assets/filled_augm.svg"
+                                alt="Deco icon"
+                                width={20}
+                                height={20}
+                            />
+                        </div>
+                    ))
+                }
+                {
+                    new Array(value).fill(0).map((x, i) => (
+                        <div key={`augm-icon-${value + i + 1}`} style={imgDivStyle}>
+                            <img
+                                src="/assets/empty_augm.svg"
+                                alt="Deco icon"
+                                width={20}
+                                height={20}
+                            />
+                        </div>
+                    ))
+                }
             </div>
         </div>
     );
