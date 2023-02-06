@@ -15,6 +15,7 @@ import {
 	TextBox,
 	RampageDecoPicker,
 	WeaponAugmentationPicker,
+	AugmentationSlots,
 } from "../components";
 import { RampageSkills, SkillKey, Skills } from "../data";
 import { Model } from "../model";
@@ -247,6 +248,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
 						/>)}
+						<AugmentationSlots value={model.availableAugmentationSlots} maxValue={8} />
 					</Box>
 				)}
 				<Box head="Charm">
