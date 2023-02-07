@@ -35,8 +35,16 @@ export const useModel = () => {
 	// Weapon
 	const [_weapon, _setWeapon] = useState<Weapon>(Weapons[13]);
 	const [rampageSkills, setRampageSkills] = useState<(RampageSkillKey | undefined)[]>([]);
-	const [weaponAugmentations, setWeaponAugmentations] = useState<(WeaponAugmentationKey | undefined)[]>([]);
+	const [weaponAugmentations, setWeaponAugmentations] = useState<WeaponAugmentationKey[]>([]);
 	const [rampageDecos, setRampageDecos] = useState<(RampageSkillKey | undefined)[]>([]);
+	const maxAugmentationSlots = 8;
+
+	const availableAugmentationSlots = useMemo(
+		() => {
+			return maxAugmentationSlots - weaponAugmentations.reduce((acc, x) => acc + WeaponAugmentations[x].slots, 0);
+		},
+		[weaponAugmentations],
+	);
 
 	const rampage = useMemo(
 		() => [rampageSkills, rampageDecos].flat(),
@@ -155,7 +163,6 @@ export const useModel = () => {
 	const [combo, setCombo] = useState<Attack[]>([]);
 
 	const weapon = useMemo(() => {
-		console.log(weaponAugmentations);
 		return produce(_weapon, (w) => {
 			rampage.forEach((rs) => {
 				if (!rs) return;
@@ -167,8 +174,22 @@ export const useModel = () => {
 					w.properties.value += 10;
 				}
 			});
+			weaponAugmentations.forEach((rs) => {
+				if (!rs) return;
+				w.raw += WeaponAugmentations[rs].raw ?? 0;
+				w.affinity = sum(w.affinity, WeaponAugmentations[rs].affinity);
+				if (w.element) {
+					w.element.value += WeaponAugmentations[rs].element ?? 0;
+				}
+				if (w.type === "Gunlance") {
+					w.properties.value = Math.min(8, sum(w.properties.value, WeaponAugmentations[rs].shelling));
+				}
+				if (w.status) {
+					w.status.value = sum(w.status.value, WeaponAugmentations[rs].status);
+				}
+			});
 		});
-	}, [_weapon, rampage]);
+	}, [_weapon, rampage, weaponAugmentations]);
 
 	const skills = useMemo(() => {
 		const armorSkills = [helm, chest, arms, waist, legs]
@@ -836,6 +857,7 @@ export const useModel = () => {
 		attackAverage,
 		efr,
 		efe,
+		availableAugmentationSlots,
 	};
 };
 

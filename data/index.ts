@@ -6,7 +6,7 @@ export type { Skill, SkillKey, SkillSlot, SkillMap } from "./skills";
 export { RampageSkills } from "./rampage";
 export type { RampageSkill, RampageSkillKey } from "./rampage";
 export { WeaponAugmentations } from "./weaponaugmentation";
-export type { WeaponAugmentationType, WeaponAugmentationKey } from "./weaponaugmentation";
+export type { WeaponAugmentationType, WeaponAugmentationKey, WeaponAugmentationClass } from "./weaponaugmentation";
 export {
 	Weapons,
 	WeaponTypes,

@@ -15,6 +15,7 @@ import {
 	TextBox,
 	RampageDecoPicker,
 	WeaponAugmentationPicker,
+	AugmentationSlots,
 } from "../components";
 import { RampageSkills, SkillKey, Skills } from "../data";
 import { Model } from "../model";
@@ -199,11 +200,55 @@ const Main: NextPage<Props> = ({ model }) => {
 				{weapon.rarity === 10 && (
 					<Box head="Weapon augmentation">
 						<WeaponAugmentationPicker
-							key={`${weapon.name}-rd-0`}
-							slotsAvailable={10}
+							key={`attack-augm`}
+							neededClass="Attack"
+							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
 						/>
+						<WeaponAugmentationPicker
+							key={`affnity-augm`}
+							neededClass="Affnity"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>
+						{weapon.element && (<WeaponAugmentationPicker
+							key={`element-augm`}
+							neededClass="Element"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						{weapon.status && (<WeaponAugmentationPicker
+							key={`status-augm`}
+							neededClass="Status"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						{weapon.sharpness && (<WeaponAugmentationPicker
+							key={`sharpness-augm`}
+							neededClass="Sharpness"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						<WeaponAugmentationPicker
+							key={`rampage-augm`}
+							neededClass="Rampage"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>
+						{weapon.type === "Gunlance" && (<WeaponAugmentationPicker
+							key={`shelling-augm`}
+							neededClass="Shelling"
+							slotsAvailable={model.availableAugmentationSlots}
+							value={model.weaponAugmentations.slice()}
+							setValue={model.setWeaponAugmentations}
+						/>)}
+						<AugmentationSlots value={model.availableAugmentationSlots} maxValue={8} />
 					</Box>
 				)}
 				<Box head="Charm">
