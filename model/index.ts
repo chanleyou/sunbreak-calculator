@@ -179,7 +179,7 @@ export const useModel = () => {
 				w.raw += WeaponAugmentations[rs].raw ?? 0;
 				w.affinity = sum(w.affinity, WeaponAugmentations[rs].affinity);
 				if (w.element) {
-					w.element.value += WeaponAugmentations[rs].element ?? 0;
+					w.element.value = sum(w.element.value, WeaponAugmentations[rs].element?.[w.type]);
 				}
 				if (w.type === "Gunlance") {
 					w.properties.value = Math.min(8, sum(w.properties.value, WeaponAugmentations[rs].shelling));

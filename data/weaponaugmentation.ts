@@ -1,4 +1,4 @@
-import type {WeaponType} from "../data/weapons";
+import type { WeaponType } from "../data/weapons";
 export type WeaponAugmentationClass = "Attack" | "Affnity" | "Element" | "Status" | "Sharpness" | "Rampage" | "Shelling";
 
 export type WeaponAugmentationType = {
@@ -8,7 +8,7 @@ export type WeaponAugmentationType = {
 	raw?: number;
 	affinity?: number;
 	element?: Record<WeaponType, number>;
-    status?: number;
+	status?: number;
 	shelling?: number;
 	sharpness?: number;
 };
@@ -23,101 +23,125 @@ export type WeaponAugmentationKey = typeof AvaialableWeaponAugmentations[number]
 
 export const WeaponAugmentations: Record<WeaponAugmentationKey, WeaponAugmentationType> = {
 	AttackBoost1: { name: "Attack Boost 1", class: "Attack", slots: 1, raw: 5 },
-	AttackBoost2: { name: "Attack Boost 1", class: "Attack", slots: 1, raw: 10 },
-	AttackBoost3: { name: "Attack Boost 1", class: "Attack", slots: 1, raw: 15 },
-	AttackBoost4: { name: "Attack Boost 1", class: "Attack", slots: 1, raw: 20 },
+	AttackBoost2: { name: "Attack Boost 2", class: "Attack", slots: 1, raw: 10 },
+	AttackBoost3: { name: "Attack Boost 3", class: "Attack", slots: 1, raw: 15 },
+	AttackBoost4: { name: "Attack Boost 4", class: "Attack", slots: 1, raw: 20 },
 	AffinityBoost1: { name: "Affinity Boost 1", class: "Affnity", slots: 1, affinity: 5 },
 	AffinityBoost2: { name: "Affinity Boost 2", class: "Affnity", slots: 1, affinity: 10 },
-	ElementalBoost1: { name: "Elemental Boost 1", class: "Element", slots: 1, element: {
-		"Bow": 3,
-		"Charge Blade": 3,
-		"Dual Blades": 3,
-		"Great Sword": 5,
-		"Gunlance": 3,
-		"Hammer": 3,
-		"Heavy Bowgun": 3,
-		"Hunting Horn": 3,
-		"Insect Glaive": 3,
-		"Lance": 3,
-		"Light Bowgun": 3,
-		"Long Sword": 3
-	} as Record<WeaponType, number> },
-	ElementalBoost2: { name: "Elemental Boost 2", class: "Element", slots: 1, element: {
-		"Bow": 6,
-		"Charge Blade": 6,
-		"Dual Blades": 6,
-		"Great Sword": 10,
-		"Gunlance": 6,
-		"Hammer": 6,
-		"Heavy Bowgun": 6,
-		"Hunting Horn": 6,
-		"Insect Glaive": 6,
-		"Lance": 6,
-		"Light Bowgun": 6,
-		"Long Sword": 6
-	} as Record<WeaponType, number> },
-	ElementalBoost3: { name: "Elemental Boost 3", class: "Element", slots: 1, element: {
-		"Bow": 9,
-		"Charge Blade": 9,
-		"Dual Blades": 9,
-		"Great Sword": 15,
-		"Gunlance": 10,
-		"Hammer": 9,
-		"Heavy Bowgun": 9,
-		"Hunting Horn": 9,
-		"Insect Glaive": 9,
-		"Lance": 10,
-		"Light Bowgun": 9,
-		"Long Sword": 9
-	} as Record<WeaponType, number> },
-    ElementalBoost4: { name: "Elemental Boost 4", class: "Element", slots: 1, element: {
-		"Bow": 12,
-		"Charge Blade": 12,
-		"Dual Blades": 12,
-		"Great Sword": 20,
-		"Gunlance": 14,
-		"Hammer": 12,
-		"Heavy Bowgun": 12,
-		"Hunting Horn": 12,
-		"Insect Glaive": 12,
-		"Lance": 14,
-		"Light Bowgun": 12,
-		"Long Sword": 12
-	} as Record<WeaponType, number> },
-    ElementalBoost5: { name: "Elemental Boost 5", class: "Element", slots: 1, element: {
-		"Bow": 15,
-		"Charge Blade": 15,
-		"Dual Blades": 15,
-		"Great Sword": 25,
-		"Gunlance": 18,
-		"Hammer": 15,
-		"Heavy Bowgun": 15,
-		"Hunting Horn": 15,
-		"Insect Glaive": 15,
-		"Lance": 18,
-		"Light Bowgun": 15,
-		"Long Sword": 15
-	} as Record<WeaponType, number> },
-    ElementalBoost6: { name: "Elemental Boost 6", class: "Element", slots: 1, element: {
-		"Bow": 20,
-		"Charge Blade": 20,
-		"Dual Blades": 20,
-		"Great Sword": 33,
-		"Gunlance": 24,
-		"Hammer": 20,
-		"Heavy Bowgun": 20,
-		"Hunting Horn": 20,
-		"Insect Glaive": 20,
-		"Lance": 24,
-		"Light Bowgun": 20,
-		"Long Sword": 20
-	} as Record<WeaponType, number> },
-    StatusBoost1: { name: "Status Boost 1", class: "Status", slots: 1, status: 4 },
-    StatusBoost2: { name: "Status Boost 2", class: "Status", slots: 1, status: 8 },
-    SharpnessBoost1: { name: "Sharpness Boost 1", class: "Sharpness", slots: 1, sharpness: 10 },
-    SharpnessBoost2: { name: "Sharpness Boost 2", class: "Sharpness", slots: 1, sharpness: 20 },
-    RampageSlotBoost: { name: "Rampage Slot Boost", class: "Rampage", slots: 1 },
-    ShellingBoost1: { name: "Shelling Boost 1", class: "Shelling", slots: 1, shelling: 1 },
+	ElementalBoost1: {
+		name: "Elemental Boost 1", class: "Element", slots: 1, element: {
+			"Bow": 3,
+			"Charge Blade": 3,
+			"Dual Blades": 3,
+			"Great Sword": 5,
+			"Gunlance": 3,
+			"Hammer": 3,
+			"Heavy Bowgun": 3,
+			"Hunting Horn": 3,
+			"Insect Glaive": 3,
+			"Lance": 3,
+			"Light Bowgun": 3,
+			"Long Sword": 3,
+			"Switch Axe": 3,
+			"Sword and Shield": 3,
+		} as Record<WeaponType, number>
+	},
+	ElementalBoost2: {
+		name: "Elemental Boost 2", class: "Element", slots: 1, element: {
+			"Bow": 6,
+			"Charge Blade": 6,
+			"Dual Blades": 6,
+			"Great Sword": 10,
+			"Gunlance": 6,
+			"Hammer": 6,
+			"Heavy Bowgun": 6,
+			"Hunting Horn": 6,
+			"Insect Glaive": 6,
+			"Lance": 6,
+			"Light Bowgun": 6,
+			"Long Sword": 6,
+			"Switch Axe": 6,
+			"Sword and Shield": 6,
+		} as Record<WeaponType, number>
+	},
+	ElementalBoost3: {
+		name: "Elemental Boost 3", class: "Element", slots: 1, element: {
+			"Bow": 9,
+			"Charge Blade": 9,
+			"Dual Blades": 9,
+			"Great Sword": 15,
+			"Gunlance": 10,
+			"Hammer": 9,
+			"Heavy Bowgun": 9,
+			"Hunting Horn": 9,
+			"Insect Glaive": 9,
+			"Lance": 10,
+			"Light Bowgun": 9,
+			"Long Sword": 9,
+			"Switch Axe": 9,
+			"Sword and Shield": 9,
+		} as Record<WeaponType, number>
+	},
+	ElementalBoost4: {
+		name: "Elemental Boost 4", class: "Element", slots: 1, element: {
+			"Bow": 12,
+			"Charge Blade": 12,
+			"Dual Blades": 12,
+			"Great Sword": 20,
+			"Gunlance": 14,
+			"Hammer": 12,
+			"Heavy Bowgun": 12,
+			"Hunting Horn": 12,
+			"Insect Glaive": 12,
+			"Lance": 14,
+			"Light Bowgun": 12,
+			"Long Sword": 12,
+			"Switch Axe": 12,
+			"Sword and Shield": 12,
+		} as Record<WeaponType, number>
+	},
+	ElementalBoost5: {
+		name: "Elemental Boost 5", class: "Element", slots: 1, element: {
+			"Bow": 15,
+			"Charge Blade": 15,
+			"Dual Blades": 15,
+			"Great Sword": 25,
+			"Gunlance": 18,
+			"Hammer": 15,
+			"Heavy Bowgun": 15,
+			"Hunting Horn": 15,
+			"Insect Glaive": 15,
+			"Lance": 18,
+			"Light Bowgun": 15,
+			"Long Sword": 15,
+			"Switch Axe": 15,
+			"Sword and Shield": 15,
+		} as Record<WeaponType, number>
+	},
+	ElementalBoost6: {
+		name: "Elemental Boost 6", class: "Element", slots: 1, element: {
+			"Bow": 20,
+			"Charge Blade": 20,
+			"Dual Blades": 20,
+			"Great Sword": 33,
+			"Gunlance": 24,
+			"Hammer": 20,
+			"Heavy Bowgun": 20,
+			"Hunting Horn": 20,
+			"Insect Glaive": 20,
+			"Lance": 24,
+			"Light Bowgun": 20,
+			"Long Sword": 20,
+			"Switch Axe": 20,
+			"Sword and Shield": 20,
+		} as Record<WeaponType, number>
+	},
+	StatusBoost1: { name: "Status Boost 1", class: "Status", slots: 1, status: 4 },
+	StatusBoost2: { name: "Status Boost 2", class: "Status", slots: 1, status: 8 },
+	SharpnessBoost1: { name: "Sharpness Boost 1", class: "Sharpness", slots: 1, sharpness: 10 },
+	SharpnessBoost2: { name: "Sharpness Boost 2", class: "Sharpness", slots: 1, sharpness: 20 },
+	RampageSlotBoost: { name: "Rampage Slot Boost", class: "Rampage", slots: 1 },
+	ShellingBoost1: { name: "Shelling Boost 1", class: "Shelling", slots: 1, shelling: 1 },
 	ShellingBoost2: { name: "Shelling Boost 2", class: "Shelling", slots: 1, shelling: 2 },
 };
 
