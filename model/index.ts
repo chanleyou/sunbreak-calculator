@@ -243,12 +243,18 @@ export const useModel = () => {
 	}, [activeSkills]);
 
 	const sharpnessArray = useMemo(() => {
-		if (!weapon.sharpness) return undefined;
-		if (!activeSkills.Handicraft) return weapon.sharpness;
-		const handicraftPoints = Skills.Handicraft.ranks[activeSkills.Handicraft! - 1];
-
+		if (!weapon.sharpness) {
+			return undefined;
+		}
+		let handicraftPoints = 0;
+		if (activeSkills.Handicraft) {
+			handicraftPoints += Skills.Handicraft.ranks[activeSkills.Handicraft! - 1];
+		}
+		for (const augm of weaponAugmentations) {
+			handicraftPoints += WeaponAugmentations[augm]?.sharpness ?? 0;
+		}
 		return sharpnessHandicraft(weapon.sharpness, weapon.handicraft, handicraftPoints);
-	}, [weapon, activeSkills]);
+	}, [weapon, activeSkills, weaponAugmentations]);
 
 	const sharpness = useMemo(() => {
 		if (!sharpnessArray) return undefined;
