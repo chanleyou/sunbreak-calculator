@@ -3,6 +3,7 @@ import formatter from "../formatter";
 import { WeaponAugmentations, WeaponAugmentationKey, WeaponAugmentationClass } from "../data";
 import { AvaialableWeaponAugmentations } from "../data/weaponaugmentation";
 import { Modal, TextBox } from "./ui";
+import { Weapon } from "../data";
 
 type Props = {
 	value: (WeaponAugmentationKey)[];
@@ -10,9 +11,10 @@ type Props = {
 	neededClass: WeaponAugmentationClass;
 	slotsAvailable: number;
 	disabled?: boolean;
+	weapon: Weapon;
 };
 
-const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable, disabled }: Props) => {
+const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable, disabled, weapon }: Props) => {
 	const [show, setShow] = useState(false);
 
 	const options = AvaialableWeaponAugmentations.filter((d) => WeaponAugmentations[d].class === neededClass && WeaponAugmentations[d].slots <= slotsAvailable).sort((a, b) => {
@@ -79,7 +81,7 @@ const WeaponAugmentationPicker = ({ value, setValue, neededClass, slotsAvailable
 										}}
 									>
 										<td>{name}</td>
-										<td>{formatter.formatWeaponAugmentation(WeaponAugmentations[currentAugm])}</td>
+										<td>{formatter.formatWeaponAugmentation(WeaponAugmentations[currentAugm], weapon)}</td>
 										<td>{slots}</td>
 									</tr>
 								);

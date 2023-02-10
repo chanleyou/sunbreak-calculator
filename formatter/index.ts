@@ -3,7 +3,7 @@ import { WeaponAugmentationKey, WeaponAugmentations, WeaponAugmentationType } fr
 
 export const formatElement = (e: WeaponElement | WeaponStatus) => `${e.type} ${e.value}`;
 
-export const formatWeaponAugmentation = (augm: WeaponAugmentationType) => {
+export const formatWeaponAugmentation = (augm: WeaponAugmentationType, weapon: Weapon) => {
 	switch (augm.class) {
 		case "Attack":
 			return `Increase attack by ${augm.raw}`;
@@ -12,7 +12,7 @@ export const formatWeaponAugmentation = (augm: WeaponAugmentationType) => {
 			return `Increase affnity by ${augm.affinity}`;
 			break;
 		case "Element":
-			return `Increase element by ${augm.element}`;
+			return `Increase element by ${augm.element?.[weapon.type]}`;
 			break;
 		case "Status":
 			return `Increase status by ${augm.status}`;

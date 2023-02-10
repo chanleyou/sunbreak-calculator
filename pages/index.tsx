@@ -205,6 +205,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>
 						<WeaponAugmentationPicker
 							key={`affnity-augm`}
@@ -212,6 +213,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>
 						{weapon.element && (<WeaponAugmentationPicker
 							key={`element-augm`}
@@ -219,6 +221,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>)}
 						{weapon.status && (<WeaponAugmentationPicker
 							key={`status-augm`}
@@ -226,6 +229,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>)}
 						{weapon.sharpness && (<WeaponAugmentationPicker
 							key={`sharpness-augm`}
@@ -233,6 +237,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>)}
 						<WeaponAugmentationPicker
 							key={`rampage-augm`}
@@ -240,6 +245,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>
 						{weapon.type === "Gunlance" && (<WeaponAugmentationPicker
 							key={`shelling-augm`}
@@ -247,6 +253,7 @@ const Main: NextPage<Props> = ({ model }) => {
 							slotsAvailable={model.availableAugmentationSlots}
 							value={model.weaponAugmentations.slice()}
 							setValue={model.setWeaponAugmentations}
+							weapon={model.weapon}
 						/>)}
 						<AugmentationSlots value={model.availableAugmentationSlots} maxValue={8} />
 					</Box>
